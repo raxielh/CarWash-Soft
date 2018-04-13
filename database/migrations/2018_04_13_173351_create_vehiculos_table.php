@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateRolesTable extends Migration
+class CreateVehiculosTable extends Migration
 {
 
     /**
@@ -13,11 +13,15 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('vehiculos', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('descripcion', 100)->unique();
+            $table->integer('persona_id')->unsigned();
+            $table->char('placa')->unique(100);
+            $table->char('modelo', 100);
+            $table->char('color', 100);
             $table->integer('users_id')->unsigned();
             $table->timestamps();
+            $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('users_id')->references('id')->on('users');
         });
     }
@@ -29,6 +33,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('roles');
+        Schema::drop('vehiculos');
     }
 }

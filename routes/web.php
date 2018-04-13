@@ -42,3 +42,7 @@ Route::resource('tipoIdentificacions', 'TipoIdentificacionController');
 Route::resource('personas', 'PersonasController');
 
 Route::resource('combos', 'CombosController');
+
+
+
+Route::resource('vehiculos', 'VehiculosController');

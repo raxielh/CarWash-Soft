@@ -26,7 +26,7 @@ class VerificadorAuth
 
         if(count($usuariosRols)>0){
 
-            if($usuariosRols[0]->descripcion=='Root'){
+            if($usuariosRols[0]->descripcion=='Super Root'){
                 return $next($request);
             }else{
                 abort(403, "¡No tienes permisos!");

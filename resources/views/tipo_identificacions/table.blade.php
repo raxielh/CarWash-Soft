@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Descripcion</th>
-        <th>Users Id</th>
+        <th>Creado por</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -10,7 +10,7 @@
     @foreach($tipoIdentificacions as $tipoIdentificacion)
         <tr>
             <td>{!! $tipoIdentificacion->descripcion !!}</td>
-            <td>{!! $tipoIdentificacion->users_id !!}</td>
+            <td>{!! $tipoIdentificacion->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['tipoIdentificacions.destroy', $tipoIdentificacion->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

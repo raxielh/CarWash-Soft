@@ -3,13 +3,11 @@
         <tr>
             <th>Nombre</th>
         <th>Apellido</th>
-        <th>Tipo Identificacion Id</th>
+        <th>Tipo Identificacion</th>
         <th>Identificacion</th>
         <th>Fecha Nacimiento</th>
         <th>Direccion</th>
-        <th>Telefono1</th>
-        <th>Telefono2</th>
-        <th>Users Id</th>
+        <th>Telefono</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -18,13 +16,11 @@
         <tr>
             <td>{!! $personas->nombre !!}</td>
             <td>{!! $personas->apellido !!}</td>
-            <td>{!! $personas->tipo_identificacion_id !!}</td>
+            <td>{!! $personas->des !!}</td>
             <td>{!! $personas->identificacion !!}</td>
             <td>{!! $personas->fecha_nacimiento !!}</td>
             <td>{!! $personas->direccion !!}</td>
             <td>{!! $personas->telefono1 !!}</td>
-            <td>{!! $personas->telefono2 !!}</td>
-            <td>{!! $personas->users_id !!}</td>
             <td>
                 {!! Form::open(['route' => ['personas.destroy', $personas->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

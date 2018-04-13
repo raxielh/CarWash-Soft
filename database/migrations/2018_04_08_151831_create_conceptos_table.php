@@ -15,7 +15,7 @@ class CreateConceptosTable extends Migration
     {
         Schema::create('conceptos', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('codigo', 100);
+            $table->char('codigo', 100)->unique();
             $table->mediumText('descripcion');
             $table->integer('tipo_conceptos_id')->unsigned();
             $table->integer('estado_id')->unsigned();

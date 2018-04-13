@@ -1,18 +1,18 @@
 <table class="table table-responsive" id="valoresConceptos-table">
     <thead>
         <tr>
-            <th>Concepto Id</th>
+            <th>Concepto</th>
         <th>Valor</th>
-        <th>Users Id</th>
+        <th>Creado por</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($valoresConceptos as $valoresConcepto)
         <tr>
-            <td>{!! $valoresConcepto->concepto_id !!}</td>
+            <td>{!! $valoresConcepto->des !!}</td>
             <td>{!! $valoresConcepto->valor !!}</td>
-            <td>{!! $valoresConcepto->users_id !!}</td>
+            <td>{!! $valoresConcepto->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['valoresConceptos.destroy', $valoresConcepto->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

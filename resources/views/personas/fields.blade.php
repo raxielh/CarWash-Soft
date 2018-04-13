@@ -12,8 +12,8 @@
 
 <!-- Tipo Identificacion Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('tipo_identificacion_id', 'Tipo Identificacion Id:') !!}
-    {!! Form::select('tipo_identificacion_id', ], null, ['class' => 'form-control']) !!}
+    {!! Form::label('tipo_identificacion_id', 'Tipo Identificacion:') !!}
+    {!! Form::select('tipo_identificacion_id', $datos['tipo'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Identificacion Field -->
@@ -25,7 +25,7 @@
 <!-- Fecha Nacimiento Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha_nacimiento', 'Fecha Nacimiento:') !!}
-    {!! Form::date('fecha_nacimiento', null, ['class' => 'form-control']) !!}
+    {!! Form::text('fecha_nacimiento',null, ['class' => 'form-control date']) !!}
 </div>
 
 <!-- Direccion Field -->

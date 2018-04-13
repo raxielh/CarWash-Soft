@@ -6,13 +6,13 @@
 
 <!-- Concepto Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('concepto_id', 'Concepto Id:') !!}
+    {!! Form::label('concepto_id', 'Concepto:') !!}
     {!! Form::select('concepto_id', $datos['conceptos'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Estado Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('estado_id', 'Estado Id:') !!}
+    {!! Form::label('estado_id', 'Estado:') !!}
     {!! Form::select('estado_id',$datos['estados'], null, ['class' => 'form-control']) !!}
 </div>
 

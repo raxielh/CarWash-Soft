@@ -15,7 +15,7 @@ class CreateEstadosTable extends Migration
     {
         Schema::create('estados', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('descripcion', 100);
+            $table->char('descripcion', 100)->unique();
             $table->integer('users_id')->unsigned();
             $table->timestamps();
             $table->foreign('users_id')->references('id')->on('users');

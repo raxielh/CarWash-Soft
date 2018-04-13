@@ -1,4 +1,4 @@
-@if (obtenerRol() === 'Root')
+@if (obtenerRol() === 'Super Root')
 <li class="{{ Request::is('roles*') ? 'active' : '' }}">
     <a href="{!! route('roles.index') !!}"><i class="fa fa-edit"></i><span>Roles</span></a>
 </li>
@@ -32,6 +32,10 @@
     <a href="{!! route('valoresConceptos.index') !!}"><i class="fa fa-edit"></i><span>Valores Conceptos</span></a>
 </li>
 
+<li class="{{ Request::is('combos*') ? 'active' : '' }}">
+    <a href="{!! route('combos.index') !!}"><i class="fa fa-edit"></i><span>Combos</span></a>
+</li>
+
 <li class="{{ Request::is('tipoIdentificacions*') ? 'active' : '' }}">
     <a href="{!! route('tipoIdentificacions.index') !!}"><i class="fa fa-edit"></i><span>Tipo Identificacions</span></a>
 </li>
@@ -40,7 +44,7 @@
     <a href="{!! route('personas.index') !!}"><i class="fa fa-edit"></i><span>Personas</span></a>
 </li>
 
-<li class="{{ Request::is('combos*') ? 'active' : '' }}">
-    <a href="{!! route('combos.index') !!}"><i class="fa fa-edit"></i><span>Combos</span></a>
+<li class="{{ Request::is('vehiculos*') ? 'active' : '' }}">
+    <a href="{!! route('vehiculos.index') !!}"><i class="fa fa-edit"></i><span>Vehiculos</span></a>
 </li>
 

@@ -15,7 +15,7 @@ class CreateCombosTable extends Migration
     {
         Schema::create('combos', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('concepto_combo', 100);
+            $table->char('concepto_combo', 100)->unique();
             $table->integer('concepto_id')->unsigned();
             $table->integer('estado_id')->unsigned();
             $table->integer('users_id')->unsigned();

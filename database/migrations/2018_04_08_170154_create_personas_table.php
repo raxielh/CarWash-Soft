@@ -18,7 +18,7 @@ class CreatePersonasTable extends Migration
             $table->char('nombre', 100);
             $table->char('apellido', 100);
             $table->integer('tipo_identificacion_id')->unsigned();
-            $table->char('identificacion', 100);
+            $table->char('identificacion', 100)->unique();
             $table->date('fecha_nacimiento');
             $table->char('direccion', 100);
             $table->char('telefono1', 100);

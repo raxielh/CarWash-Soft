@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\TipoIdentificacion;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PersonasController extends AppBaseController
 {
@@ -29,8 +32,10 @@ class PersonasController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->personasRepository->pushCriteria(new RequestCriteria($request));
-        $personas = $this->personasRepository->all();
+        $personas =  DB::table('personas')
+                ->join('tipo_identificacions', 'personas.tipo_identificacion_id', '=', 'tipo_identificacions.id')
+                ->selectRaw('personas.*,tipo_identificacions.descripcion as des')
+                ->get();
 
         return view('personas.index')
             ->with('personas', $personas);
@@ -43,7 +48,9 @@ class PersonasController extends AppBaseController
      */
     public function create()
     {
-        return view('personas.create');
+        $TipoIdentificacion=TipoIdentificacion::pluck('descripcion','id');
+        $datos = ['tipo'=> $TipoIdentificacion];
+        return view('personas.create')->with('datos', $datos);
     }
 
     /**
@@ -56,6 +63,7 @@ class PersonasController extends AppBaseController
     public function store(CreatePersonasRequest $request)
     {
         $input = $request->all();
+        $input['users_id']=Auth::id();
 
         $personas = $this->personasRepository->create($input);
 
@@ -94,14 +102,17 @@ class PersonasController extends AppBaseController
     public function edit($id)
     {
         $personas = $this->personasRepository->findWithoutFail($id);
-
+     
         if (empty($personas)) {
             Flash::error('Personas not found');
 
             return redirect(route('personas.index'));
         }
+        
+        $tp=TipoIdentificacion::pluck('descripcion','id');
+        $datos = ['personas' => $personas,'tipo'=> $tp];
 
-        return view('personas.edit')->with('personas', $personas);
+        return view('personas.edit')->with('datos', $datos);
     }
 
     /**

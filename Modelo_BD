@@ -75,11 +75,13 @@ php artisan infyom:scaffold $MODEL_NAME
 	telefono1 char,100 number
 	users_id integer:unsigned:foreign,users,id hidden
 
-vehiculos
-	persona
-	placa
-	modelo
-	color
+*Vehiculos
+	persona_id integer:unsigned:foreign,personas,id select
+		required
+	placa char:unique,100 text
+		required
+	modelo char,100 number
+	color char,100 text
 	users_id integer:unsigned:foreign,users,id hidden
 
 galeria_vehiculos

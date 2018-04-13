@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Conceptos;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ValoresConceptoController extends AppBaseController
 {
@@ -29,8 +32,11 @@ class ValoresConceptoController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->valoresConceptoRepository->pushCriteria(new RequestCriteria($request));
-        $valoresConceptos = $this->valoresConceptoRepository->all();
+        $valoresConceptos =  DB::table('valores_conceptos')
+                ->join('users', 'valores_conceptos.users_id', '=', 'users.id')
+                ->join('conceptos', 'valores_conceptos.concepto_id', '=', 'conceptos.id')
+                ->selectRaw('valores_conceptos.*,users.name,conceptos.descripcion as des')
+                ->get();
 
         return view('valores_conceptos.index')
             ->with('valoresConceptos', $valoresConceptos);
@@ -43,7 +49,9 @@ class ValoresConceptoController extends AppBaseController
      */
     public function create()
     {
-        return view('valores_conceptos.create');
+        $Conceptos=Conceptos::pluck('descripcion','id');
+        $datos = ['conceptos'=> $Conceptos];
+        return view('valores_conceptos.create')->with('datos', $datos);
     }
 
     /**
@@ -56,6 +64,7 @@ class ValoresConceptoController extends AppBaseController
     public function store(CreateValoresConceptoRequest $request)
     {
         $input = $request->all();
+        $input['users_id']=Auth::id();
 
         $valoresConcepto = $this->valoresConceptoRepository->create($input);
 
@@ -101,7 +110,10 @@ class ValoresConceptoController extends AppBaseController
             return redirect(route('valoresConceptos.index'));
         }
 
-        return view('valores_conceptos.edit')->with('valoresConcepto', $valoresConcepto);
+        $Conceptos=Conceptos::pluck('descripcion','id');
+        $datos = ['valoresConcepto' => $valoresConcepto,'conceptos'=> $Conceptos];
+
+        return view('valores_conceptos.edit')->with('datos', $datos);
     }
 
     /**

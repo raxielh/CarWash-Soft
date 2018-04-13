@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TipoIdentificacionController extends AppBaseController
 {
@@ -29,8 +31,10 @@ class TipoIdentificacionController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->tipoIdentificacionRepository->pushCriteria(new RequestCriteria($request));
-        $tipoIdentificacions = $this->tipoIdentificacionRepository->all();
+        $tipoIdentificacions =  DB::table('tipo_identificacions')
+                ->join('users', 'tipo_identificacions.users_id', '=', 'users.id')
+                ->selectRaw('tipo_identificacions.*,users.name')
+                ->get();
 
         return view('tipo_identificacions.index')
             ->with('tipoIdentificacions', $tipoIdentificacions);
@@ -56,6 +60,7 @@ class TipoIdentificacionController extends AppBaseController
     public function store(CreateTipoIdentificacionRequest $request)
     {
         $input = $request->all();
+        $input['users_id']=Auth::id();
 
         $tipoIdentificacion = $this->tipoIdentificacionRepository->create($input);
 
