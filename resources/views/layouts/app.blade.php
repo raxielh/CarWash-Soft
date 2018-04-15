@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="{{URL::asset('css/chosen.min.css')}}">
 
     <style>
-        td{
+        td,.primera_mayuscula{
             text-transform: capitalize;
         }
     </style>
