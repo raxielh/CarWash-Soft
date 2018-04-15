@@ -10,7 +10,7 @@
     @foreach($estadoFacturas as $estadoFactura)
         <tr>
             <td>{!! $estadoFactura->descripcion !!}</td>
-            <td>{!! $estadoFactura->users_id !!}</td>
+            <td>{!! $estadoFactura->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['estadoFacturas.destroy', $estadoFactura->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
