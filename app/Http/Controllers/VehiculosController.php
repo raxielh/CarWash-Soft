@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Personas;
+use App\Models\Vehiculos;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class VehiculosController extends AppBaseController
 {
@@ -29,9 +33,11 @@ class VehiculosController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->vehiculosRepository->pushCriteria(new RequestCriteria($request));
-        $vehiculos = $this->vehiculosRepository->all();
-
+        $vehiculos =  DB::table('vehiculos')
+                ->join('users', 'vehiculos.users_id', '=', 'users.id')
+                ->join('personas', 'vehiculos.persona_id', '=', 'personas.id')
+                ->selectRaw('vehiculos.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden')
+                ->get();
         return view('vehiculos.index')
             ->with('vehiculos', $vehiculos);
     }
@@ -43,7 +49,9 @@ class VehiculosController extends AppBaseController
      */
     public function create()
     {
-        return view('vehiculos.create');
+        $personas=Personas::pluck('identificacion','id');
+        $datos = ['personas' => $personas];
+        return view('vehiculos.create')->with('datos', $datos);
     }
 
     /**
@@ -56,7 +64,7 @@ class VehiculosController extends AppBaseController
     public function store(CreateVehiculosRequest $request)
     {
         $input = $request->all();
-
+        $input['users_id']=Auth::id();
         $vehiculos = $this->vehiculosRepository->create($input);
 
         Flash::success('Vehiculos Guardado exitosamente.');
@@ -81,7 +89,14 @@ class VehiculosController extends AppBaseController
             return redirect(route('vehiculos.index'));
         }
 
-        return view('vehiculos.show')->with('vehiculos', $vehiculos);
+        $galeria =  DB::table('galeria_vehiculos')
+                ->join('vehiculos', 'galeria_vehiculos.vehiculo_id', '=', 'vehiculos.id')
+                ->where('galeria_vehiculos.vehiculo_id',$id)
+                ->selectRaw('galeria_vehiculos.*')
+                ->get();
+        $datos = ['vehiculos' => $vehiculos,'galeria' => $galeria];
+
+        return view('vehiculos.show')->with('datos', $datos);
     }
 
     /**
@@ -101,7 +116,9 @@ class VehiculosController extends AppBaseController
             return redirect(route('vehiculos.index'));
         }
 
-        return view('vehiculos.edit')->with('vehiculos', $vehiculos);
+        $personas=Personas::pluck('identificacion','id');
+        $datos = ['personas' => $personas,'vehiculos'=> $vehiculos];
+        return view('vehiculos.edit')->with('datos', $datos);
     }
 
     /**

@@ -64,7 +64,7 @@ class TipoIdentificacionController extends AppBaseController
 
         $tipoIdentificacion = $this->tipoIdentificacionRepository->create($input);
 
-        Flash::success('Tipo Identificacion saved successfully.');
+        Flash::success('Tipo IdentificacionGuardado exitosamente.');
 
         return redirect(route('tipoIdentificacions.index'));
     }
@@ -129,7 +129,7 @@ class TipoIdentificacionController extends AppBaseController
 
         $tipoIdentificacion = $this->tipoIdentificacionRepository->update($request->all(), $id);
 
-        Flash::success('Tipo Identificacion updated successfully.');
+        Flash::success('Tipo Identificacion Actualizado con exito.');
 
         return redirect(route('tipoIdentificacions.index'));
     }
@@ -153,7 +153,7 @@ class TipoIdentificacionController extends AppBaseController
 
         $this->tipoIdentificacionRepository->delete($id);
 
-        Flash::success('Tipo Identificacion deleted successfully.');
+        Flash::success('Tipo Identificacion Borrado con exito.');
 
         return redirect(route('tipoIdentificacions.index'));
     }

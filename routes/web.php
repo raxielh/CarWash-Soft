@@ -46,3 +46,9 @@ Route::resource('combos', 'CombosController');
 
 
 Route::resource('vehiculos', 'VehiculosController');
+
+Route::resource('galeriaVehiculos', 'GaleriaVehiculosController');
+
+Route::resource('galeriaVehiculos', 'GaleriaVehiculosController');
+
+Route::resource('equipos', 'EquiposController');

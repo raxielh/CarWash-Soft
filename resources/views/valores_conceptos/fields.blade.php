@@ -1,7 +1,7 @@
 <!-- Concepto Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('concepto_id', 'Concepto:') !!}
-    {!! Form::select('concepto_id',$datos['conceptos'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('concepto_id',$datos['conceptos'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Valor Field -->

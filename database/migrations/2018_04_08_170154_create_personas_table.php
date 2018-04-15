@@ -19,10 +19,10 @@ class CreatePersonasTable extends Migration
             $table->char('apellido', 100);
             $table->integer('tipo_identificacion_id')->unsigned();
             $table->char('identificacion', 100)->unique();
-            $table->date('fecha_nacimiento');
-            $table->char('direccion', 100);
-            $table->char('telefono1', 100);
-            $table->char('telefono2', 100);
+            $table->date('fecha_nacimiento')->nullable();
+            $table->char('direccion', 100)->nullable();
+            $table->char('telefono1', 100)->nullable();
+            $table->char('telefono2', 100)->nullable();
             $table->integer('users_id')->unsigned();
             $table->timestamps();
             $table->foreign('tipo_identificacion_id')->references('id')->on('tipo_identificacions');

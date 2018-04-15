@@ -84,13 +84,16 @@ php artisan infyom:scaffold $MODEL_NAME
 	color char,100 text
 	users_id integer:unsigned:foreign,users,id hidden
 
-galeria_vehiculos
-	vehiculo
-	foto
+*GaleriaVehiculos
+	vehiculo_id integer:unsigned:foreign,vehiculos,id select
+	foto char,199 text
 	users_id integer:unsigned:foreign,users,id hidden
 
-equipos
-	codigo
+*Equipos
+	codigo char,100 text
+		required
+	descripcion char,100 text
+		required
 	users_id integer:unsigned:foreign,users,id hidden
 
 equipo_personas

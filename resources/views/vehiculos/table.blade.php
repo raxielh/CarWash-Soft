@@ -1,22 +1,24 @@
 <table class="table table-responsive" id="vehiculos-table">
     <thead>
         <tr>
-            <th>Persona Id</th>
+            <th>Propietario</th>
+             <th>Identificacion</th>
         <th>Placa</th>
         <th>Modelo</th>
         <th>Color</th>
-        <th>Users Id</th>
+        <th>Creado por</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($vehiculos as $vehiculos)
         <tr>
-            <td>{!! $vehiculos->persona_id !!}</td>
+            <td>{!! $vehiculos->nom !!} {!! $vehiculos->ape !!}</td>
+            <td>{!! $vehiculos->iden !!} </td>
             <td>{!! $vehiculos->placa !!}</td>
             <td>{!! $vehiculos->modelo !!}</td>
-            <td>{!! $vehiculos->color !!}</td>
-            <td>{!! $vehiculos->users_id !!}</td>
+            <td><div style="background-color:{!! $vehiculos->color !!};width: 100%;height: 15px"></div></td>
+            <td>{!! $vehiculos->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['vehiculos.destroy', $vehiculos->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

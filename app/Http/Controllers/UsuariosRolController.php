@@ -35,6 +35,7 @@ class UsuariosRolController extends AppBaseController
         $usuariosRols =  DB::table('usuarios_rols')
                 ->join('users', 'usuarios_rols.users_id', '=', 'users.id')
                 ->join('roles', 'usuarios_rols.roles_id', '=', 'roles.id')
+                ->whereRaw('roles.id != 1')
                 ->selectRaw('usuarios_rols.*,users.name as usuario,roles.descripcion as roles')
                 ->get();
 
@@ -68,7 +69,7 @@ class UsuariosRolController extends AppBaseController
 
         $usuariosRol = $this->usuariosRolRepository->create($input);
 
-        Flash::success('Usuarios Rol saved successfully.');
+        Flash::success('Usuarios RolGuardado exitosamente.');
 
         return redirect(route('usuariosRols.index'));
     }
@@ -137,7 +138,7 @@ class UsuariosRolController extends AppBaseController
 
         $usuariosRol = $this->usuariosRolRepository->update($request->all(), $id);
 
-        Flash::success('Usuarios Rol updated successfully.');
+        Flash::success('Usuarios Rol Actualizado con exito.');
 
         return redirect(route('usuariosRols.index'));
     }
@@ -161,7 +162,7 @@ class UsuariosRolController extends AppBaseController
 
         $this->usuariosRolRepository->delete($id);
 
-        Flash::success('Usuarios Rol deleted successfully.');
+        Flash::success('Usuarios Rol Borrado con exito.');
 
         return redirect(route('usuariosRols.index'));
     }

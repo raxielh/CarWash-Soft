@@ -1,13 +1,13 @@
 <!-- Roles Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('roles_id', 'Rol:') !!}
-    {!! Form::select('roles_id',$datos['roles'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('roles_id',$datos['roles'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Users Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('users_id', 'Usuarios:') !!}
-    {!! Form::select('users_id',$datos['users'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('users_id',$datos['users'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -67,7 +67,7 @@ class PersonasController extends AppBaseController
 
         $personas = $this->personasRepository->create($input);
 
-        Flash::success('Personas saved successfully.');
+        Flash::success('PersonasGuardado exitosamente.');
 
         return redirect(route('personas.index'));
     }
@@ -135,7 +135,7 @@ class PersonasController extends AppBaseController
 
         $personas = $this->personasRepository->update($request->all(), $id);
 
-        Flash::success('Personas updated successfully.');
+        Flash::success('Personas Actualizado con exito.');
 
         return redirect(route('personas.index'));
     }
@@ -159,7 +159,7 @@ class PersonasController extends AppBaseController
 
         $this->personasRepository->delete($id);
 
-        Flash::success('Personas deleted successfully.');
+        Flash::success('Personas Borrado con exito.');
 
         return redirect(route('personas.index'));
     }

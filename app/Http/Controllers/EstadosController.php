@@ -68,7 +68,7 @@ class EstadosController extends AppBaseController
 
         $estados = $this->estadosRepository->create($input);
 
-        Flash::success('Estados saved successfully.');
+        Flash::success('EstadosGuardado exitosamente.');
 
         return redirect(route('estados.index'));
     }
@@ -133,7 +133,7 @@ class EstadosController extends AppBaseController
 
         $estados = $this->estadosRepository->update($request->all(), $id);
 
-        Flash::success('Estados updated successfully.');
+        Flash::success('Estados Actualizado con exito.');
 
         return redirect(route('estados.index'));
     }
@@ -157,7 +157,7 @@ class EstadosController extends AppBaseController
 
         $this->estadosRepository->delete($id);
 
-        Flash::success('Estados deleted successfully.');
+        Flash::success('Estados Borrado con exito.');
 
         return redirect(route('estados.index'));
     }

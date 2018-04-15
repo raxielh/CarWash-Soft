@@ -13,13 +13,13 @@
 <!-- Tipo Conceptos Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tipo_conceptos_id', 'Tipo Concepto:') !!}
-    {!! Form::select('tipo_conceptos_id',$datos['tipos'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('tipo_conceptos_id',$datos['tipos'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Estado Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('estado_id', 'Estado:') !!}
-    {!! Form::select('estado_id',$datos['estados'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('estado_id',$datos['estados'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Submit Field -->

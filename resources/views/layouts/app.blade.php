@@ -30,8 +30,12 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
-    <style>
+    <link rel="stylesheet" href="{{URL::asset('css/chosen.min.css')}}">
 
+    <style>
+        td{
+            text-transform: capitalize;
+        }
     </style>
     @yield('css')
 </head>
@@ -163,6 +167,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="{{URL::asset('js/chosen.jquery.js')}}"></script>
 
     <!-- AdminLTE App -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.2/js/adminlte.min.js"></script>
@@ -198,7 +203,18 @@
             $('.table').DataTable();
             $('.date').datepicker({format: "yyyy-mm-dd"}); 
         } );
-
+        
+        var config = {
+          '.chosen-select'           : {},
+          '.chosen-select-deselect'  : { allow_single_deselect: true },
+          '.chosen-select-no-single' : { disable_search_threshold: 10 },
+          '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+          '.chosen-select-rtl'       : { rtl: true },
+          '.chosen-select-width'     : { width: '95%' }
+        }
+        for (var selector in config) {
+          $(selector).chosen(config[selector]);
+        }
     </script>
     @yield('scripts')
 </body>

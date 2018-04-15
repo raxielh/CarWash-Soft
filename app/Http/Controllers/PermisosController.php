@@ -65,7 +65,7 @@ class PermisosController extends AppBaseController
 
         $permisos = $this->permisosRepository->create($input);
 
-        Flash::success('Permisos saved successfully.');
+        Flash::success('PermisosGuardado exitosamente.');
 
         return redirect(route('permisos.index'));
     }
@@ -130,7 +130,7 @@ class PermisosController extends AppBaseController
 
         $permisos = $this->permisosRepository->update($request->all(), $id);
 
-        Flash::success('Permisos updated successfully.');
+        Flash::success('Permisos Actualizado con exito.');
 
         return redirect(route('permisos.index'));
     }
@@ -154,7 +154,7 @@ class PermisosController extends AppBaseController
 
         $this->permisosRepository->delete($id);
 
-        Flash::success('Permisos deleted successfully.');
+        Flash::success('Permisos Borrado con exito.');
 
         return redirect(route('permisos.index'));
     }

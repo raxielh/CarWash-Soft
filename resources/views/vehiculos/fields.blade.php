@@ -1,7 +1,7 @@
 <!-- Persona Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('persona_id', 'Persona Id:') !!}
-    {!! Form::select('persona_id', ], null, ['class' => 'form-control']) !!}
+    {!! Form::label('persona_id', 'Propietario:') !!}
+    {!! Form::select('persona_id',$datos['personas'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Placa Field -->
@@ -19,7 +19,7 @@
 <!-- Color Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('color', 'Color:') !!}
-    {!! Form::text('color', null, ['class' => 'form-control']) !!}
+    {!! Form::color('color', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

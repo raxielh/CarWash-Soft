@@ -69,7 +69,7 @@ class CombosController extends AppBaseController
         $input['users_id']=Auth::id();
         $combos = $this->combosRepository->create($input);
 
-        Flash::success('Combos saved successfully.');
+        Flash::success('CombosGuardado exitosamente.');
 
         return redirect(route('combos.index'));
     }
@@ -136,7 +136,7 @@ class CombosController extends AppBaseController
 
         $combos = $this->combosRepository->update($request->all(), $id);
 
-        Flash::success('Combos updated successfully.');
+        Flash::success('Combos Actualizado con exito.');
 
         return redirect(route('combos.index'));
     }
@@ -160,7 +160,7 @@ class CombosController extends AppBaseController
 
         $this->combosRepository->delete($id);
 
-        Flash::success('Combos deleted successfully.');
+        Flash::success('Combos Borrado con exito.');
 
         return redirect(route('combos.index'));
     }

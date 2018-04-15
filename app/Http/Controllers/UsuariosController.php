@@ -61,7 +61,7 @@ class UsuariosController extends AppBaseController
  
         $usuarios = $this->usuariosRepository->create($input);
 
-        Flash::success('Usuarios saved successfully.');
+        Flash::success('UsuariosGuardado exitosamente.');
 
         return redirect(route('usuarios.index'));
     }
@@ -126,7 +126,7 @@ class UsuariosController extends AppBaseController
 
         $usuarios = $this->usuariosRepository->update($request->all(), $id);
 
-        Flash::success('Usuarios updated successfully.');
+        Flash::success('Usuarios Actualizado con exito.');
 
         return redirect(route('usuarios.index'));
     }
@@ -150,7 +150,7 @@ class UsuariosController extends AppBaseController
 
         $this->usuariosRepository->delete($id);
 
-        Flash::success('Usuarios deleted successfully.');
+        Flash::success('Usuarios Borrado con exito.');
 
         return redirect(route('usuarios.index'));
     }

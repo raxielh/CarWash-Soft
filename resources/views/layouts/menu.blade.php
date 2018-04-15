@@ -47,4 +47,11 @@
 <li class="{{ Request::is('vehiculos*') ? 'active' : '' }}">
     <a href="{!! route('vehiculos.index') !!}"><i class="fa fa-edit"></i><span>Vehiculos</span></a>
 </li>
+<li class="{{ Request::is('galeriaVehiculos*') ? 'active' : '' }}">
+    <a href="{!! route('galeriaVehiculos.index') !!}"><i class="fa fa-edit"></i><span>Galeria Vehiculos</span></a>
+</li>
+
+<li class="{{ Request::is('equipos*') ? 'active' : '' }}">
+    <a href="{!! route('equipos.index') !!}"><i class="fa fa-edit"></i><span>Equipos</span></a>
+</li>
 

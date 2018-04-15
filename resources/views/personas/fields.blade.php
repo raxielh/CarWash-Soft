@@ -13,7 +13,7 @@
 <!-- Tipo Identificacion Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tipo_identificacion_id', 'Tipo Identificacion:') !!}
-    {!! Form::select('tipo_identificacion_id', $datos['tipo'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('tipo_identificacion_id', $datos['tipo'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Identificacion Field -->

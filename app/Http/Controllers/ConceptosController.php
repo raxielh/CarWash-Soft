@@ -71,7 +71,7 @@ class ConceptosController extends AppBaseController
         
         $conceptos = $this->conceptosRepository->create($input);
 
-        Flash::success('Conceptos saved successfully.');
+        Flash::success('ConceptosGuardado exitosamente.');
 
         return redirect(route('conceptos.index'));
     }
@@ -139,7 +139,7 @@ class ConceptosController extends AppBaseController
 
         $conceptos = $this->conceptosRepository->update($request->all(), $id);
 
-        Flash::success('Conceptos updated successfully.');
+        Flash::success('Conceptos Actualizado con exito.');
 
         return redirect(route('conceptos.index'));
     }
@@ -163,7 +163,7 @@ class ConceptosController extends AppBaseController
 
         $this->conceptosRepository->delete($id);
 
-        Flash::success('Conceptos deleted successfully.');
+        Flash::success('Conceptos Borrado con exito.');
 
         return redirect(route('conceptos.index'));
     }
