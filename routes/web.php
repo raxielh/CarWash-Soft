@@ -52,3 +52,5 @@ Route::resource('galeriaVehiculos', 'GaleriaVehiculosController');
 Route::resource('galeriaVehiculos', 'GaleriaVehiculosController');
 
 Route::resource('equipos', 'EquiposController');
+
+Route::resource('estadoFacturas', 'EstadoFacturaController');

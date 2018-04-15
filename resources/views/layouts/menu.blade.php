@@ -55,3 +55,7 @@
     <a href="{!! route('equipos.index') !!}"><i class="fa fa-edit"></i><span>Equipos</span></a>
 </li>
 
+<li class="{{ Request::is('estadoFacturas*') ? 'active' : '' }}">
+    <a href="{!! route('estadoFacturas.index') !!}"><i class="fa fa-edit"></i><span>Estado Facturas</span></a>
+</li>
+
