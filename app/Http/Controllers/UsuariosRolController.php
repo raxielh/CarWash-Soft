@@ -13,6 +13,7 @@ use Response;
 use App\User;
 use App\Models\Roles;
 use Illuminate\Support\Facades\DB;
+use Yajra\Datatables\Datatables;
 
 class UsuariosRolController extends AppBaseController
 {
@@ -166,4 +167,5 @@ class UsuariosRolController extends AppBaseController
 
         return redirect(route('usuariosRols.index'));
     }
+
 }

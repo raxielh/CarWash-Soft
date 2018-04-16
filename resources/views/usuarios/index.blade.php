@@ -22,5 +22,20 @@
         
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+          $('.datatable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{{ route('serverSide') }}',
+                columnDefs: [
+                             {
+                                 targets: [ 0, 1, 2 ],
+                                 className: 'mdl-data-table__cell--non-numeric'
+                             }
+                         ]
+            });
+        });
+    </script>
 @endsection
 

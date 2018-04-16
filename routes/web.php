@@ -26,6 +26,7 @@ Route::resource('roles', 'RolesController');
 Route::resource('usuariosRols', 'UsuariosRolController');
 
 Route::resource('usuarios', 'UsuariosController');
+Route::get('usuarios_tabla', 'UsuariosController@cargar_tabla');
 
 Route::resource('estados', 'EstadosController');
 
@@ -42,8 +43,6 @@ Route::resource('tipoIdentificacions', 'TipoIdentificacionController');
 Route::resource('personas', 'PersonasController');
 
 Route::resource('combos', 'CombosController');
-
-
 
 Route::resource('vehiculos', 'VehiculosController');
 

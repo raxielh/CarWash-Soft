@@ -26,11 +26,14 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
+    <!--
     <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-
+ 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css" rel="stylesheet">
-
+   -->
     <link rel="stylesheet" href="{{URL::asset('css/chosen.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/dataTables.bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/bootstrap-datepicker.min.css')}}">
 
     <style>
         td,.primera_mayuscula{
@@ -164,9 +167,12 @@
     @endif
 
     <!-- jQuery 3.1.1 -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>-->
+    <script src="{{URL::asset('js/jquery.min.js')}}"></script>
+    <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{URL::asset('js/chosen.jquery.js')}}"></script>
 
     <!-- AdminLTE App -->
