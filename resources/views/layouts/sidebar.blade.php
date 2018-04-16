@@ -2,7 +2,7 @@
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu" id="myUL">
             @include('layouts.menu')
         </ul>
         <!-- /.sidebar-menu -->

@@ -1,3 +1,13 @@
+<div class="sidebar-form">
+    <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Buscar Modulo..." id="myInput" onkeyup="myFunction()" >
+        <span class="input-group-btn">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+</div>
 @if (obtenerRol() === 'Super Root')
     <li class="{{ Request::is('roles*') ? 'active' : '' }}">
         <a href="{!! route('roles.index') !!}"><i class="fa fa-edit"></i><span>Roles</span></a>
@@ -69,4 +79,3 @@
 <li class="{{ Request::is('proveedores*') ? 'active' : '' }}">
     <a href="{!! route('proveedores.index') !!}"><i class="fa fa-edit"></i><span>Proveedores</span></a>
 </li>
-
