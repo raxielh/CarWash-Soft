@@ -102,12 +102,12 @@ equipo_personas
 	estado
 	users_id integer:unsigned:foreign,users,id hidden
 
-EstadoFactura
+** EstadoFactura
 	descripcion char,100 text
 	required
 	users_id integer:unsigned:foreign,users,id hidden
 
-EstadoComanda
+** EstadoComanda
 	descripcion char,100 text
 	required
 	users_id integer:unsigned:foreign,users,id hidden
@@ -125,7 +125,7 @@ comanda_detalle
 	valor
 	users_id integer:unsigned:foreign,users,id hidden
 
-Descuento
+** Descuento
 	codigo char,100 text
 		required
 	descripcion char,100 text
@@ -152,7 +152,7 @@ faturacion_detalle
 	valor
 	users_id integer:unsigned:foreign,users,id hidden
 
-Proveedores
+*** Proveedores
 	codigo char,100 text
 	required
 	persona_id integer:unsigned:foreign,personas,id select
