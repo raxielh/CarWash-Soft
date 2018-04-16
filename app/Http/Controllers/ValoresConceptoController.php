@@ -13,6 +13,8 @@ use Response;
 use App\Models\Conceptos;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ValoresConceptoController extends AppBaseController
 {

@@ -13,6 +13,9 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Illuminate\Support\Facades\Hash;
 use Yajra\Datatables\Datatables;
 use Response;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 
 class UsuariosController extends AppBaseController
 {
@@ -32,9 +35,8 @@ class UsuariosController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->usuariosRepository->pushCriteria(new RequestCriteria($request));
-        $usuarios = $this->usuariosRepository->all();
-
+        //$usuarios = User::paginate(10);
+        $usuarios=\App\Models\Usuarios::name($request->get('campo'))->orderBy('id','DESC')->paginate();
         return view('usuarios.index')
             ->with('usuarios', $usuarios);
     }
@@ -155,12 +157,6 @@ class UsuariosController extends AppBaseController
         Flash::success('Usuarios Borrado con exito.');
 
         return redirect(route('usuarios.index'));
-    }
-
-    public function cargar_tabla()
-    {
-        $users = User::all();
-        return Datatables::of($users)->make();
     }
 
 }

@@ -39,6 +39,32 @@
         td,.primera_mayuscula{
             text-transform: capitalize;
         }
+        .table1 {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+        .table1 {
+            background-color: transparent;
+        }
+        .table1 {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+        .table1 {
+            display: table;
+            border-spacing: 2px;
+            border-color: grey;
+        }
+        .table1>tbody>tr>td, .table1>tfoot>tr>td {
+            border-top: 1px solid #f4f4f4;
+        }
+        .table1>tbody>tr>td, .table1>tbody>tr>th, .table1>tfoot>tr>td, .table1>tfoot>tr>th, .table1>thead>tr>td, .table1>thead>tr>th {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border-top: 1px solid #ddd;
+        }
     </style>
     @yield('css')
 </head>

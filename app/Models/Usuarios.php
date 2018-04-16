@@ -52,5 +52,13 @@ class Usuarios extends Model
         'password' => ''
     ];
 
+    public function scopeName($query, $name)
+    {
+        if($name != ""){
+            return $query->where('name',"LIKE","%$name%")->orWhere('email',"LIKE","%$name%");
+        }
+        
+    }
+
     
 }

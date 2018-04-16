@@ -22,21 +22,5 @@
         
         </div>
     </div>
-
-    <script src="{{URL::asset('js/jquery.min.js')}}"></script>
-    <script>
-        $(document).ready(function(){
-          $('#datos').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{{ route('usuarios_tabla') }}',
-                "columns": [
-                      {data: 'id', name: 'id'},
-                      {data: 'name', name: 'name'},
-                      {data: 'email', name: 'email'},
-                ]
-            });
-        });
-    </script>
 @endsection
 

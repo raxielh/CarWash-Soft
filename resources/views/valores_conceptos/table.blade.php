@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="valoresConceptos-table">
+<table class="table table-responsive table-striped" id="valoresConceptos-table">
     <thead>
         <tr>
             <th>Concepto</th>
