@@ -59,3 +59,7 @@
     <a href="{!! route('estadoFacturas.index') !!}"><i class="fa fa-edit"></i><span>Estado Facturas</span></a>
 </li>
 
+<li class="{{ Request::is('estadoComandas*') ? 'active' : '' }}">
+    <a href="{!! route('estadoComandas.index') !!}"><i class="fa fa-edit"></i><span>Estado Comandas</span></a>
+</li>
+
