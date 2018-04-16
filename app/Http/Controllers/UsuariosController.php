@@ -8,8 +8,10 @@ use App\Repositories\UsuariosRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use App\User;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Illuminate\Support\Facades\Hash;
+use Yajra\Datatables\Datatables;
 use Response;
 
 class UsuariosController extends AppBaseController
@@ -154,4 +156,11 @@ class UsuariosController extends AppBaseController
 
         return redirect(route('usuarios.index'));
     }
+
+    public function cargar_tabla()
+    {
+        $users = User::all();
+        return Datatables::of($users)->make();
+    }
+
 }
