@@ -26,7 +26,7 @@ Route::resource('roles', 'RolesController');
 Route::resource('usuariosRols', 'UsuariosRolController');
 
 Route::resource('usuarios', 'UsuariosController');
-Route::get('usuarios_tabla', 'UsuariosController@cargar_tabla');
+Route::get('usuarios_tabla',["as" => "usuarios_tabla", "uses" => "UsuariosController@cargar_tabla"] );
 
 Route::resource('estados', 'EstadosController');
 
