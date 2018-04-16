@@ -102,12 +102,14 @@ equipo_personas
 	estado
 	users_id integer:unsigned:foreign,users,id hidden
 
-estado_factura
-	descripcion
+EstadoFactura
+	descripcion char,100 text
+	required
 	users_id integer:unsigned:foreign,users,id hidden
 
 estado_comanda
-	descripcion
+	descripcion char,100 text
+	required
 	users_id integer:unsigned:foreign,users,id hidden
 
 comanda
