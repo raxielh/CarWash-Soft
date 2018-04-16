@@ -63,3 +63,13 @@
     <a href="{!! route('estadoComandas.index') !!}"><i class="fa fa-edit"></i><span>Estado Comandas</span></a>
 </li>
 
+
+
+<li class="{{ Request::is('descuentos*') ? 'active' : '' }}">
+    <a href="{!! route('descuentos.index') !!}"><i class="fa fa-edit"></i><span>Descuentos</span></a>
+</li>
+
+<li class="{{ Request::is('descuentos*') ? 'active' : '' }}">
+    <a href="{!! route('descuentos.index') !!}"><i class="fa fa-edit"></i><span>Descuentos</span></a>
+</li>
+

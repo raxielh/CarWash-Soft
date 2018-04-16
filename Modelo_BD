@@ -107,7 +107,7 @@ EstadoFactura
 	required
 	users_id integer:unsigned:foreign,users,id hidden
 
-estado_comanda
+EstadoComanda
 	descripcion char,100 text
 	required
 	users_id integer:unsigned:foreign,users,id hidden
@@ -125,10 +125,13 @@ comanda_detalle
 	valor
 	users_id integer:unsigned:foreign,users,id hidden
 
-descuento
-	codigo
-	descripcion
-	porcentaje
+Descuento
+	codigo char,100 text
+		required
+	descripcion char,100 text
+		required
+	porcentaje integer number
+	required
 	users_id integer:unsigned:foreign,users,id hidden
 
 lavados
