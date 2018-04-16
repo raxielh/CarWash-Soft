@@ -57,3 +57,5 @@ Route::resource('estadoFacturas', 'EstadoFacturaController');
 Route::resource('estadoComandas', 'EstadoComandaController');
 
 Route::resource('descuentos', 'DescuentoController'); 
+
+Route::resource('proveedores', 'ProveedoresController');

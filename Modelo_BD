@@ -152,14 +152,18 @@ faturacion_detalle
 	valor
 	users_id integer:unsigned:foreign,users,id hidden
 
-proveedores
-	codigo
-	persona
-	razon_social
-	nit
-	direccion
-	telefono2
-	telefono1
+Proveedores
+	codigo char,100 text
+	required
+	persona_id integer:unsigned:foreign,personas,id select
+	required
+	razon_social char,100 text
+	required
+	nit char,100 text
+	required
+	direccion char,100 text
+	telefono2 char,100 text
+	telefono1 char,100 text
 	users_id integer:unsigned:foreign,users,id hidden
 
 egresos_diario
