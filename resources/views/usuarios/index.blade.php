@@ -29,7 +29,12 @@
           $('#datos').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('usuarios_tabla') }}'
+                ajax: '{{ route('usuarios_tabla') }}',
+                "columns": [
+                      {data: 'id', name: 'id'},
+                      {data: 'name', name: 'name'},
+                      {data: 'email', name: 'email'},
+                ]
             });
         });
     </script>
