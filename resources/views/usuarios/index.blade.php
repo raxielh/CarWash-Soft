@@ -22,18 +22,14 @@
         
         </div>
     </div>
+
+    <script src="{{URL::asset('js/jquery.min.js')}}"></script>
     <script>
         $(document).ready(function(){
-          $('.datatable').DataTable({
+          $('#datos').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('serverSide') }}',
-                columnDefs: [
-                             {
-                                 targets: [ 0, 1, 2 ],
-                                 className: 'mdl-data-table__cell--non-numeric'
-                             }
-                         ]
+                ajax: '{{ route('usuarios_tabla') }}'
             });
         });
     </script>
