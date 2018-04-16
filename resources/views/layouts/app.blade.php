@@ -105,9 +105,9 @@
                                 <li class="user-header">
                                     <img src="{{ asset('img/icon.png') }}"
                                          class="img-circle" alt="User Image"/>
-                                    <p>
+                                    <p class="primera_mayuscula">
                                         {!! Auth::user()->name !!}
-                                        <small>Member since {!! Auth::user()->created_at->format('M. Y') !!}</small>
+                                        <small>Mienbro desde {!! Auth::user()->created_at->format('M. Y') !!}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
@@ -201,7 +201,6 @@
     <script src="{{URL::asset('js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{URL::asset('js/chosen.jquery.js')}}"></script>
 
-    <!-- AdminLTE App -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.2/js/adminlte.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
@@ -234,6 +233,7 @@
         $(document).ready( function () {
             $('.table').DataTable();
             $('.date').datepicker({format: "yyyy-mm-dd"}); 
+
         } );
         
         var config = {
