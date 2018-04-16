@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="galeriaVehiculos-table">
+<table class="table table-responsive table-striped" id="galeriaVehiculos-table">
     <thead>
         <tr>
             <th>Vehiculo</th>

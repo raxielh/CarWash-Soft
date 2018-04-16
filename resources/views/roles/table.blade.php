@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="roles-table">
+<table class="table table-responsive table-striped" id="roles-table">
     <thead>
         <tr>
             <th>Descripcion</th>

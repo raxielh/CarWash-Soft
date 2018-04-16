@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="vehiculos-table">
+<table class="table table-responsive table-striped" id="vehiculos-table">
     <thead>
         <tr>
             <th>Propietario</th>

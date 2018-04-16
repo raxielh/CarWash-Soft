@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="tipoConceptos-table">
+<table class="table table-responsive table-striped" id="tipoConceptos-table">
     <thead>
         <tr>
             <th>Descripcion</th>

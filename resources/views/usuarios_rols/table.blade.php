@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="usuariosRols-table">
+<table class="table table-responsive table-striped" id="usuariosRols-table">
     <thead>
         <tr>
             <th>Usuario</th>
