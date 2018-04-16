@@ -67,3 +67,7 @@
     <a href="{!! route('descuentos.index') !!}"><i class="fa fa-edit"></i><span>Descuentos</span></a>
 </li>
 
+<li class="{{ Request::is('proveedores*') ? 'active' : '' }}">
+    <a href="{!! route('proveedores.index') !!}"><i class="fa fa-edit"></i><span>Proveedores</span></a>
+</li>
+
