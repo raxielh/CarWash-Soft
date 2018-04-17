@@ -112,10 +112,13 @@ equipo_personas
 	required
 	users_id integer:unsigned:foreign,users,id hidden
 
-comanda
+
+	// caho
+   comanda
 	persona
 	vehiculo
 	estado
+	observacion
 	users_id integer:unsigned:foreign,users,id hidden
 
 comanda_detalle
@@ -134,6 +137,8 @@ comanda_detalle
 	required
 	users_id integer:unsigned:foreign,users,id hidden
 
+
+//caho
 lavados
 	comanda
 	equipo
