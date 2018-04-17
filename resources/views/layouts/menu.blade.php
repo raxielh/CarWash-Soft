@@ -4,7 +4,7 @@
 @if (obtenerRol() === 'Super Root')
 <li>
     <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-folder-o"></i> <span>Administrador</span></a>
-    <ul class="nav nav-list tree" style="display: none;background: #333;width: 230px;">
+    <ul class="nav nav-list tree" style="display: none;background:rgb(55, 65, 69);width: 230px;">
         <li class="{{ Request::is('roles*') ? 'active' : '' }}">
             <a href="{!! route('roles.index') !!}"><i class="fa fa-edit"></i><span> Roles</span></a>
         </li>
@@ -30,7 +30,7 @@
 
 <li>
     <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-folder-o"></i> <span>Usuarios</span></a>
-    <ul class="nav nav-list tree" style="display: none;background: #333;width: 230px;">
+    <ul class="nav nav-list tree" style="display: none;background:rgb(55, 65, 69);width: 230px;">
         <li class="{{ Request::is('usuarios*') ? 'active' : '' }}">
             <a href="{!! route('usuarios.index') !!}"><i class="fa fa-edit"></i><span> Usuarios</span></a>
         </li>
@@ -45,7 +45,7 @@
 
 <li>
     <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-folder-o"></i> <span>Otros</span></a>
-    <ul class="nav nav-list tree" style="display: none;background: #333;width: 230px;">
+    <ul class="nav nav-list tree" style="display: none;background:rgb(55, 65, 69);width: 230px;">
         <li class="{{ Request::is('tipoConceptos*') ? 'active' : '' }}">
             <a href="{!! route('tipoConceptos.index') !!}"><i class="fa fa-edit"></i><span> Tipo Conceptos</span></a>
         </li>
@@ -91,7 +91,7 @@
 
 <li>
     <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-folder-o"></i> <span>Reportes</span></a>
-    <ul class="nav nav-list tree" style="display: none;background: #333;width: 230px;">
+    <ul class="nav nav-list tree" style="display: none;background:rgb(55, 65, 69);width: 230px;">
         <li>
             <a href="#"><i class="fa fa-edit"></i><span> Ventas</span></a>
         </li>
