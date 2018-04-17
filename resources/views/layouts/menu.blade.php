@@ -1,3 +1,6 @@
+<li class="{{ Request::is('home*') ? 'active' : '' }}">
+    <a href="/home"><i class="fa fa-home"></i><span> Inicio</span></a>
+</li>
 @if (obtenerRol() === 'Super Root')
 <li>
     <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-folder-o"></i> <span>Administrador</span></a>
