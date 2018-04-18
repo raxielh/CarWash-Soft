@@ -115,10 +115,10 @@ equipo_personas
 
 	// caho
    Comanda
-	persona
-	vehiculo
-	estado
-	observacion
+	persona_id integer:unsigned:foreign,personas,id select
+	vehiculo_id integer:unsigned:foreign,vehiculos,id select
+	estado_id integer:unsigned:foreign,estado_comandas,id select
+	observacion char,100 text
 	users_id integer:unsigned:foreign,users,id hidden
 
 comanda_detalle

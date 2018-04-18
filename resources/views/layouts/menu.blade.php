@@ -99,3 +99,7 @@
     </ul>
 </li>
 
+<li class="{{ Request::is('comandas*') ? 'active' : '' }}">
+    <a href="{!! route('comandas.index') !!}"><i class="fa fa-edit"></i><span>Comandas</span></a>
+</li>
+
