@@ -133,7 +133,7 @@ class ComandaController extends AppBaseController
         $estadocomanda=EstadoComanda::pluck('descripcion','id');
 
         $datos = ['personas' => $personas,'vehiculos'=> $vehiculos,'estadocomanda' =>$estadocomanda,'comandas'=>$comandas];
-        return view('comandas.create')->with('datos', $datos);
+        return view('comandas.edit')->with('datos', $datos);
 
     }
 
