@@ -5,7 +5,7 @@
         <th>Vehiculo Id</th>
         <th>Estado Id</th>
         <th>Observacion</th>
-        <th>Users Id</th>
+        <th>Creado Por</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -16,7 +16,7 @@
             <td>{!! $comanda->vehiculo_id !!}</td>
             <td>{!! $comanda->estado_id !!}</td>
             <td>{!! $comanda->observacion !!}</td>
-            <td>{!! $comanda->users_id !!}</td>
+            <td>{!! $comanda->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['comandas.destroy', $comanda->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

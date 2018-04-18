@@ -4,14 +4,14 @@
     <section class="content-header">
         <h1>
             Comanda
-        </h1>
+        </h1> 
    </section>
    <div class="content">
        @include('adminlte-templates::common.errors')
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($comanda, ['route' => ['comandas.update', $comanda->id], 'method' => 'patch']) !!}
+                   {!! Form::model($datos['comandas'], ['route' => ['comandas.update', $datos['comandas']->id], 'method' => 'patch']) !!}
 
                         @include('comandas.fields')
 

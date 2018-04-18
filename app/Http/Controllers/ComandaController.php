@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Personas;
+use App\Models\Vehiculos;
+use App\Models\EstadoComanda;
 
 class ComandaController extends AppBaseController
 {
@@ -30,7 +36,15 @@ class ComandaController extends AppBaseController
     public function index(Request $request)
     {
         $this->comandaRepository->pushCriteria(new RequestCriteria($request));
-        $comandas = $this->comandaRepository->all();
+        //$comandas = $this->comandaRepository->all();
+
+        $comandas =  DB::table('comandas')
+                ->join('users', 'comandas.users_id', '=', 'users.id')
+                ->join('personas', 'comandas.persona_id', '=', 'personas.id')
+                ->join('vehiculos', 'comandas.vehiculo_id', '=', 'vehiculos.id')
+                ->join('estado_comandas', 'comandas.estado_id', '=', 'estado_comandas.id')
+                ->selectRaw('estado_comandas.*,vehiculos.*,comandas.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden')
+                ->get();
 
         return view('comandas.index')
             ->with('comandas', $comandas);
@@ -43,7 +57,13 @@ class ComandaController extends AppBaseController
      */
     public function create()
     {
-        return view('comandas.create');
+        $personas=Personas::pluck('identificacion','id');
+        $vehiculos=Vehiculos::pluck('placa','id');
+        $estadocomanda=EstadoComanda::pluck('descripcion','id');
+
+        $datos = ['personas' => $personas,'vehiculos'=> $vehiculos,'estadocomanda' =>$estadocomanda];
+        return view('comandas.create')->with('datos', $datos);
+        //return view('comandas.create');
     }
 
     /**
@@ -56,6 +76,7 @@ class ComandaController extends AppBaseController
     public function store(CreateComandaRequest $request)
     {
         $input = $request->all();
+         $input['users_id']=Auth::id();
 
         $comanda = $this->comandaRepository->create($input);
 
@@ -73,15 +94,19 @@ class ComandaController extends AppBaseController
      */
     public function show($id)
     {
-        $comanda = $this->comandaRepository->findWithoutFail($id);
+        $comandas = $this->comandaRepository->findWithoutFail($id);
 
-        if (empty($comanda)) {
+        if (empty($comandas)) {
             Flash::error('Comanda not found');
 
             return redirect(route('comandas.index'));
         }
 
-        return view('comandas.show')->with('comanda', $comanda);
+        return view('comandas.show')->with('comanda', $comandas);
+
+
+
+
     }
 
     /**
@@ -93,15 +118,23 @@ class ComandaController extends AppBaseController
      */
     public function edit($id)
     {
-        $comanda = $this->comandaRepository->findWithoutFail($id);
+        $comandas = $this->comandaRepository->findWithoutFail($id);
 
-        if (empty($comanda)) {
+        if (empty($comandas)) {
             Flash::error('Comanda not found');
 
             return redirect(route('comandas.index'));
         }
 
-        return view('comandas.edit')->with('comanda', $comanda);
+        
+   
+         $personas=Personas::pluck('identificacion','id');
+        $vehiculos=Vehiculos::pluck('placa','id');
+        $estadocomanda=EstadoComanda::pluck('descripcion','id');
+
+        $datos = ['personas' => $personas,'vehiculos'=> $vehiculos,'estadocomanda' =>$estadocomanda,'comandas'=>$comandas];
+        return view('comandas.create')->with('datos', $datos);
+
     }
 
     /**

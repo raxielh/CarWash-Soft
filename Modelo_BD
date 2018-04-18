@@ -114,12 +114,16 @@ equipo_personas
 
 
 	// caho
-   Comanda
+ ** Comanda
 	persona_id integer:unsigned:foreign,personas,id select
+	required
 	vehiculo_id integer:unsigned:foreign,vehiculos,id select
+	required
 	estado_id integer:unsigned:foreign,estado_comandas,id select
+	required
 	observacion char,100 text
 	users_id integer:unsigned:foreign,users,id hidden
+
 
 comanda_detalle
 	comanda
