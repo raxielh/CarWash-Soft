@@ -143,7 +143,7 @@ comanda_detalle
 
 
 //caho
-Lavado
+** Lavado
 	comanda_id integer:unsigned:foreign,comandas,id select
 	required
 	equipo_id integer:unsigned:foreign,equipos,id select
