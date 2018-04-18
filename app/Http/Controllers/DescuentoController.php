@@ -67,7 +67,7 @@ class DescuentoController extends AppBaseController
 
         $descuento = $this->descuentoRepository->create($input);
 
-        Flash::success('Descuento Guardado exitosamente.');
+        Flash::success('Descuento  Guardado exitosamente.');
 
         return redirect(route('descuentos.index'));
     }

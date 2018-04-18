@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('permisos.show_fields')
-                    <a href="{!! route('permisos.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('permisos.index') !!}" class="btn btn-default">Atras</a>
                 </div>
             </div>
         </div>

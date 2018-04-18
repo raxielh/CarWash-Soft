@@ -70,7 +70,7 @@ class RolesController extends AppBaseController
 
         $roles = $this->rolesRepository->create($input);
 
-        Flash::success('RolesGuardado exitosamente.');
+        Flash::success('Roles Guardado exitosamente.');
 
         return redirect(route('roles.index'));
     }

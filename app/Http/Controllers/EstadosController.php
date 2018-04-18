@@ -68,7 +68,7 @@ class EstadosController extends AppBaseController
 
         $estados = $this->estadosRepository->create($input);
 
-        Flash::success('EstadosGuardado exitosamente.');
+        Flash::success('Estados Guardado exitosamente.');
 
         return redirect(route('estados.index'));
     }

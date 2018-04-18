@@ -69,7 +69,7 @@ class CombosController extends AppBaseController
         $input['users_id']=Auth::id();
         $combos = $this->combosRepository->create($input);
 
-        Flash::success('CombosGuardado exitosamente.');
+        Flash::success('Combos Guardado exitosamente.');
 
         return redirect(route('combos.index'));
     }

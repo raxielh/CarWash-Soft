@@ -66,7 +66,7 @@ class EstadoFacturaController extends AppBaseController
 
         $estadoFactura = $this->estadoFacturaRepository->create($input);
 
-        Flash::success('Estado Factura Guardado exitosamente.');
+        Flash::success('Estado Factura  Guardado exitosamente.');
 
         return redirect(route('estadoFacturas.index'));
     }

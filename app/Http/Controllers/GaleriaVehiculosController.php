@@ -69,9 +69,10 @@ class GaleriaVehiculosController extends AppBaseController
         $input['foto']=$request->file('foto')->store('public');
         $galeriaVehiculos = $this->galeriaVehiculosRepository->create($input);
 
-        Flash::success('Galeria Vehiculos Guardado exitosamente.');
+        Flash::success('Galeria Vehiculos  Guardado exitosamente.');
 
-        return redirect(route('galeriaVehiculos.index'));
+        //return redirect(route('galeriaVehiculos.index'));
+        return back();
         
     }
 
@@ -169,6 +170,7 @@ class GaleriaVehiculosController extends AppBaseController
 
         Flash::success('Galeria Vehiculos Borrado con exito.');
 
-        return redirect(route('galeriaVehiculos.index'));
+        //return redirect(route('galeriaVehiculos.index'));
+        return back();
     }
 }

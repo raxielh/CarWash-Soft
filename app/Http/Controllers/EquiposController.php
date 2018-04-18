@@ -64,7 +64,7 @@ class EquiposController extends AppBaseController
 
         $equipos = $this->equiposRepository->create($input);
 
-        Flash::success('Equipos Guardado exitosamente.');
+        Flash::success('Equipos  Guardado exitosamente.');
 
         return redirect(route('equipos.index'));
     }

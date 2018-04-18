@@ -64,7 +64,7 @@ class TipoIdentificacionController extends AppBaseController
 
         $tipoIdentificacion = $this->tipoIdentificacionRepository->create($input);
 
-        Flash::success('Tipo IdentificacionGuardado exitosamente.');
+        Flash::success('Tipo Identificacion Guardado exitosamente.');
 
         return redirect(route('tipoIdentificacions.index'));
     }

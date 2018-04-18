@@ -24,6 +24,9 @@
         <li class="{{ Request::is('estadoComandas*') ? 'active' : '' }}">
             <a href="{!! route('estadoComandas.index') !!}"><i class="fa fa-edit"></i><span> Estado Comandas</span></a>
         </li>
+        <li class="{{ Request::is('galeriaVehiculos*') ? 'active' : '' }}">
+            <a href="{!! route('galeriaVehiculos.index') !!}"><i class="fa fa-edit"></i><span> Galeria Vehiculos</span></a>
+        </li>
     </ul>
 </li>
 @endif
@@ -68,9 +71,6 @@
 
         <li class="{{ Request::is('vehiculos*') ? 'active' : '' }}">
             <a href="{!! route('vehiculos.index') !!}"><i class="fa fa-edit"></i><span> Vehiculos</span></a>
-        </li>
-        <li class="{{ Request::is('galeriaVehiculos*') ? 'active' : '' }}">
-            <a href="{!! route('galeriaVehiculos.index') !!}"><i class="fa fa-edit"></i><span> Galeria Vehiculos</span></a>
         </li>
 
         <li class="{{ Request::is('equipos*') ? 'active' : '' }}">

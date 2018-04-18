@@ -67,7 +67,7 @@ class VehiculosController extends AppBaseController
         $input['users_id']=Auth::id();
         $vehiculos = $this->vehiculosRepository->create($input);
 
-        Flash::success('Vehiculos Guardado exitosamente.');
+        Flash::success('Vehiculos  Guardado exitosamente.');
 
         return redirect(route('vehiculos.index'));
     }
@@ -81,19 +81,19 @@ class VehiculosController extends AppBaseController
      */
     public function show($id)
     {
-        $vehiculos = $this->vehiculosRepository->findWithoutFail($id);
-
-        if (empty($vehiculos)) {
-            Flash::error('Vehiculos not found');
-
-            return redirect(route('vehiculos.index'));
-        }
+        $vehiculos =  DB::table('vehiculos')
+                ->join('users', 'vehiculos.users_id', '=', 'users.id')
+                ->join('personas', 'vehiculos.persona_id', '=', 'personas.id')
+                ->where('vehiculos.id',$id)
+                ->selectRaw('vehiculos.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as ide')
+                ->get();
 
         $galeria =  DB::table('galeria_vehiculos')
                 ->join('vehiculos', 'galeria_vehiculos.vehiculo_id', '=', 'vehiculos.id')
                 ->where('galeria_vehiculos.vehiculo_id',$id)
                 ->selectRaw('galeria_vehiculos.*')
                 ->get();
+
         $datos = ['vehiculos' => $vehiculos,'galeria' => $galeria];
 
         return view('vehiculos.show')->with('datos', $datos);

@@ -68,7 +68,7 @@ class TipoConceptosController extends AppBaseController
 
         $tipoConceptos = $this->tipoConceptosRepository->create($input);
 
-        Flash::success('Tipo ConceptosGuardado exitosamente.');
+        Flash::success('Tipo Conceptos Guardado exitosamente.');
 
         return redirect(route('tipoConceptos.index'));
     }

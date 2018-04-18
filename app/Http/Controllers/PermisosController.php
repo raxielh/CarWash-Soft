@@ -65,7 +65,7 @@ class PermisosController extends AppBaseController
 
         $permisos = $this->permisosRepository->create($input);
 
-        Flash::success('PermisosGuardado exitosamente.');
+        Flash::success('Permisos Guardado exitosamente.');
 
         return redirect(route('permisos.index'));
     }

@@ -67,7 +67,7 @@ class PersonasController extends AppBaseController
 
         $personas = $this->personasRepository->create($input);
 
-        Flash::success('PersonasGuardado exitosamente.');
+        Flash::success('Personas Guardado exitosamente.');
 
         return redirect(route('personas.index'));
     }

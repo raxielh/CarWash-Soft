@@ -70,7 +70,7 @@ class ValoresConceptoController extends AppBaseController
 
         $valoresConcepto = $this->valoresConceptoRepository->create($input);
 
-        Flash::success('Valores ConceptoGuardado exitosamente.');
+        Flash::success('Valores Concepto Guardado exitosamente.');
 
         return redirect(route('valoresConceptos.index'));
     }

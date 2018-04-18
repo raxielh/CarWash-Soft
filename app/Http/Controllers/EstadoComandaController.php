@@ -68,7 +68,7 @@ class EstadoComandaController extends AppBaseController
 
         $estadoComanda = $this->estadoComandaRepository->create($input);
 
-        Flash::success('Estado Comanda Guardado exitosamente.');
+        Flash::success('Estado Comanda  Guardado exitosamente.');
 
         return redirect(route('estadoComandas.index'));
     }

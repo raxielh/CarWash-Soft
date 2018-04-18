@@ -70,7 +70,7 @@ class UsuariosRolController extends AppBaseController
 
         $usuariosRol = $this->usuariosRolRepository->create($input);
 
-        Flash::success('Usuarios RolGuardado exitosamente.');
+        Flash::success('Usuarios Rol Guardado exitosamente.');
 
         return redirect(route('usuariosRols.index'));
     }

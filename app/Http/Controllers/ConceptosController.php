@@ -71,7 +71,7 @@ class ConceptosController extends AppBaseController
         
         $conceptos = $this->conceptosRepository->create($input);
 
-        Flash::success('ConceptosGuardado exitosamente.');
+        Flash::success('Conceptos Guardado exitosamente.');
 
         return redirect(route('conceptos.index'));
     }

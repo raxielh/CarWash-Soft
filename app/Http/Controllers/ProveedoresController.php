@@ -87,7 +87,7 @@ class ProveedoresController extends AppBaseController
 
         $proveedores = $this->proveedoresRepository->create($input);
 
-        Flash::success('Proveedores Guardado exitosamente.');
+        Flash::success('Proveedores  Guardado exitosamente.');
 
         return redirect(route('proveedores.index'));
     }
