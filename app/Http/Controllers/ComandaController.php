@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Personas;
 use App\Models\Vehiculos;
 use App\Models\EstadoComanda;
+use App\Models\Comanda;
+use App\Models\Equipos;
+ 
 
 class ComandaController extends AppBaseController
 {
