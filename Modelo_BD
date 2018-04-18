@@ -47,9 +47,9 @@ php artisan infyom:scaffold $MODEL_NAME
 	users_id integer:unsigned:foreign,users,id hidden
 
 *Combos
-	concepto_combo char,100 text
+	concepto_id1 integer:unsigned:foreign,conceptos,id text
 		required
-	concepto_id integer:unsigned:foreign,conceptos,id select
+	concepto_id2 integer:unsigned:foreign,conceptos,id select
 		required
 	estado_id integer:unsigned:foreign,estados,id select
 		required
@@ -114,7 +114,7 @@ equipo_personas
 
 
 	// caho
-   comanda
+   Comanda
 	persona
 	vehiculo
 	estado
@@ -139,7 +139,7 @@ comanda_detalle
 
 
 //caho
-lavados
+Lavados
 	comanda
 	equipo
 	users_id integer:unsigned:foreign,users,id hidden

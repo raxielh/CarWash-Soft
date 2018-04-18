@@ -27,6 +27,11 @@
         <li class="{{ Request::is('galeriaVehiculos*') ? 'active' : '' }}">
             <a href="{!! route('galeriaVehiculos.index') !!}"><i class="fa fa-edit"></i><span> Galeria Vehiculos</span></a>
         </li>
+        <li class="{{ Request::is('combos*') ? 'active' : '' }}">
+            <a href="{!! route('combos.index') !!}"><i class="fa fa-edit"></i><span>Combos</span></a>
+        </li>
+
+
     </ul>
 </li>
 @endif
@@ -59,10 +64,6 @@
 
         <li class="{{ Request::is('valoresConceptos*') ? 'active' : '' }}">
             <a href="{!! route('valoresConceptos.index') !!}"><i class="fa fa-edit"></i><span> Valores Conceptos</span></a>
-        </li>
-
-        <li class="{{ Request::is('combos*') ? 'active' : '' }}">
-            <a href="{!! route('combos.index') !!}"><i class="fa fa-edit"></i><span> Combos</span></a>
         </li>
 
         <li class="{{ Request::is('personas*') ? 'active' : '' }}">

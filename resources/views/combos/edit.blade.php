@@ -12,7 +12,7 @@
            <div class="box-body">
                <div class="row">
                    {!! Form::model($datos['combos'], ['route' => ['combos.update', $datos['combos']->id], 'method' => 'patch']) !!}
-
+                   
                         @include('combos.fields')
 
                    {!! Form::close() !!}

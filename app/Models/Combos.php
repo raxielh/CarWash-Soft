@@ -8,10 +8,10 @@ use Eloquent as Model;
 /**
  * Class Combos
  * @package App\Models
- * @version April 10, 2018, 2:26 pm UTC
+ * @version April 18, 2018, 12:18 am UTC
  *
- * @property char concepto_combo
- * @property integer concepto_id
+ * @property integer concepto_id1
+ * @property integer concepto_id2
  * @property integer estado_id
  * @property integer users_id
  */
@@ -26,8 +26,8 @@ class Combos extends Model
 
 
     public $fillable = [
-        'concepto_combo',
-        'concepto_id',
+        'concepto_id1',
+        'concepto_id2',
         'estado_id',
         'users_id'
     ];
@@ -38,8 +38,8 @@ class Combos extends Model
      * @var array
      */
     protected $casts = [
-        'concepto_combo' => 'string',
-        'concepto_id' => 'integer',
+        'concepto_id1' => 'integer',
+        'concepto_id2' => 'integer',
         'estado_id' => 'integer',
         'users_id' => 'integer'
     ];
@@ -50,8 +50,8 @@ class Combos extends Model
      * @var array
      */
     public static $rules = [
-        'concepto_combo' => 'required',
-        'concepto_id' => 'required',
+        'concepto_id1' => 'required',
+        'concepto_id2' => 'required',
         'estado_id' => 'required'
     ];
 

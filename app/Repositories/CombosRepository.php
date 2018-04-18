@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class CombosRepository
  * @package App\Repositories
- * @version April 10, 2018, 2:26 pm UTC
+ * @version April 18, 2018, 12:18 am UTC
  *
  * @method Combos findWithoutFail($id, $columns = ['*'])
  * @method Combos find($id, $columns = ['*'])
@@ -20,8 +20,8 @@ class CombosRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'concepto_combo',
-        'concepto_id',
+        'concepto_id1',
+        'concepto_id2',
         'estado_id',
         'users_id'
     ];

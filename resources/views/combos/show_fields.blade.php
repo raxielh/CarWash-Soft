@@ -4,16 +4,16 @@
     <p>{!! $combos->id !!}</p>
 </div>
 
-<!-- Concepto Combo Field -->
+<!-- Concepto Id1 Field -->
 <div class="form-group">
-    {!! Form::label('concepto_combo', 'Concepto Combo:') !!}
-    <p>{!! $combos->concepto_combo !!}</p>
+    {!! Form::label('concepto_id1', 'Concepto Id1:') !!}
+    <p>{!! $combos->concepto_id1 !!}</p>
 </div>
 
-<!-- Concepto Id Field -->
+<!-- Concepto Id2 Field -->
 <div class="form-group">
-    {!! Form::label('concepto_id', 'Concepto Id:') !!}
-    <p>{!! $combos->concepto_id !!}</p>
+    {!! Form::label('concepto_id2', 'Concepto Id2:') !!}
+    <p>{!! $combos->concepto_id2 !!}</p>
 </div>
 
 <!-- Estado Id Field -->

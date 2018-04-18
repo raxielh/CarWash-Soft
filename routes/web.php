@@ -59,3 +59,5 @@ Route::resource('estadoComandas', 'EstadoComandaController');
 Route::resource('descuentos', 'DescuentoController'); 
 
 Route::resource('proveedores', 'ProveedoresController');
+
+Route::resource('combos', 'CombosController');

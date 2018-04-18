@@ -1,8 +1,8 @@
-<table class="table table-responsive table-striped" id="combos-table">
+<table class="table table-responsive" id="combos-table">
     <thead>
         <tr>
-            <th>Concepto Combo</th>
-        <th>Concepto</th>
+            <th>Concepto</th>
+        <th>Productos</th>
         <th>Estado</th>
         <th>Creado por</th>
             <th>Action</th>
@@ -11,8 +11,8 @@
     <tbody>
     @foreach($combos as $combos)
         <tr>
-            <td>{!! $combos->concepto_combo !!}</td>
-            <td>{!! $combos->desconcep !!}</td>
+            <td>{!! $combos->combo !!}</td>
+            <td>{!! $combos->producto !!}</td>
             <td>{!! $combos->descestado !!}</td>
             <td>{!! $combos->name !!}</td>
             <td>

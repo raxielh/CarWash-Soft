@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\CreateCombosRequest;
 use App\Http\Requests\UpdateCombosRequest;
 use App\Repositories\CombosRepository;
@@ -19,12 +18,10 @@ class CombosController extends AppBaseController
 {
     /** @var  CombosRepository */
     private $combosRepository;
-
     public function __construct(CombosRepository $combosRepo)
     {
         $this->combosRepository = $combosRepo;
     }
-
     /**
      * Display a listing of the Combos.
      *
@@ -33,16 +30,33 @@ class CombosController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $combos =  DB::table('combos')
+        $sql = "SELECT 
+                    combos.*,
+                    users.name,
+                    estados.descripcion AS descestado,
+                    conceptos1.descripcion AS combo,
+                    conceptos2.descripcion AS producto
+                    FROM 
+                    combos,
+                    conceptos AS conceptos1,
+                    conceptos AS conceptos2,
+                    users,
+                    estados
+                    WHERE
+                    combos.users_id=users.id AND
+                    combos.estado_id=estados.id AND
+                    combos.concepto_id1=conceptos1.id AND
+                    combos.concepto_id2=conceptos2.id";
+        $combos = DB::select($sql);
+        /*$combos =  DB::table('combos')
                 ->join('users', 'combos.users_id', '=', 'users.id')
                 ->join('estados', 'combos.estado_id', '=', 'estados.id')
-                ->join('conceptos', 'combos.concepto_id', '=', 'conceptos.id')
+                ->join('conceptos', 'combos.concepto_id2', '=', 'conceptos.id')
                 ->selectRaw('combos.*,users.name,estados.descripcion as descestado,conceptos.descripcion as desconcep')
-                ->get();
-
+                //->get();
+                ->toSql();*/
         return view('combos.index')->with('combos', $combos);      
     }
-
     /**
      * Show the form for creating a new Combos.
      *
@@ -55,7 +69,6 @@ class CombosController extends AppBaseController
         $datos = ['conceptos' => $conceptos, 'estados' => $estados];
         return view('combos.create')->with('datos', $datos);
     }
-
     /**
      * Store a newly created Combos in storage.
      *
@@ -68,12 +81,9 @@ class CombosController extends AppBaseController
         $input = $request->all();
         $input['users_id']=Auth::id();
         $combos = $this->combosRepository->create($input);
-
         Flash::success('Combos Guardado exitosamente.');
-
         return redirect(route('combos.index'));
     }
-
     /**
      * Display the specified Combos.
      *
@@ -84,16 +94,12 @@ class CombosController extends AppBaseController
     public function show($id)
     {
         $combos = $this->combosRepository->findWithoutFail($id);
-
         if (empty($combos)) {
             Flash::error('Combos not found');
-
             return redirect(route('combos.index'));
         }
-
         return view('combos.show')->with('combos', $combos);
     }
-
     /**
      * Show the form for editing the specified Combos.
      *
@@ -104,10 +110,8 @@ class CombosController extends AppBaseController
     public function edit($id)
     {
         $combos = $this->combosRepository->findWithoutFail($id);
-
         if (empty($combos)) {
             Flash::error('Combos not found');
-
             return redirect(route('combos.index'));
         }
         $conceptos=Conceptos::pluck('descripcion','id');
@@ -115,7 +119,6 @@ class CombosController extends AppBaseController
         $datos = ['conceptos' => $conceptos, 'estados' => $estados, 'combos' => $combos];
         return view('combos.edit')->with('datos', $datos);
     }
-
     /**
      * Update the specified Combos in storage.
      *
@@ -127,20 +130,14 @@ class CombosController extends AppBaseController
     public function update($id, UpdateCombosRequest $request)
     {
         $combos = $this->combosRepository->findWithoutFail($id);
-
         if (empty($combos)) {
             Flash::error('Combos not found');
-
             return redirect(route('combos.index'));
         }
-
         $combos = $this->combosRepository->update($request->all(), $id);
-
         Flash::success('Combos Actualizado con exito.');
-
         return redirect(route('combos.index'));
     }
-
     /**
      * Remove the specified Combos from storage.
      *
@@ -151,17 +148,12 @@ class CombosController extends AppBaseController
     public function destroy($id)
     {
         $combos = $this->combosRepository->findWithoutFail($id);
-
         if (empty($combos)) {
             Flash::error('Combos not found');
-
             return redirect(route('combos.index'));
         }
-
         $this->combosRepository->delete($id);
-
         Flash::success('Combos Borrado con exito.');
-
         return redirect(route('combos.index'));
     }
 }
