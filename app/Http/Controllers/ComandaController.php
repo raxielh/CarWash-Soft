@@ -43,7 +43,7 @@ class ComandaController extends AppBaseController
                 ->join('personas', 'comandas.persona_id', '=', 'personas.id')
                 ->join('vehiculos', 'comandas.vehiculo_id', '=', 'vehiculos.id')
                 ->join('estado_comandas', 'comandas.estado_id', '=', 'estado_comandas.id')
-                ->selectRaw('estado_comandas.*,vehiculos.*,comandas.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden')
+                ->selectRaw('estado_comandas.descripcion as estadodesc,vehiculos.*,comandas.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden')
                 ->get();
 
         return view('comandas.index')
@@ -94,6 +94,8 @@ class ComandaController extends AppBaseController
      */
     public function show($id)
     {
+
+        /*
         $comandas = $this->comandaRepository->findWithoutFail($id);
 
         if (empty($comandas)) {
@@ -103,7 +105,25 @@ class ComandaController extends AppBaseController
         }
 
         return view('comandas.show')->with('comanda', $comandas);
+       */
 
+        $comandas =  DB::table('comandas')
+                ->join('users', 'comandas.users_id', '=', 'users.id')
+                ->join('personas', 'comandas.persona_id', '=', 'personas.id')
+                ->join('vehiculos', 'comandas.vehiculo_id', '=', 'vehiculos.id')
+                ->join('estado_comandas', 'comandas.estado_id', '=', 'estado_comandas.id')
+                ->selectRaw('estado_comandas.descripcion as estadodesc,vehiculos.*,comandas.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden')
+                ->get();
+/*
+        $galeria =  DB::table('galeria_vehiculos')
+                ->join('vehiculos', 'galeria_vehiculos.vehiculo_id', '=', 'vehiculos.id')
+                ->where('galeria_vehiculos.vehiculo_id',$id)
+                ->selectRaw('galeria_vehiculos.*')
+                ->get();
+*/
+        $datos = ['comandas' => $comandas/*,'galeria' => $galeria*/];
+
+        return view('comandas.show')->with('datos', $datos);
 
 
 

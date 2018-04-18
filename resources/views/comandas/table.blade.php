@@ -1,10 +1,10 @@
 <table class="table table-responsive" id="comandas-table">
     <thead>
         <tr>
-            <th>Persona Id</th>
-        <th>Vehiculo Id</th>
-        <th>Estado Id</th>
+            <th>Cliente</th>
+        <th>Placa</th>        
         <th>Observacion</th>
+        <th>Estado Id</th>
         <th>Creado Por</th>
             <th>Action</th>
         </tr>
@@ -12,11 +12,12 @@
     <tbody>
     @foreach($comandas as $comanda)
         <tr>
-            <td>{!! $comanda->persona_id !!}</td>
-            <td>{!! $comanda->vehiculo_id !!}</td>
-            <td>{!! $comanda->estado_id !!}</td>
+            <td>{!! $comanda->nom !!}</td>
+            <td>{!! $comanda->placa !!}</td>
             <td>{!! $comanda->observacion !!}</td>
+            <td>{!! $comanda->estadodesc !!}</td> 
             <td>{!! $comanda->name !!}</td>
+                       
             <td>
                 {!! Form::open(['route' => ['comandas.destroy', $comanda->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

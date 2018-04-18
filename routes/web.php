@@ -63,3 +63,5 @@ Route::resource('proveedores', 'ProveedoresController');
 Route::resource('combos', 'CombosController');
 
 Route::resource('comandas', 'ComandaController');
+
+Route::resource('lavados', 'LavadoController');

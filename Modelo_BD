@@ -143,9 +143,11 @@ comanda_detalle
 
 
 //caho
-Lavados
-	comanda
-	equipo
+Lavado
+	comanda_id integer:unsigned:foreign,comandas,id select
+	required
+	equipo_id integer:unsigned:foreign,equipos,id select
+	required
 	users_id integer:unsigned:foreign,users,id hidden
 
 faturacion
