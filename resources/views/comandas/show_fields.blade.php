@@ -50,12 +50,14 @@
         </div>
     
     </div>
+    
     <div class="col-md-8" style="padding: 2em">
         @include('adminlte-templates::common.errors')
         <div class="box box-primary">
             <h4 style="padding-left: 10px;">Detalle</h4>
             <div class="box-body">
                 <div class="row">
+                    @if ($datos['comandas'][0]->estaid === 1)
                     {!! Form::open(['route' => 'comandaDetalles.store']) !!}
                         <input type="hidden" name="comanda_id" value="{!! $datos['comandas'][0]->id !!}">
                         <!-- Concepto Id Field -->
@@ -89,8 +91,10 @@
                         </div>
 
                     {!! Form::close() !!}
+                    @endif
                 </div>
-                <div class="row">
+                <div class="row" style="padding:  1em;">
+                    @if ($datos['comandas'][0]->estaid === 1)
                     <table class="table table-responsive" id="comandaDetalles-table">
                         <thead>
                             <tr>
@@ -99,6 +103,7 @@
                             <th>Valor</th>
                             <th>Total</th>
                                 <th>Action</th>
+                            
                             </tr>
                         </thead>
                         <tbody>
@@ -130,6 +135,39 @@
                             </tr>
                         </tfoot>
                     </table>
+                    @else
+                    <table class="table1 table-responsive" id="comandaDetalles-table">
+                        <thead>
+                            <tr>
+                                <th>Comanda</th>
+                            <th>Descuento</th>
+                            <th>Valor</th>
+                            <th>Total</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                        <?php $t = 0; ?>
+                        @foreach($datos['detalles'] as $comandaDetalle)
+                            <tr>
+                                <td>{!! $comandaDetalle->descripcion !!}</td>
+                                <td>{!! $comandaDetalle->porcentaje !!}</td>
+                                <td>{!! $comandaDetalle->valor !!}</td>
+                                <td>{!! $comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100)) !!}</td>
+                                <div style="display: none;">{{$t=$t+$comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100))}}</div>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>Total</th>
+                                <th>{{ $t }}</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    @endif
                 </div>
             </div>
         </div>

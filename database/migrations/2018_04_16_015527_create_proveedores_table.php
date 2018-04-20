@@ -19,9 +19,9 @@ class CreateProveedoresTable extends Migration
             $table->integer('persona_id')->unsigned();
             $table->char('razon_social', 100);
             $table->char('nit', 100);
-            $table->char('direccion', 100);
-            $table->char('telefono2', 100);
-            $table->char('telefono1', 100);
+            $table->char('direccion', 100)->nullable();
+            $table->char('telefono2', 100)->nullable();
+            $table->char('telefono1', 100)->nullable();
             $table->integer('users_id')->unsigned();
             $table->timestamps();
             $table->foreign('persona_id')->references('id')->on('personas');

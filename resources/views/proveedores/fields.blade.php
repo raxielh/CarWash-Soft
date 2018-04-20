@@ -6,7 +6,7 @@
 
 <!-- Persona Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('persona_id', 'Persona Id:') !!}
+    {!! Form::label('persona_id', 'Persona:') !!}
     {!! Form::select('persona_id', $datos['personas'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 

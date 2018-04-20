@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Codigo</th>
-        <th>Persona Id</th>
+        <th>Persona</th>
         <th>Razon Social</th>
         <th>Nit</th>
         <th>Direccion</th>
