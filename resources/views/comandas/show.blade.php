@@ -43,7 +43,7 @@
         function cargar_valor_concepto(id)
         {
             $.getJSON( "concepto_valor/"+id, function( data ) {
-                $('#valor').val(data.valor);
+                $('#valor').val(data[0].valor);
                 var v=parseInt($('#valor').val());
                 var t=parseInt($('#total').val());
                 calcular(v,t);

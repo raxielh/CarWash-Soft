@@ -218,7 +218,12 @@ class ComandaController extends AppBaseController
 
     public function valor_concepto($id)
     {
-        $valor_concepto = ValoresConcepto::find($id);
+        $valor_concepto =  DB::table('valores_conceptos')
+                ->where('concepto_id',$id)
+                ->orderBy('id', 'desc')
+                ->limit(1)
+                ->get();
+        //$valor_concepto = ValoresConcepto::find($id);
         return $valor_concepto;   
     }
 

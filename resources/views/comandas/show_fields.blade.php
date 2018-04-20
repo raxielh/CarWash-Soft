@@ -102,14 +102,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                        {{ $t=0 }}
+                        <?php $t = 0; ?>
                         @foreach($datos['detalles'] as $comandaDetalle)
                             <tr>
                                 <td>{!! $comandaDetalle->descripcion !!}</td>
                                 <td>{!! $comandaDetalle->porcentaje !!}</td>
                                 <td>{!! $comandaDetalle->valor !!}</td>
                                 <td>{!! $comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100)) !!}</td>
-                                {{$t=$t+$comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100))}}
+                                <div style="display: none;">{{$t=$t+$comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100))}}</div>
                                 <td>
                                     {!! Form::open(['route' => ['comandaDetalles.destroy', $comandaDetalle->id], 'method' => 'delete']) !!}
                                     <div class='btn-group'>
