@@ -88,9 +88,9 @@ class ComandaController extends AppBaseController
 
         Flash::success('Comanda Guardado exitosamente.');
 
-        return $id=$comanda['id'];
+        $id=$comanda['id'];
 
-        return redirect(route('comandas.index'));
+        return redirect(route('comandas.show',$id));
     }
 
     /**
