@@ -18,6 +18,9 @@ use App\Models\Vehiculos;
 use App\Models\EstadoComanda;
 use App\Models\Comanda;
 use App\Models\Equipos;
+use App\Models\Conceptos;
+use App\Models\Descuento;
+use App\Models\ValoresConcepto;
  
 
 class ComandaController extends AppBaseController
@@ -79,11 +82,13 @@ class ComandaController extends AppBaseController
     public function store(CreateComandaRequest $request)
     {
         $input = $request->all();
-         $input['users_id']=Auth::id();
+        $input['users_id']=Auth::id();
 
         $comanda = $this->comandaRepository->create($input);
 
         Flash::success('Comanda Guardado exitosamente.');
+
+        return $id=$comanda['id'];
 
         return redirect(route('comandas.index'));
     }
@@ -98,37 +103,33 @@ class ComandaController extends AppBaseController
     public function show($id)
     {
 
-        /*
-        $comandas = $this->comandaRepository->findWithoutFail($id);
-
-        if (empty($comandas)) {
-            Flash::error('Comanda not found');
-
-            return redirect(route('comandas.index'));
-        }
-
-        return view('comandas.show')->with('comanda', $comandas);
-       */
-
         $comandas =  DB::table('comandas')
                 ->join('users', 'comandas.users_id', '=', 'users.id')
                 ->join('personas', 'comandas.persona_id', '=', 'personas.id')
                 ->join('vehiculos', 'comandas.vehiculo_id', '=', 'vehiculos.id')
                 ->join('estado_comandas', 'comandas.estado_id', '=', 'estado_comandas.id')
+                ->where('comandas.id',$id)
                 ->selectRaw('estado_comandas.descripcion as estadodesc,vehiculos.*,comandas.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden')
                 ->get();
-/*
-        $galeria =  DB::table('galeria_vehiculos')
-                ->join('vehiculos', 'galeria_vehiculos.vehiculo_id', '=', 'vehiculos.id')
-                ->where('galeria_vehiculos.vehiculo_id',$id)
-                ->selectRaw('galeria_vehiculos.*')
+
+        $detalles =  DB::table('comanda_detalles')
+                ->join('conceptos', 'comanda_detalles.concepto_id', '=', 'conceptos.id')
+                ->join('descuentos', 'comanda_detalles.descuentos_id', '=', 'descuentos.id')
+                ->where('comanda_detalles.comanda_id',$id)
+                ->selectRaw('comanda_detalles.id,conceptos.descripcion,descuentos.porcentaje,comanda_detalles.valor')
                 ->get();
-*/
-        $datos = ['comandas' => $comandas/*,'galeria' => $galeria*/];
+
+        $conceptos=Conceptos::pluck('descripcion','id');
+        $descuento=Descuento::pluck('descripcion','id');
+
+        $datos = [
+                    'comandas' => $comandas,
+                    'conceptos' => $conceptos,
+                    'descuento' => $descuento,
+                    'detalles' => $detalles
+                ];
 
         return view('comandas.show')->with('datos', $datos);
-
-
 
     }
 
@@ -151,11 +152,17 @@ class ComandaController extends AppBaseController
 
         
    
-         $personas=Personas::pluck('identificacion','id');
+        $personas=Personas::pluck('identificacion','id');
         $vehiculos=Vehiculos::pluck('placa','id');
         $estadocomanda=EstadoComanda::pluck('descripcion','id');
 
-        $datos = ['personas' => $personas,'vehiculos'=> $vehiculos,'estadocomanda' =>$estadocomanda,'comandas'=>$comandas];
+        $datos = [
+                    'personas' => $personas,
+                    'vehiculos'=> $vehiculos,
+                    'estadocomanda' => $estadocomanda,
+                    'comandas'=>$comandas
+                ];
+
         return view('comandas.edit')->with('datos', $datos);
 
     }
@@ -208,4 +215,17 @@ class ComandaController extends AppBaseController
 
         return redirect(route('comandas.index'));
     }
+
+    public function valor_concepto($id)
+    {
+        $valor_concepto = ValoresConcepto::find($id);
+        return $valor_concepto;   
+    }
+
+    public function valor_concepto_descuento($id)
+    {
+        $descuento = Descuento::find($id);
+        return $descuento;   
+    }
+
 }

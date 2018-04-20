@@ -1,25 +1,25 @@
 <!-- Persona Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('persona_id', 'Persona Id:') !!}
+    {!! Form::label('persona_id', 'Cliente:') !!}
     {!! Form::select('persona_id',  $datos['personas'],null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Vehiculo Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('vehiculo_id', 'Vehiculo Id:') !!}
+    {!! Form::label('vehiculo_id', 'Vehiculo:') !!}
     {!! Form::select('vehiculo_id', $datos['vehiculos'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Estado Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('estado_id', 'Estado Id:') !!}
+    {!! Form::label('estado_id', 'Estado:') !!}
     {!! Form::select('estado_id', $datos['estadocomanda'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Observacion Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('observacion', 'Observacion:') !!}
-    {!! Form::text('observacion', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('observacion', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

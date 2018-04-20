@@ -20,13 +20,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-
 Route::resource('roles', 'RolesController');
 
 Route::resource('usuariosRols', 'UsuariosRolController');
 
 Route::resource('usuarios', 'UsuariosController');
-Route::get('usuarios_tabla',["as" => "usuarios_tabla", "uses" => "UsuariosController@cargar_tabla"] );
 
 Route::resource('estados', 'EstadosController');
 
@@ -63,5 +61,9 @@ Route::resource('proveedores', 'ProveedoresController');
 Route::resource('combos', 'CombosController');
 
 Route::resource('comandas', 'ComandaController');
+Route::get('comandas/concepto_valor/{comanda}',["as" => "concepto_valor", "uses" => "ComandaController@valor_concepto"] );
+Route::get('comandas/valor_concepto_descuento/{comanda}',["as" => "valor_concepto_descuento", "uses" => "ComandaController@valor_concepto_descuento"] );
 
 Route::resource('lavados', 'LavadoController');
+
+Route::resource('comandaDetalles', 'ComandaDetalleController');

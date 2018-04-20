@@ -24,9 +24,7 @@
         <li class="{{ Request::is('estadoComandas*') ? 'active' : '' }}">
             <a href="{!! route('estadoComandas.index') !!}"><i class="fa fa-edit"></i><span> Estado Comandas</span></a>
         </li>
-        <li class="{{ Request::is('galeriaVehiculos*') ? 'active' : '' }}">
-            <a href="{!! route('galeriaVehiculos.index') !!}"><i class="fa fa-edit"></i><span> Galeria Vehiculos</span></a>
-        </li>
+
         <li class="{{ Request::is('combos*') ? 'active' : '' }}">
             <a href="{!! route('combos.index') !!}"><i class="fa fa-edit"></i><span>Combos</span></a>
         </li>
@@ -108,4 +106,13 @@
 <li class="{{ Request::is('lavados*') ? 'active' : '' }}">
     <a href="{!! route('lavados.index') !!}"><i class="fa fa-edit"></i><span>Lavados</span></a>
 </li>
+
+<!--
+<li class="{{ Request::is('galeriaVehiculos*') ? 'active' : '' }}">
+    <a href="{!! route('galeriaVehiculos.index') !!}"><i class="fa fa-edit"></i><span> Galeria Vehiculos</span></a>
+</li>
+<li class="{{ Request::is('comandaDetalles*') ? 'active' : '' }}">
+    <a href="{!! route('comandaDetalles.index') !!}"><i class="fa fa-edit"></i><span>Comanda Detalles</span></a>
+</li>
+-->
 

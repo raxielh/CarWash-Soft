@@ -4,7 +4,7 @@
             <th>Cliente</th>
         <th>Placa</th>        
         <th>Observacion</th>
-        <th>Estado Id</th>
+        <th>Estado</th>
         <th>Creado Por</th>
             <th>Action</th>
         </tr>

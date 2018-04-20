@@ -96,7 +96,7 @@ php artisan infyom:scaffold $MODEL_NAME
 		required
 	users_id integer:unsigned:foreign,users,id hidden
 
-equipo_personas
+EquipoPersonas
 	equipo
 	persona
 	estado
@@ -125,11 +125,14 @@ equipo_personas
 	users_id integer:unsigned:foreign,users,id hidden
 
 
-comanda_detalle
-	comanda
-	concepto
-	descuento 
-	valor
+** ComandaDetalle
+	comanda_id integer:unsigned:foreign,comandas,id hidden
+	concepto_id integer:unsigned:foreign,conceptos,id select
+		required
+	descuentos_id integer:unsigned:foreign,descuentos,id select
+		required
+	valor char,100 text
+		required
 	users_id integer:unsigned:foreign,users,id hidden
 
 ** Descuento
