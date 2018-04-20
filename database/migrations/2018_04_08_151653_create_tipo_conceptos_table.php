@@ -20,6 +20,18 @@ class CreateTipoConceptosTable extends Migration
             $table->timestamps();
             $table->foreign('users_id')->references('id')->on('users');
         });
+
+        DB::table('tipo_conceptos')->insert([
+            'descripcion' => 'Combo',
+            'users_id' => '1',
+        ]);
+
+        DB::table('tipo_conceptos')->insert([
+            'descripcion' => 'Producto',
+            'users_id' => '1',
+        ]);
+
+
     }
 
     /**

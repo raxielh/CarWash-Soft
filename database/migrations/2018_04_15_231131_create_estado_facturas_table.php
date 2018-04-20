@@ -20,6 +20,17 @@ class CreateEstadoFacturasTable extends Migration
             $table->timestamps();
             $table->foreign('users_id')->references('id')->on('users');
         });
+
+        DB::table('estado_facturas')->insert([
+            'descripcion' => 'Activa',
+            'users_id' => '1',
+        ]);
+
+        DB::table('estado_facturas')->insert([
+            'descripcion' => 'Inactiva',
+            'users_id' => '1',
+        ]);
+
     }
 
     /**

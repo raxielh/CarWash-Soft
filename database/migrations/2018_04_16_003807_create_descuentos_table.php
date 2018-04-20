@@ -22,6 +22,14 @@ class CreateDescuentosTable extends Migration
             $table->timestamps();
             $table->foreign('users_id')->references('id')->on('users');
         });
+
+        DB::table('descuentos')->insert([
+            'codigo' => '0',
+            'descripcion' => '0',
+            'porcentaje' => '0',
+            'users_id' => '1',
+        ]);
+
     }
 
     /**

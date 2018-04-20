@@ -122,7 +122,6 @@
                                          class="img-circle" alt="User Image"/>
                                     <p class="primera_mayuscula">
                                         {!! Auth::user()->name !!}
-                                        <small>Mienbro desde {!! Auth::user()->created_at->format('M. Y') !!}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->

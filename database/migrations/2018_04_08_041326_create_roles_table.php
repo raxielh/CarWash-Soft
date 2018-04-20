@@ -20,6 +20,22 @@ class CreateRolesTable extends Migration
             $table->timestamps();
             $table->foreign('users_id')->references('id')->on('users');
         });
+
+        DB::table('roles')->insert([
+            'descripcion' => 'Super Root',
+            'users_id' => '1',
+        ]);
+
+        DB::table('roles')->insert([
+            'descripcion' => 'Administrador',
+            'users_id' => '1',
+        ]);
+
+        DB::table('roles')->insert([
+            'descripcion' => 'Trabajador',
+            'users_id' => '1',
+        ]);
+
     }
 
     /**

@@ -21,6 +21,17 @@ class CreateUsuariosRolsTable extends Migration
             $table->foreign('roles_id')->references('id')->on('roles');
             $table->foreign('users_id')->references('id')->on('users');
         });
+
+        DB::table('usuarios_rols')->insert([
+            'roles_id' => '1',
+            'users_id' => '1',
+        ]);
+
+        DB::table('usuarios_rols')->insert([
+            'roles_id' => '1',
+            'users_id' => '2',
+        ]);
+
     }
 
     /**

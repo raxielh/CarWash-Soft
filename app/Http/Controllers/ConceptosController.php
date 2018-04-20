@@ -12,6 +12,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\tipoConceptos;
 use App\Models\Estados;
+use App\Models\Conceptos;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -85,6 +86,7 @@ class ConceptosController extends AppBaseController
      */
     public function show($id)
     {
+        /*
         $conceptos = $this->conceptosRepository->findWithoutFail($id);
 
         if (empty($conceptos)) {
@@ -92,8 +94,45 @@ class ConceptosController extends AppBaseController
 
             return redirect(route('conceptos.index'));
         }
+        */
+        $conceptos =  DB::table('conceptos')
+                ->join('users', 'conceptos.users_id', '=', 'users.id')
+                ->join('estados', 'conceptos.estado_id', '=', 'estados.id')
+                ->join('tipo_conceptos', 'conceptos.tipo_conceptos_id', '=', 'tipo_conceptos.id')
+                ->where('conceptos.id',$id)
+                ->selectRaw('conceptos.*,users.name,estados.descripcion as desc_estado,tipo_conceptos.descripcion as desctp,tipo_conceptos.id as idtipo')
+                ->get();
 
-        return view('conceptos.show')->with('conceptos', $conceptos);
+        $sql = "SELECT 
+                    combos.*,
+                    users.name,
+                    estados.descripcion AS descestado,
+                    conceptos1.descripcion AS combo,
+                    conceptos2.descripcion AS producto
+                    FROM 
+                    combos,
+                    conceptos AS conceptos1,
+                    conceptos AS conceptos2,
+                    users,
+                    estados
+                    WHERE
+                    combos.users_id=users.id AND
+                    combos.estado_id=estados.id AND
+                    combos.concepto_id1=conceptos1.id AND
+                    combos.concepto_id2=conceptos2.id";
+        $combos = DB::select($sql);
+
+        $productos=Conceptos::where('tipo_conceptos_id', '<>' , 1)->pluck('descripcion','id');
+        $estados=Estados::pluck('descripcion','id');
+
+        $datos = [
+                    'conceptos' => $conceptos,
+                    'productos' => $productos,
+                    'estados' => $estados,
+                    'combos' => $combos,
+                ];
+
+        return view('conceptos.show')->with('datos', $datos);
     }
 
     /**

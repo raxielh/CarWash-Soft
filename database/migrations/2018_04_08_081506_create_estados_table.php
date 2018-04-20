@@ -20,6 +20,17 @@ class CreateEstadosTable extends Migration
             $table->timestamps();
             $table->foreign('users_id')->references('id')->on('users');
         });
+
+        DB::table('estados')->insert([
+            'descripcion' => 'Activo',
+            'users_id' => '1',
+        ]);
+        
+        DB::table('estados')->insert([
+            'descripcion' => 'Inactivo',
+            'users_id' => '1',
+        ]);
+
     }
 
     /**

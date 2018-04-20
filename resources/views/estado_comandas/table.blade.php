@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Descripcion</th>
-        <th>Crado Por</th>
+        <th>Creado Por</th>
             <th>Action</th>
         </tr>
     </thead>

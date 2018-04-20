@@ -25,11 +25,6 @@
             <a href="{!! route('estadoComandas.index') !!}"><i class="fa fa-edit"></i><span> Estado Comandas</span></a>
         </li>
 
-        <li class="{{ Request::is('combos*') ? 'active' : '' }}">
-            <a href="{!! route('combos.index') !!}"><i class="fa fa-edit"></i><span>Combos</span></a>
-        </li>
-
-
     </ul>
 </li>
 @endif
@@ -113,6 +108,9 @@
 </li>
 <li class="{{ Request::is('comandaDetalles*') ? 'active' : '' }}">
     <a href="{!! route('comandaDetalles.index') !!}"><i class="fa fa-edit"></i><span>Comanda Detalles</span></a>
+</li>
+<li class="{{ Request::is('combos*') ? 'active' : '' }}">
+    <a href="{!! route('combos.index') !!}"><i class="fa fa-edit"></i><span>Combos</span></a>
 </li>
 -->
 

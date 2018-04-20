@@ -20,6 +20,22 @@ class CreateEstadoComandasTable extends Migration
             $table->timestamps();
             $table->foreign('users_id')->references('id')->on('users');
         });
+
+        DB::table('estado_comandas')->insert([
+            'descripcion' => 'Activa',
+            'users_id' => '1',
+        ]);
+
+        DB::table('estado_comandas')->insert([
+            'descripcion' => 'Inactiva',
+            'users_id' => '1',
+        ]);
+
+        DB::table('estado_comandas')->insert([
+            'descripcion' => 'Facturada',
+            'users_id' => '1',
+        ]);
+        
     }
 
     /**

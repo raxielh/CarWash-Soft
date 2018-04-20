@@ -82,7 +82,8 @@ class CombosController extends AppBaseController
         $input['users_id']=Auth::id();
         $combos = $this->combosRepository->create($input);
         Flash::success('Combos Guardado exitosamente.');
-        return redirect(route('combos.index'));
+        //return redirect(route('combos.index'));
+        return back();
     }
     /**
      * Display the specified Combos.
@@ -154,6 +155,7 @@ class CombosController extends AppBaseController
         }
         $this->combosRepository->delete($id);
         Flash::success('Combos Borrado con exito.');
-        return redirect(route('combos.index'));
+        //return redirect(route('combos.index'));
+        return back();
     }
 }

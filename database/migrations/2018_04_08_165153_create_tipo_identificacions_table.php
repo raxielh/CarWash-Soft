@@ -20,6 +20,16 @@ class CreateTipoIdentificacionsTable extends Migration
             $table->timestamps();
             $table->foreign('users_id')->references('id')->on('users');
         });
+
+        DB::table('tipo_identificacions')->insert([
+            'descripcion' => 'CC',
+            'users_id' => '1',
+        ]);
+
+        DB::table('tipo_identificacions')->insert([
+            'descripcion' => 'TI',
+            'users_id' => '1',
+        ]);
     }
 
     /**
