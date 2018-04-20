@@ -50,6 +50,7 @@ class ComandaController extends AppBaseController
                 ->join('vehiculos', 'comandas.vehiculo_id', '=', 'vehiculos.id')
                 ->join('estado_comandas', 'comandas.estado_id', '=', 'estado_comandas.id')
                 ->selectRaw('estado_comandas.descripcion as estadodesc,vehiculos.*,comandas.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden')
+                ->orderBy('comandas.id', 'desc')
                 ->get();
 
         return view('comandas.index')

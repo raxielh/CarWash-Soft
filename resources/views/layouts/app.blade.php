@@ -229,7 +229,9 @@
         }
 
         $(document).ready( function () {
-            $('.table').DataTable();
+            $('.table').DataTable({
+                "ordering": false
+            });
             $('.date').datepicker({format: "yyyy-mm-dd"}); 
             $('.tree-toggle').click(function () {
                 $(this).parent().children('ul.tree').toggle(200);
