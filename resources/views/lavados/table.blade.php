@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="lavados-table">
+<table class="table table-responsive table-striped" id="lavados-table" style="width:100%">
     <thead>
         <tr>
             <th>Comanda Id</th>

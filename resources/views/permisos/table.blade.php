@@ -1,4 +1,4 @@
-<table class="table table-responsive table-striped" id="permisos-table">
+<table class="table table-responsive  table-striped" style="width:100%" id="permisos-table">
     <thead>
         <tr>
             <th>Modulo</th>

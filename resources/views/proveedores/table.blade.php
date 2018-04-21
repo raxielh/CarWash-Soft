@@ -1,4 +1,4 @@
-<table class="table table-responsive table-striped" id="proveedores-table">
+<table class="table table-responsive table-striped" id="proveedores-table" style="width:100%">
     <thead>
         <tr>
             <th>Codigo</th>

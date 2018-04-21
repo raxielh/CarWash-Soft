@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>CarWash-Soft</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-
-
     <link rel="apple-touch-icon" sizes="57x57" href="{{URL::asset('favicon/apple-icon-57x57.png')}}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{URL::asset('favicon/apple-icon-60x60.png')}}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{URL::asset('favicon/apple-icon-72x72.png')}}">
@@ -23,38 +21,19 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{URL::asset('favicon/ms-icon-144x144.png')}}">
     <meta name="theme-color" content="#ffffff">
-
-
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-
-    <!-- Theme style -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.2/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.2/css/skins/_all-skins.min.css">
-
-    <!-- iCheck -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/_all.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
-
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
-    <!--
-    <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
- 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css" rel="stylesheet">
-   -->
+    <link rel="stylesheet" href="{{URL::asset('/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('/css/AdminLTE.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('/css/_all-skins.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('/css/_all.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/chosen.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/dataTables.bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap-datepicker.min.css')}}">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/1.0.0/css/dataTables.responsive.css">
+    <link rel="stylesheet" href="{{URL::asset('/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('/css/dataTables.bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('/css/responsive.bootstrap.min.css')}}">
     <style>
         td,.primera_mayuscula{
             text-transform: capitalize;
@@ -89,23 +68,23 @@
             background-color: #3c8dbc;
         }
     </style>
-
     <script src="{{URL::asset('js/jquery.min.js')}}"></script>
     <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
     <script src="{{URL::asset('js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{URL::asset('js/chosen.jquery.js')}}"></script>
     <script src="{{URL::asset('js/app.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.2/js/adminlte.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <script src="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="//cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.js"></script>
-    
+    <script src="{{URL::asset('js/adminlte.min.js')}}"></script>
+    <script src="{{URL::asset('js/icheck.min.js')}}"></script>
+    <script src="{{URL::asset('js/select2.min.js')}}"></script>
+    <script src="{{URL::asset('js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{URL::asset('js/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{URL::asset('js/responsive.bootstrap.min.js')}}"></script>
     @yield('css')
 </head>
 
 <body class="skin-blue sidebar-mini">
+
     <input type="hidden" id="slide" value="1">
 @if (!Auth::guest())
     <div class="wrapper">

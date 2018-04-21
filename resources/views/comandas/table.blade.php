@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="comandas-table">
+<table class="table table-responsive table-striped" style="width:100%" id="comandas-table" style="width:100%">
     <thead>
         <tr>
             <th>Cliente</th>

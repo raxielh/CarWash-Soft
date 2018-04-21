@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="combos-table">
+<table class="table table-responsive table-striped" style="width:100%" id="combos-table">
     <thead>
         <tr>
             <th>Concepto</th>

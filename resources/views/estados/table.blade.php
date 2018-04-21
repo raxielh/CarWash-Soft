@@ -1,4 +1,4 @@
-<table class="table table-responsive table-striped" id="estados-table">
+<table class="table table-responsive table-striped" style="width:100%" id="estados-table">
     <thead>
         <tr>
             <th>Descripcion</th>

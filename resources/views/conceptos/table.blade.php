@@ -1,4 +1,4 @@
-<table class="table table-responsive table-striped" id="conceptos-table">
+<table class="table table-responsive table-striped" style="width:100%" id="conceptos-table">
     <thead>
         <tr>
             <th>Codigo</th>

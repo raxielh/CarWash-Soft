@@ -1,4 +1,4 @@
-<table class="table table-responsive table-striped" id="tipoIdentificacions-table">
+<table class="table table-responsive  table-striped" style="width:100%" id="tipoIdentificacions-table">
     <thead>
         <tr>
             <th>Descripcion</th>

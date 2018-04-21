@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="comandaDetalles-table">
+<table class="table table-responsive table-striped" style="width:100%" id="comandaDetalles-table">
     <thead>
         <tr>
             <th>Comanda Id</th>

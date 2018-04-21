@@ -1,4 +1,4 @@
-<table class="table table-responsive table-striped" id="equipos-table">
+<table class="table table-responsive table-striped" style="width:100%"" id="equipos-table">
     <thead>
         <tr>
             <th>Codigo</th>

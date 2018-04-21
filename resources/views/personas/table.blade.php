@@ -1,4 +1,4 @@
-<table class="table table-responsive table-striped" id="personas-table">
+<table class="table table-responsive table-striped" style="width:100%" id="personas-table">
     <thead>
         <tr>
             <th>Nombre</th>
