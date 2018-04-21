@@ -43,10 +43,18 @@
         function cargar_valor_concepto(id)
         {
             $.getJSON( "concepto_valor/"+id, function( data ) {
-                $('#valor').val(data[0].valor);
-                var v=parseInt($('#valor').val());
-                var t=parseInt($('#total').val());
-                calcular(v,t);
+                if(data.length==0){
+                    alert("No hay valor Asignado para este producto");
+                    $('#valor').val('');
+                    var v=parseInt($('#valor').val());
+                    var t=parseInt($('#total').val());
+                    calcular(v,t);
+                }else{
+                    $('#valor').val(data[0].valor);
+                    var v=parseInt($('#valor').val());
+                    var t=parseInt($('#total').val());
+                    calcular(v,t);
+                }
             });
         }
 

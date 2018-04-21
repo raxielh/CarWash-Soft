@@ -19,7 +19,7 @@
 <!-- Observacion Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('observacion', 'Observacion:') !!}
-    {!! Form::textarea('observacion', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('observacion', null, ['class' => 'form-control','autofocus'=>'autofocus']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -1,7 +1,7 @@
 <!-- Descripcion Field -->
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('descripcion', 'Descripcion:') !!}
-    {!! Form::textarea('descripcion', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('descripcion', null, ['class' => 'form-control','autofocus'=>'autofocus']) !!}
 </div>
 
 <!-- Submit Field -->

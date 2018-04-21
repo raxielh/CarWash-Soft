@@ -1,7 +1,7 @@
 <!-- Codigo Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('codigo', 'Codigo:') !!}
-    {!! Form::text('codigo', null, ['class' => 'form-control']) !!}
+    {!! Form::text('codigo', null, ['class' => 'form-control','autofocus'=>'autofocus']) !!}
 </div>
 
 <!-- Persona Id Field -->
@@ -30,13 +30,13 @@
 
 <!-- Telefono2 Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('telefono2', 'Telefono2:') !!}
+    {!! Form::label('telefono2', 'Celular:') !!}
     {!! Form::text('telefono2', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Telefono1 Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('telefono1', 'Telefono1:') !!}
+    {!! Form::label('telefono1', 'Fijo:') !!}
     {!! Form::text('telefono1', null, ['class' => 'form-control']) !!}
 </div>
 

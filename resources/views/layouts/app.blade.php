@@ -91,9 +91,9 @@
         <!-- Main Header -->
         <header class="main-header">
 
-            <!-- Logo -->
-            <a href="#" class="logo">
-                <b>CarWash-Soft</b>
+            <a href="#" class="logo" style="text-decoration: none;">
+                <span class="logo-mini"><b>C</b>Soft</span>
+                <span class="logo-lg"><b>CarWash</b>Soft</span>
             </a>
 
             <!-- Header Navbar -->

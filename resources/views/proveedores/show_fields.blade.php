@@ -12,7 +12,7 @@
 
 <!-- Persona Id Field -->
 <div class="form-group">
-    {!! Form::label('persona_id', 'Persona Id:') !!}
+    {!! Form::label('persona_id', 'Persona:') !!}
     <p>{!! $proveedores->persona_id !!}</p>
 </div>
 
@@ -36,19 +36,19 @@
 
 <!-- Telefono2 Field -->
 <div class="form-group">
-    {!! Form::label('telefono2', 'Telefono2:') !!}
+    {!! Form::label('telefono2', 'Celular:') !!}
     <p>{!! $proveedores->telefono2 !!}</p>
 </div>
 
 <!-- Telefono1 Field -->
 <div class="form-group">
-    {!! Form::label('telefono1', 'Telefono1:') !!}
+    {!! Form::label('telefono1', 'Fijo:') !!}
     <p>{!! $proveedores->telefono1 !!}</p>
 </div>
 
 <!-- Users Id Field -->
 <div class="form-group">
-    {!! Form::label('users_id', 'Users Id:') !!}
+    {!! Form::label('users_id', 'Creado por:') !!}
     <p>{!! $proveedores->users_id !!}</p>
 </div>
 

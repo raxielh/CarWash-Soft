@@ -6,8 +6,8 @@
         <th>Razon Social</th>
         <th>Nit</th>
         <th>Direccion</th>
-        <th>Telefono2</th>
-        <th>Telefono1</th>
+        <th>Celular</th>
+        <th>Fijo</th>
         <th>Creado Por</th>
             <th>Action</th>
         </tr>
@@ -16,7 +16,7 @@
     @foreach($proveedores as $proveedores)
         <tr>
             <td>{!! $proveedores->codigo !!}</td>
-            <td>{!! $proveedores->persona_id !!}</td>
+            <td>{!! $proveedores->iden !!}</td>
             <td>{!! $proveedores->razon_social !!}</td>
             <td>{!! $proveedores->nit !!}</td>
             <td>{!! $proveedores->direccion !!}</td>

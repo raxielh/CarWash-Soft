@@ -1,6 +1,6 @@
 {!! Form::open(['route'=>'usuarios.index','method'=>'GET','class'=>'navbar-form pull-right','role'=>'search']) !!}
     <div class="form-group">
-        <input type="text" name="campo" class="form-control" placeholder="Buscar..." value="{{ @$_GET['campo'] }}">
+        <input type="text" name="campo" class="form-control" autofocus placeholder="Buscar..." value="{{ @$_GET['campo'] }}">
     </div>
     <button type="submit" class="btn btn-success">Buscar</button>
 {!! Form::close() !!}

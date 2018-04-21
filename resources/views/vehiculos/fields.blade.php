@@ -7,7 +7,7 @@
 <!-- Placa Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('placa', 'Placa:') !!}
-    {!! Form::text('placa', null, ['class' => 'form-control']) !!}
+    {!! Form::text('placa', null, ['class' => 'form-control','autofocus'=>'autofocus']) !!}
 </div>
 
 <!-- Modelo Field -->

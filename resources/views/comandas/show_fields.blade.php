@@ -42,7 +42,7 @@
             {!! Form::label('id', 'Id:') !!}
             <p>{!! $datos['comandas'][0]->id !!}</p>
             
-            <img src="data:image/png;base64,{!! DNS1D::getBarcodePNG($datos['comandas'][0]->id, "C39+") !!}" width="30%" />        
+            <img src="data:image/png;base64,{!! DNS1D::getBarcodePNG($datos['comandas'][0]->id, "C39+") !!}" width="40%" />        
 
 
         </div>
