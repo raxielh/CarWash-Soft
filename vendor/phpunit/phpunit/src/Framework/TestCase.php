@@ -710,6 +710,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
                 $iniSettings   = GlobalState::getIniSettingsAsString();
             } else {
                 $constants = '';
+
                 if (!empty($GLOBALS['__PHPUNIT_BOOTSTRAP'])) {
                     $globals = '$GLOBALS[\'__PHPUNIT_BOOTSTRAP\'] = ' . \var_export($GLOBALS['__PHPUNIT_BOOTSTRAP'], true) . ";\n";
                 } else {
@@ -779,7 +780,8 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
                 'isStrictAboutTodoAnnotatedTests'            => $isStrictAboutTodoAnnotatedTests,
                 'isStrictAboutResourceUsageDuringSmallTests' => $isStrictAboutResourceUsageDuringSmallTests,
                 'codeCoverageFilter'                         => $codeCoverageFilter,
-                'configurationFilePath'                      => $configurationFilePath
+                'configurationFilePath'                      => $configurationFilePath,
+                'name'                                       => $this->getName(false),
             ];
 
             if (!$runEntireClass) {
@@ -865,7 +867,9 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
             $this->status        = BaseTestRunner::STATUS_FAILURE;
             $this->statusMessage = $e->getMessage();
         } catch (Throwable $_e) {
-            $e = $_e;
+            $e                   = $_e;
+            $this->status        = BaseTestRunner::STATUS_ERROR;
+            $this->statusMessage = $_e->getMessage();
         }
 
         $this->mockObjects = [];
@@ -1030,7 +1034,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
         $this->outputCallback = $callback;
     }
 
-    public function getTestResultObject(): TestResult
+    public function getTestResultObject(): ?TestResult
     {
         return $this->result;
     }

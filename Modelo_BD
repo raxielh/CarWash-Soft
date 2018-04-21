@@ -1,3 +1,4 @@
+php artisan serve --host=192.168.0.5 --port=8000
 php artisan infyom:scaffold $MODEL_NAME
 
 *Roles

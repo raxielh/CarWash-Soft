@@ -1,3 +1,39 @@
+<style>
+    .col-md-8{
+        padding: 2em;
+    }
+    .titulo{
+        display: none;
+    }
+    @media print {
+        .main-sidebar,.btn,form,.dataTables_length,.dataTables_filter,.comandaDetalles-table_info,.dataTables_paginate,.dataTables_info,.main-footer,h4,#update,.quitar{
+            display: none;
+        }
+        .box.box-primary{
+            border-top-color:#fff;
+        }
+        .titulo{
+            display: block;
+        }
+        .col-md-8{
+            padding: 0px !important;
+        }
+        *{
+            margin:2px !important;
+            padding: 0px !important;
+        }
+        .form-group{
+            text-align: center;
+        }
+    }
+</style>
+<div class="row">
+    <a href="#" class="btn btn-info pull-right" onclick="window.print();" style="margin-right: 30px;"><i class="fa fa-print"></i> Imprimir</a>
+</div>
+<div class="titulo">
+    <h3 style="text-align: center;">CarWash-Soft</h3><hr>
+    <h5 style="text-align: center;">Comanda</h5>
+</div>
 <div class="row">
     <div class="col-md-4">
 
@@ -5,6 +41,10 @@
         <div class="form-group">
             {!! Form::label('id', 'Id:') !!}
             <p>{!! $datos['comandas'][0]->id !!}</p>
+            
+            <img src="data:image/png;base64,{!! DNS1D::getBarcodePNG($datos['comandas'][0]->id, "C39+") !!}" width="30%" />        
+
+
         </div>
 
         <!-- Persona Id Field -->
@@ -39,19 +79,19 @@
 
         <!-- Created At Field -->
         <div class="form-group">
-            {!! Form::label('created_at', 'Created At:') !!}
+            {!! Form::label('created_at', 'Creado:') !!}
             <p>{!! $datos['comandas'][0]->created_at !!}</p>
         </div>
 
         <!-- Updated At Field -->
-        <div class="form-group">
-            {!! Form::label('updated_at', 'Updated At:') !!}
+        <div class="form-group" id="update">
+            {!! Form::label('updated_at', 'Actualizado:') !!}
             <p>{!! $datos['comandas'][0]->updated_at !!}</p>
         </div>
     
     </div>
     
-    <div class="col-md-8" style="padding: 2em">
+    <div class="col-md-8">
         @include('adminlte-templates::common.errors')
         <div class="box box-primary">
             <h4 style="padding-left: 10px;">Detalle</h4>
@@ -102,7 +142,7 @@
                             <th>Descuento</th>
                             <th>Valor</th>
                             <th>Total</th>
-                                <th>Action</th>
+                                <th class="quitar">Action</th>
                             
                             </tr>
                         </thead>
@@ -115,7 +155,7 @@
                                 <td>{!! $comandaDetalle->valor !!}</td>
                                 <td>{!! $comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100)) !!}</td>
                                 <div style="display: none;">{{$t=$t+$comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100))}}</div>
-                                <td>
+                                <td class="quitar">
                                     {!! Form::open(['route' => ['comandaDetalles.destroy', $comandaDetalle->id], 'method' => 'delete']) !!}
                                     <div class='btn-group'>
                                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xl', 'onclick' => "return confirm('Estas seguro?')"]) !!}
@@ -131,7 +171,7 @@
                                 <th></th>
                                 <th>Total</th>
                                 <th>{{ $t }}</th>
-                                <th></th>
+                                <th class="quitar"></th>
                             </tr>
                         </tfoot>
                     </table>
@@ -173,3 +213,4 @@
         </div>
     </div>  
 </div>
+

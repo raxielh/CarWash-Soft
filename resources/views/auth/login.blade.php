@@ -30,6 +30,23 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        html{
+            background: url({{URL::asset('img/bg.jpg')}}) no-repeat center center fixed; 
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+        }
+        .login-page, .register-page {
+            background: rgba(210, 214, 222, 0);
+        }
+        .login-logo a, .register-logo a {
+            color: #f7f6f4;
+            text-shadow: 2px 2px 8px rgb(0, 0, 0);
+            font-size: 55px;
+        }
+    </style>
 
 </head>
 <body class="hold-transition login-page">
@@ -81,8 +98,8 @@
             </div>
         </form>
 
-       <!-- <a href="{{ url('/password/reset') }}">I forgot my password</a><br>-->
-        <a href="{{ url('/register') }}" class="text-center">Registrate</a>
+       <!-- <a href="{{ url('/password/reset') }}">I forgot my password</a><br>
+        <a href="{{ url('/register') }}" class="text-center">Registrate</a>-->
 
     </div>
     <!-- /.login-box-body -->
