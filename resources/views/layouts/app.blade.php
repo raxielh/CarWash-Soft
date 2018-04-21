@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="{{URL::asset('css/chosen.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/dataTables.bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap-datepicker.min.css')}}">
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/1.0.0/css/dataTables.responsive.css">
     <style>
         td,.primera_mayuscula{
             text-transform: capitalize;
@@ -80,6 +80,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.js"></script>
     
     @yield('css')
 </head>
@@ -230,7 +231,8 @@
 
         $(document).ready( function () {
             $('.table').DataTable({
-                "ordering": false
+                "ordering": false,
+                "responsive": true
             });
             $('.date').datepicker({format: "yyyy-mm-dd"}); 
             $('.tree-toggle').click(function () {
