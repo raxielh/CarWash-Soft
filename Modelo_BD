@@ -97,10 +97,12 @@ php artisan infyom:scaffold $MODEL_NAME
 		required
 	users_id integer:unsigned:foreign,users,id hidden
 
-EquipoPersonas
-	equipo
-	persona
-	estado
+*EquipoPersonas
+	equipo_id integer:unsigned:foreign,equipos,id hidden
+	persona_id integer:unsigned:foreign,personas,id select
+		required
+	estado_id integer:unsigned:foreign,estados,id select
+		required
 	users_id integer:unsigned:foreign,users,id hidden
 
 ** EstadoFactura

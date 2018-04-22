@@ -12,6 +12,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Estados;
 
 class EquiposController extends AppBaseController
 {
@@ -86,7 +87,26 @@ class EquiposController extends AppBaseController
             return redirect(route('equipos.index'));
         }
 
-        return view('equipos.show')->with('equipos', $equipos);
+        $personas = DB::table('personas')
+            ->select(DB::raw('CONCAT(nombre, " ", apellido, " ",identificacion) AS identificacion'), 'id')
+            ->pluck('identificacion','id');
+        $estados=Estados::pluck('descripcion','id');
+
+        $equipoPersonas =  DB::table('equipo_personas')
+                ->join('personas', 'equipo_personas.persona_id', '=', 'personas.id')
+                ->join('estados', 'equipo_personas.estado_id', '=', 'estados.id')
+                ->where('equipo_personas.equipo_id',$id)
+                ->selectRaw('personas.nombre,personas.apellido,estados.descripcion as estado,equipo_personas.id as id')
+                ->get();
+
+        $datos = [
+                    'personas' => $personas,
+                    'estados' => $estados,
+                    'equipos' => $equipos,
+                    'equipoPersonas' => $equipoPersonas
+                ];
+
+        return view('equipos.show')->with('datos', $datos);
     }
 
     /**

@@ -112,5 +112,13 @@
 <li class="{{ Request::is('combos*') ? 'active' : '' }}">
     <a href="{!! route('combos.index') !!}"><i class="fa fa-edit"></i><span>Combos</span></a>
 </li>
+<li class="{{ Request::is('equipoPersonas*') ? 'active' : '' }}">
+    <a href="{!! route('equipoPersonas.index') !!}"><i class="fa fa-edit"></i><span>Equipo Personas</span></a>
+</li>
+
+
+
+
 -->
+
 

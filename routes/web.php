@@ -70,3 +70,5 @@ Route::get('comandas/valor_concepto_descuento/{comanda}',["as" => "valor_concept
 Route::resource('lavados', 'LavadoController');
 
 Route::resource('comandaDetalles', 'ComandaDetalleController');
+
+Route::resource('equipoPersonas', 'EquipoPersonasController');
