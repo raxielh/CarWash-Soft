@@ -64,7 +64,9 @@ class ComandaController extends AppBaseController
      */
     public function create()
     {
-        $personas=Personas::pluck('identificacion','id');
+        $personas = DB::table('personas')
+            ->select(DB::raw('CONCAT(nombre, " ", apellido, " ",identificacion) AS identificacion'), 'id')
+            ->pluck('identificacion','id');
         $vehiculos=Vehiculos::pluck('placa','id');
         $estadocomanda=EstadoComanda::pluck('descripcion','id');
 
