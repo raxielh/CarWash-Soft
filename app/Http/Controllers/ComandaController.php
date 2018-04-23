@@ -244,4 +244,10 @@ class ComandaController extends AppBaseController
         return $descuento;   
     }
 
+    public function facturar($id)
+    {
+        $comanda = $id;
+        return $comanda;   
+    }
+
 }

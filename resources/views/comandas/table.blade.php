@@ -22,7 +22,12 @@
                 {!! Form::open(['route' => ['comandas.destroy', $comanda->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
                     <a href="{!! route('comandas.show', [$comanda->id]) !!}" class='btn btn-default btn-xl'><i class="glyphicon glyphicon-eye-open"></i></a>
+
+                    <a href="{!! route('facturar', [$comanda->id]) !!}" onclick="return confirm('Estas seguro de facturar esta comanda?')" class='btn btn-default btn-xl'><i class="glyphicon glyphicon-shopping-cart"></i></a>
+
                     <a href="{!! route('comandas.edit', [$comanda->id]) !!}" class='btn btn-default btn-xl'><i class="glyphicon glyphicon-edit"></i></a>
+
+
                     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xl', 'onclick' => "return confirm('Estas seguro?')"]) !!}
                 </div>
                 {!! Form::close() !!}
