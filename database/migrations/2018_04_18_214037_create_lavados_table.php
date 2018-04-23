@@ -22,6 +22,7 @@ class CreateLavadosTable extends Migration
             $table->foreign('comanda_id')->references('id')->on('comandas');
             $table->foreign('equipo_id')->references('id')->on('equipos');
             $table->foreign('users_id')->references('id')->on('users');
+            $table->unique(['comanda_id','equipo_id']);
         });
     }
 

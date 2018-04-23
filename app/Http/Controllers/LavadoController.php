@@ -59,12 +59,14 @@ class LavadoController extends AppBaseController
     public function store(CreateLavadoRequest $request)
     {
         $input = $request->all();
+        $input['users_id']=Auth::id();
 
         $lavado = $this->lavadoRepository->create($input);
 
         Flash::success('Lavado Guardado exitosamente.');
 
-        return redirect(route('lavados.index'));
+        //return redirect(route('lavados.index'));
+        return back();
     }
 
     /**
@@ -76,15 +78,23 @@ class LavadoController extends AppBaseController
      */
     public function show($id)
     {
-        $lavado = $this->lavadoRepository->findWithoutFail($id);
+        $lavados = DB::table('lavados')
+                ->join('equipos', 'lavados.equipo_id', '=', 'equipos.id')
+                ->where('comanda_id',$id)
+                ->selectRaw('lavados.*,equipos.descripcion as equipo,equipos.codigo as codigo')
+                ->get();
 
-        if (empty($lavado)) {
-            Flash::error('Lavado not found');
+        $equipos = DB::table('equipos')
+            ->select(DB::raw('CONCAT(codigo, " ", descripcion) AS descripcion'), 'id')
+            ->pluck('descripcion','id');
 
-            return redirect(route('lavados.index'));
-        }
+        $datos = [
+                    'id' => $id,
+                    'equipos' => $equipos,
+                    'lavados' => $lavados,
+                ];
 
-        return view('lavados.show')->with('lavado', $lavado);
+        return view('lavados.create')->with('datos', $datos);
     }
 
     /**
@@ -153,6 +163,7 @@ class LavadoController extends AppBaseController
 
         Flash::success('Lavado Borrado con exito.');
 
-        return redirect(route('lavados.index'));
+        //return redirect(route('lavados.index'));
+        return back();
     }
 }

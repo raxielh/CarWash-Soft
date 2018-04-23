@@ -28,7 +28,18 @@
     }
 </style>
 <div class="row">
-    <a href="#" class="btn btn-info pull-right" onclick="window.print();" style="margin-right: 30px;"><i class="fa fa-print"></i> Imprimir</a>
+    @if (count($datos['lavado']) == 0)
+    @else
+        <a href="#" class="btn btn-info pull-right" onclick="window.print();" style="margin-right: 30px;"><i class="fa fa-print"></i> Imprimir</a>
+     @endif
+    <a href="{!! route('lavados.show', [$datos['comandas'][0]->id]) !!}" style="margin-right: 30px;" class='btn btn-success btn-xl pull-right'><i class="glyphicon glyphicon-user"></i> Equipos de lavado</a>
+
+    @if (count($datos['lavado']) == 0)
+        <div class="pull-right" style="margin-right: 10px;"><h4>Sin Equipo</h4></div>
+    @else
+        <div class="pull-right" style="margin-right: 10px;"><h4><strong>Equipo Asignado </strong>{{$datos['lavado'][0]->equipo}}</h4></div>
+    @endif
+
 </div>
 <div class="titulo">
     <h3 style="text-align: center;">CarWash-Soft</h3><hr>
@@ -99,7 +110,7 @@
                 <div class="row">
                     @if ($datos['comandas'][0]->estaid === 1)
                     {!! Form::open(['route' => 'comandaDetalles.store']) !!}
-                        <input type="hidden" name="comanda_id" value="{!! $datos['comandas'][0]->id !!}">
+                        <input type="hidden" name="comanda_id" id="comanda_id" value="{!! $datos['comandas'][0]->id !!}">
                         <!-- Concepto Id Field -->
                         <div class="form-group col-sm-6">
                             {!! Form::label('concepto_id', 'Concepto:') !!}
@@ -213,4 +224,3 @@
         </div>
     </div>  
 </div>
-

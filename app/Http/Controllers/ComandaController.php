@@ -122,6 +122,13 @@ class ComandaController extends AppBaseController
                 ->selectRaw('comanda_detalles.id,conceptos.descripcion,descuentos.porcentaje,comanda_detalles.valor')
                 ->get();
 
+        $lavado =  DB::table('lavados')
+                ->join('equipos', 'lavados.equipo_id', '=', 'equipos.id')
+                ->where('lavados.comanda_id',$id)
+                ->selectRaw('equipos.descripcion as equipo')
+                ->get();
+
+
         $conceptos=Conceptos::pluck('descripcion','id');
         $descuento=Descuento::pluck('descripcion','id');
 
@@ -129,7 +136,8 @@ class ComandaController extends AppBaseController
                     'comandas' => $comandas,
                     'conceptos' => $conceptos,
                     'descuento' => $descuento,
-                    'detalles' => $detalles
+                    'detalles' => $detalles,
+                    'lavado' => $lavado,
                 ];
 
         return view('comandas.show')->with('datos', $datos);

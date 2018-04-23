@@ -98,11 +98,12 @@
 
 
 
+
+<!--
+
 <li class="{{ Request::is('lavados*') ? 'active' : '' }}">
     <a href="{!! route('lavados.index') !!}"><i class="fa fa-edit"></i><span>Lavados</span></a>
 </li>
-
-<!--
 <li class="{{ Request::is('galeriaVehiculos*') ? 'active' : '' }}">
     <a href="{!! route('galeriaVehiculos.index') !!}"><i class="fa fa-edit"></i><span> Galeria Vehiculos</span></a>
 </li>
