@@ -77,7 +77,7 @@ class ComandaController extends AppBaseController
                 ->orderBy('comandas.id', 'desc')
                 ->get();
         */
-        $comandas=\App\Models\Comanda::comanda_h($request->get('campo'),$request->get('estado'))
+        $comandas=\App\Models\Comanda::comanda_h($request->get('campo'),$request->get('estado'),$request->get('fi'),$request->get('ff'))
                         #->toSql();
                         #->get();
                         ->paginate(10);

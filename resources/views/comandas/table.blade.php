@@ -4,6 +4,7 @@
         <input type="text" name="campo" class="form-control" autofocus placeholder="Buscar por placa..." value="{{ @$_GET['campo'] }}" autofocus="">
 
         <select name="estado" class="form-control">
+            <option value="">Todos</option>
           <option value="1">Activa</option>
           <option value="2">Inactiva</option>
           <option value="3">Facturada</option>

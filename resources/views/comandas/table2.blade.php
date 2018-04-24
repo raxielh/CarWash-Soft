@@ -1,12 +1,26 @@
 <form method="GET" action="comandas_h" accept-charset="UTF-8" class="navbar-form pull-right" role="search">
     <div class="form-group">
 
+        <input type="date" name="fi" class="form-control" placeholder="Fecha Inicial..." value="<?php 
+            if(isset($_GET['fi'])){
+                echo $_GET['fi'];
+            }else{
+                echo date('Y-m-d');
+            }?>">
+        <input type="date" name="ff" class="form-control" placeholder="Fecha Final..." value="<?php 
+            if(isset($_GET['fi'])){
+                echo $_GET['fi'];
+            }else{
+                echo date('Y-m-d');
+            }?>">
+
         <input type="text" name="campo" class="form-control" autofocus="" placeholder="Buscar por placa..." value="{{ @$_GET['campo'] }}">
 
         <select name="estado" class="form-control">
-          <option value="1">Activa</option>
-          <option value="2">Inactiva</option>
-          <option value="3">Facturada</option>
+            <option value="">Todos</option>
+            <option value="1">Activa</option>
+            <option value="2">Inactiva</option>
+            <option value="3">Facturada</option>
         </select>
 
     </div>
