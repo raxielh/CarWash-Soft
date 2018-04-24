@@ -25,7 +25,7 @@
 <!-- Fecha Nacimiento Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha_nacimiento', 'Fecha Nacimiento:') !!}
-    {!! Form::text('fecha_nacimiento',null, ['class' => 'form-control date']) !!}
+    {!! Form::text('fecha_nacimiento',null, ['class' => 'form-control date','required' => 'required']) !!}
 </div>
 
 <!-- Direccion Field -->
