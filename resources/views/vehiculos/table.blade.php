@@ -4,6 +4,8 @@
             <th>Propietario</th>
              <th>Identificacion</th>
         <th>Placa</th>
+        <th>Marca</th>
+        <th>Linea</th>
         <th>Modelo</th>
         <th>Color</th>
         <th>Creado por</th>
@@ -16,6 +18,8 @@
             <td>{!! $vehiculos->nom !!} {!! $vehiculos->ape !!}</td>
             <td>{!! $vehiculos->iden !!} </td>
             <td>{!! $vehiculos->placa !!}</td>
+            <td>{!! $vehiculos->marca !!}</td>
+            <td>{!! $vehiculos->linea !!}</td>
             <td>{!! $vehiculos->modelo !!}</td>
             <td><div style="background-color:{!! $vehiculos->color !!};width: 100%;height: 15px"></div></td>
             <td>{!! $vehiculos->name !!}</td>

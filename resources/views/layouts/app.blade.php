@@ -67,6 +67,7 @@
         .active{
             background-color: #3c8dbc;
         }
+
     </style>
     <script src="{{URL::asset('js/jquery.min.js')}}"></script>
     <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>

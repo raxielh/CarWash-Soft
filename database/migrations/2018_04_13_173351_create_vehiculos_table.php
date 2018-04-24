@@ -20,9 +20,13 @@ class CreateVehiculosTable extends Migration
             $table->char('modelo', 100)->nullable();
             $table->char('color', 100)->nullable();
             $table->integer('users_id')->unsigned();
+            $table->integer('marcas_id')->unsigned();
+            $table->integer('lineas_id')->unsigned();
             $table->timestamps();
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('marcas_id')->references('id')->on('marcas');
+            $table->foreign('lineas_id')->references('id')->on('lineas');
         });
     }
 

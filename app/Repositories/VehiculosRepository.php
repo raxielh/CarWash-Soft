@@ -24,7 +24,9 @@ class VehiculosRepository extends BaseRepository
         'placa',
         'modelo',
         'color',
-        'users_id'
+        'users_id',
+        'marcas_id',
+        'lineas_id',
     ];
 
     /**

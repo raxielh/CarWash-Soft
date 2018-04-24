@@ -74,3 +74,8 @@ Route::resource('lavados', 'LavadoController');
 Route::resource('comandaDetalles', 'ComandaDetalleController');
 
 Route::resource('equipoPersonas', 'EquipoPersonasController');
+
+Route::resource('marcas', 'MarcaController');
+
+Route::resource('lineas', 'LineaController');
+Route::get('lineas_marca/{marca}','LineaController@marca');

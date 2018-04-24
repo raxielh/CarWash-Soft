@@ -146,7 +146,7 @@
                 </div>
                 <div class="row" style="padding:  1em;">
                     @if ($datos['comandas'][0]->estaid === 1)
-                    <table class="table table-responsive" id="comandaDetalles-table">
+                    <table class="table table-responsive" id="comandaDetalles-table" style="width: 100%">
                         <thead>
                             <tr>
                                 <th>Comanda</th>

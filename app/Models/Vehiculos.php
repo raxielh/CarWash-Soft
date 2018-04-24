@@ -31,7 +31,9 @@ class Vehiculos extends Model
         'placa',
         'modelo',
         'color',
-        'users_id'
+        'users_id',
+        'marcas_id',
+        'lineas_id'
     ];
 
     /**
@@ -44,7 +46,9 @@ class Vehiculos extends Model
         'placa' => 'string',
         'modelo' => 'string',
         'color' => 'string',
-        'users_id' => 'integer'
+        'users_id' => 'integer',
+        'marcas_id' => 'integer',
+        'lineas_id' => 'integer'
     ];
 
     /**

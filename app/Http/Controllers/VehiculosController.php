@@ -12,6 +12,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Personas;
 use App\Models\Vehiculos;
+use App\Models\Marca;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,7 +37,9 @@ class VehiculosController extends AppBaseController
         $vehiculos =  DB::table('vehiculos')
                 ->join('users', 'vehiculos.users_id', '=', 'users.id')
                 ->join('personas', 'vehiculos.persona_id', '=', 'personas.id')
-                ->selectRaw('vehiculos.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden')
+                ->join('marcas', 'vehiculos.marcas_id', '=', 'marcas.id')
+                ->join('lineas', 'vehiculos.lineas_id', '=', 'lineas.id')
+                ->selectRaw('vehiculos.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden,marcas.descripcion as marca,lineas.descripcion as linea')
                 ->get();
         return view('vehiculos.index')
             ->with('vehiculos', $vehiculos);
@@ -49,10 +52,11 @@ class VehiculosController extends AppBaseController
      */
     public function create()
     {
+        $marca=Marca::pluck('descripcion','id');
         $personas = DB::table('personas')
             ->select(DB::raw('CONCAT(nombre, " ", apellido, " ",identificacion) AS identificacion'), 'id')
             ->pluck('identificacion','id');
-        $datos = ['personas' => $personas];
+        $datos = ['personas' => $personas,'marca'=>$marca];
         return view('vehiculos.create')->with('datos', $datos);
     }
 
@@ -67,6 +71,9 @@ class VehiculosController extends AppBaseController
     {
         $input = $request->all();
         $input['users_id']=Auth::id();
+
+        //dd($input);
+
         $vehiculos = $this->vehiculosRepository->create($input);
 
         Flash::success('Vehiculos  Guardado exitosamente.');
@@ -110,6 +117,7 @@ class VehiculosController extends AppBaseController
      */
     public function edit($id)
     {
+        $marca=Marca::pluck('descripcion','id');
         $vehiculos = $this->vehiculosRepository->findWithoutFail($id);
 
         if (empty($vehiculos)) {
@@ -121,7 +129,7 @@ class VehiculosController extends AppBaseController
         $personas = DB::table('personas')
             ->select(DB::raw('CONCAT(nombre, " ", apellido, " ",identificacion) AS identificacion'), 'id')
             ->pluck('identificacion','id');
-        $datos = ['personas' => $personas,'vehiculos'=> $vehiculos];
+        $datos = ['personas' => $personas,'vehiculos'=> $vehiculos,'marca'=> $marca];
         return view('vehiculos.edit')->with('datos', $datos);
     }
 

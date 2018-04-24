@@ -195,7 +195,17 @@ remision_detalle
 	valor
 	users_id integer:unsigned:foreign,users,id hidden
 
+Marca
+	descripcion char,100 textarea
+		required
+	users_id integer:unsigned:foreign,users,id hidden
 
+Linea
+	marca_id integer:unsigned:foreign,marcas,id select
+		required
+	descripcion char,100 textarea
+		required
+	users_id integer:unsigned:foreign,users,id hidden
 
 
 

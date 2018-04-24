@@ -44,12 +44,13 @@
         {
             $.getJSON( "concepto_valor/"+id, function( data ) {
                 if(data.length==0){
-                    alert("No hay valor Asignado para este producto");
+                    $("#valor").prop('disabled', true);
                     $('#valor').val('');
                     var v=parseInt($('#valor').val());
                     var t=parseInt($('#total').val());
                     calcular(v,t);
                 }else{
+                    $("#valor").prop('disabled', false);
                     $('#valor').val(data[0].valor);
                     var v=parseInt($('#valor').val());
                     var t=parseInt($('#total').val());
