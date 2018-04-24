@@ -49,7 +49,9 @@ class VehiculosController extends AppBaseController
      */
     public function create()
     {
-        $personas=Personas::pluck('identificacion','id');
+        $personas = DB::table('personas')
+            ->select(DB::raw('CONCAT(nombre, " ", apellido, " ",identificacion) AS identificacion'), 'id')
+            ->pluck('identificacion','id');
         $datos = ['personas' => $personas];
         return view('vehiculos.create')->with('datos', $datos);
     }
@@ -116,7 +118,9 @@ class VehiculosController extends AppBaseController
             return redirect(route('vehiculos.index'));
         }
 
-        $personas=Personas::pluck('identificacion','id');
+        $personas = DB::table('personas')
+            ->select(DB::raw('CONCAT(nombre, " ", apellido, " ",identificacion) AS identificacion'), 'id')
+            ->pluck('identificacion','id');
         $datos = ['personas' => $personas,'vehiculos'=> $vehiculos];
         return view('vehiculos.edit')->with('datos', $datos);
     }
