@@ -74,7 +74,7 @@
 
                     <!-- Submit Field -->
                     <div class="form-group col-sm-12">
-                        {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
+                        {!! Form::submit('<i class="glyphicon glyphicon-plus"></i> Agregar', ['class' => 'btn btn-primary']) !!}
                     </div>
 
                 {!! Form::close() !!}

@@ -28,24 +28,6 @@
     }
 </style>
 <div class="row">
-    @if (count($datos['lavado']) == 0)
-    @else
-        <a href="#" class="btn btn-info pull-right" onclick="window.print();" style="margin-right: 30px;"><i class="fa fa-print"></i> Imprimir</a>
-     @endif
-    <a href="{!! route('lavados.show', [$datos['comandas'][0]->id]) !!}" style="margin-right: 30px;" class='btn btn-success btn-xl pull-right'><i class="glyphicon glyphicon-user"></i> Equipos de lavado</a>
-
-    @if (count($datos['lavado']) == 0)
-        <div class="pull-right" style="margin-right: 10px;"><h4>Sin Equipo</h4></div>
-    @else
-        <div class="pull-right" style="margin-right: 10px;"><h4><strong>Equipo Asignado </strong>{{$datos['lavado'][0]->equipo}}</h4></div>
-    @endif
-
-</div>
-<div class="titulo">
-    <h3 style="text-align: center;">CarWash-Soft</h3><hr>
-    <h5 style="text-align: center;">Comanda</h5>
-</div>
-<div class="row">
     <div class="col-md-4">
 
         <!-- Id Field -->
@@ -107,43 +89,6 @@
         <div class="box box-primary">
             <h4 style="padding-left: 10px;">Detalle</h4>
             <div class="box-body">
-                <div class="row">
-                    @if ($datos['comandas'][0]->estaid === 1)
-                    {!! Form::open(['route' => 'comandaDetalles.store']) !!}
-                        <input type="hidden" name="comanda_id" id="comanda_id" value="{!! $datos['comandas'][0]->id !!}">
-                        <!-- Concepto Id Field -->
-                        <div class="form-group col-sm-6">
-                            {!! Form::label('concepto_id', 'Concepto:') !!}
-                            {!! Form::select('concepto_id', $datos['conceptos'], null, ['class' => 'form-control chosen-select']) !!}
-                        </div>
-
-                        <!-- Descuentos Id Field -->
-                        <div class="form-group col-sm-6">
-                            {!! Form::label('descuentos_id', 'Descuentos:') !!}
-                            {!! Form::select('descuentos_id', $datos['descuento'], null, ['class' => 'form-control chosen-select']) !!}
-                        </div>
-
-                        <!-- Valor Field -->
-                        <div class="form-group col-sm-6">
-                            {!! Form::label('valor', 'Valor:') !!}
-                            {!! Form::number('valor', null, ['class' => 'form-control']) !!}
-                        </div>
-
-                        <input type="hidden" value="" id="total">
-                        <!-- Total Field -->
-                        <div class="form-group col-sm-6">
-                            {!! Form::label('totalc', 'Total:') !!}
-                            {!! Form::number('totalc', null, ['class' => 'form-control','disabled' => 'disabled']) !!}
-                        </div>
-
-                        <!-- Submit Field -->
-                        <div class="form-group col-sm-12">
-                            {!! Form::submit('<i class="glyphicon glyphicon-plus"></i> Agregar', ['class' => 'btn btn-primary']) !!}
-                        </div>
-
-                    {!! Form::close() !!}
-                    @endif
-                </div>
                 <div class="row" style="padding:  1em;">
                     @if ($datos['comandas'][0]->estaid === 1)
                     <table class="table table-responsive" id="comandaDetalles-table" style="width: 100%">
@@ -153,7 +98,6 @@
                             <th>Descuento</th>
                             <th>Valor</th>
                             <th>Total</th>
-                                <th class="quitar">Action</th>
                             
                             </tr>
                         </thead>
@@ -166,13 +110,6 @@
                                 <td>{!! $comandaDetalle->valor !!}</td>
                                 <td>{!! $comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100)) !!}</td>
                                 <div style="display: none;">{{$t=$t+$comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100))}}</div>
-                                <td class="quitar">
-                                    {!! Form::open(['route' => ['comandaDetalles.destroy', $comandaDetalle->id], 'method' => 'delete']) !!}
-                                    <div class='btn-group'>
-                                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xl', 'onclick' => "return confirm('Estas seguro?')"]) !!}
-                                    </div>
-                                    {!! Form::close() !!}
-                                </td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -182,7 +119,6 @@
                                 <th></th>
                                 <th>Total</th>
                                 <th>{{ $t }}</th>
-                                <th class="quitar"></th>
                             </tr>
                         </tfoot>
                     </table>

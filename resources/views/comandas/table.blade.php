@@ -1,4 +1,21 @@
-<table class="table table-responsive table-striped" style="width:100%" id="comandas-table" style="width:100%">
+{!! Form::open(['route'=>'comandas.index','method'=>'GET','class'=>'navbar-form pull-right','role'=>'search']) !!}
+    <div class="form-group">
+
+        <input type="text" name="campo" class="form-control" autofocus placeholder="Buscar por placa..." value="{{ @$_GET['campo'] }}" autofocus="">
+
+        <select name="estado" class="form-control">
+          <option value="1">Activa</option>
+          <option value="2">Inactiva</option>
+          <option value="3">Facturada</option>
+        </select>
+
+    </div>
+    <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-filter"></i> Filtrar</button>
+    <a href="/comandas" class="btn btn-warning btn-xl"><i class="glyphicon glyphicon-tasks"></i> Todos Hoy</a>
+    <a href="/comandas_h" class='btn btn-info btn-xl'><i class="glyphicon glyphicon-book"></i> Historial</a>
+{!! Form::close() !!}
+
+<table class="table1 table-responsive table-striped" style="width:100%" id="comandas-table" style="width:100%">
     <thead>
         <tr>
             <th>Cliente</th>
@@ -36,3 +53,4 @@
     @endforeach
     </tbody>
 </table>
+{{$comandas->render()}}

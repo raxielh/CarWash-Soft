@@ -64,6 +64,9 @@ Route::resource('proveedores', 'ProveedoresController');
 Route::resource('combos', 'CombosController');
 
 Route::resource('comandas', 'ComandaController');
+Route::get('comandas_h/','ComandaController@historial');
+Route::get('comandas_h_s/{comanda}','ComandaController@show2');
+
 Route::get('comandas/concepto_valor/{comanda}',["as" => "concepto_valor", "uses" => "ComandaController@valor_concepto"] );
 Route::get('comandas/valor_concepto_descuento/{comanda}',["as" => "valor_concepto_descuento", "uses" => "ComandaController@valor_concepto_descuento"] );
 

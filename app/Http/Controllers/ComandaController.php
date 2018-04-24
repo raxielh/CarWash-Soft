@@ -43,7 +43,7 @@ class ComandaController extends AppBaseController
     {
         $this->comandaRepository->pushCriteria(new RequestCriteria($request));
         //$comandas = $this->comandaRepository->all();
-
+        /*
         $comandas =  DB::table('comandas')
                 ->join('users', 'comandas.users_id', '=', 'users.id')
                 ->join('personas', 'comandas.persona_id', '=', 'personas.id')
@@ -52,8 +52,38 @@ class ComandaController extends AppBaseController
                 ->selectRaw('estado_comandas.descripcion as estadodesc,vehiculos.*,comandas.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden')
                 ->orderBy('comandas.id', 'desc')
                 ->get();
+        */
+        $comandas=\App\Models\Comanda::comanda($request->get('campo'),$request->get('estado'))
+                        #->toSql();
+                        #->get();
+                        ->paginate(10);
+
 
         return view('comandas.index')
+            ->with('comandas', $comandas);
+    }
+
+    public function historial(Request $request)
+    {
+        $this->comandaRepository->pushCriteria(new RequestCriteria($request));
+        //$comandas = $this->comandaRepository->all();
+        /*
+        $comandas =  DB::table('comandas')
+                ->join('users', 'comandas.users_id', '=', 'users.id')
+                ->join('personas', 'comandas.persona_id', '=', 'personas.id')
+                ->join('vehiculos', 'comandas.vehiculo_id', '=', 'vehiculos.id')
+                ->join('estado_comandas', 'comandas.estado_id', '=', 'estado_comandas.id')
+                ->selectRaw('estado_comandas.descripcion as estadodesc,vehiculos.*,comandas.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden')
+                ->orderBy('comandas.id', 'desc')
+                ->get();
+        */
+        $comandas=\App\Models\Comanda::comanda_h($request->get('campo'),$request->get('estado'))
+                        #->toSql();
+                        #->get();
+                        ->paginate(10);
+
+
+        return view('comandas.index2')
             ->with('comandas', $comandas);
     }
 
@@ -144,6 +174,46 @@ class ComandaController extends AppBaseController
 
     }
 
+    public function show2($id)
+    {
+
+        $comandas =  DB::table('comandas')
+                ->join('users', 'comandas.users_id', '=', 'users.id')
+                ->join('personas', 'comandas.persona_id', '=', 'personas.id')
+                ->join('vehiculos', 'comandas.vehiculo_id', '=', 'vehiculos.id')
+                ->join('estado_comandas', 'comandas.estado_id', '=', 'estado_comandas.id')
+                ->where('comandas.id',$id)
+                ->selectRaw('estado_comandas.descripcion as estadodesc,vehiculos.*,comandas.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden,estado_comandas.id as estaid')
+                ->get();
+
+        $detalles =  DB::table('comanda_detalles')
+                ->join('conceptos', 'comanda_detalles.concepto_id', '=', 'conceptos.id')
+                ->join('descuentos', 'comanda_detalles.descuentos_id', '=', 'descuentos.id')
+                ->where('comanda_detalles.comanda_id',$id)
+                ->selectRaw('comanda_detalles.id,conceptos.descripcion,descuentos.porcentaje,comanda_detalles.valor')
+                ->get();
+
+        $lavado =  DB::table('lavados')
+                ->join('equipos', 'lavados.equipo_id', '=', 'equipos.id')
+                ->where('lavados.comanda_id',$id)
+                ->selectRaw('equipos.descripcion as equipo')
+                ->get();
+
+
+        $conceptos=Conceptos::pluck('descripcion','id');
+        $descuento=Descuento::pluck('descripcion','id');
+
+        $datos = [
+                    'comandas' => $comandas,
+                    'conceptos' => $conceptos,
+                    'descuento' => $descuento,
+                    'detalles' => $detalles,
+                    'lavado' => $lavado,
+                ];
+
+        return view('comandas.show2')->with('datos', $datos);
+
+    }
     /**
      * Show the form for editing the specified Comanda.
      *
