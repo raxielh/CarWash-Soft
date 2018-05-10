@@ -21,24 +21,43 @@
 
         $(function()
         {
+            cargar_descuento($('#descuentos_id').val());
             cargar_valor_concepto($('#concepto_id').val());
-            cargar_valor_concepto_total($('#descuentos_id').val());
 
             $('#concepto_id').change(function(event) {
                 cargar_valor_concepto($('#concepto_id').val());
             });
             
             $('#descuentos_id').change(function(event) {
-                cargar_valor_concepto_total($('#descuentos_id').val());
+                cargar_descuento($('#descuentos_id').val());
             });
 
             $("#valor").keyup(function(){
                 var v=parseInt($('#valor').val());
-                var t=parseInt($('#total').val());
-                calcular(v,t);
+                var d=parseInt($('#descuento').val());
+                var c=parseInt($('#cantidad').val());
+                calcular(v,d,c);
+            });
+
+            $("#cantidad").keyup(function(){
+                var v=parseInt($('#valor').val());
+                var d=parseInt($('#descuento').val());
+                var c=parseInt($('#cantidad').val());
+                calcular(v,d,c);
             });
 
         });
+        
+        function cargar_descuento(id)
+        {
+            $.getJSON( "valor_concepto_descuento/"+id, function( data ) {
+                $('#descuento').val(data.porcentaje);
+                var v=parseInt($('#valor').val());
+                var d=parseInt($('#descuento').val());
+                var c=parseInt($('#cantidad').val());
+                calcular(v,d,c);
+            });
+        }
 
         function cargar_valor_concepto(id)
         {
@@ -47,30 +66,29 @@
                     $("#valor").prop('disabled', true);
                     $('#valor').val('');
                     var v=parseInt($('#valor').val());
-                    var t=parseInt($('#total').val());
-                    calcular(v,t);
+                    var d=parseInt($('#descuento').val());
+                    var c=parseInt($('#cantidad').val());
+                    calcular(v,d,c);
                 }else{
+                    if(data[0].des=='Producto'){
+                        $('.cantidad').show();
+                    }else{
+                        $('.cantidad').hide();
+                    }
                     $("#valor").prop('disabled', false);
                     $('#valor').val(data[0].valor);
                     var v=parseInt($('#valor').val());
-                    var t=parseInt($('#total').val());
-                    calcular(v,t);
+                    var d=parseInt($('#descuento').val());
+                    var c=parseInt($('#cantidad').val());
+                    calcular(v,d,c);
                 }
             });
         }
 
-        function cargar_valor_concepto_total(id)
-        {
-            $.getJSON( "valor_concepto_descuento/"+id, function( data ) {
-                $('#total').val(data.porcentaje);
-                var v=parseInt($('#valor').val());
-                var t=parseInt($('#total').val());
-                calcular(v,t);
-            });
-        }
-
-        function calcular(v,t){
-            $('#totalc').val(v-(v*(t/100)));
+        function calcular(v,d,c){
+            //console.log(v+" "+d+" "+c);
+            $('#totalc').val((v-(v*(d/100)))*c);
+            $('#total').val((v-(v*(d/100)))*c);
         }
 
     </script>

@@ -3,6 +3,7 @@
         <tr>
             <th>Concepto</th>
         <th>Valor</th>
+        <th>Fecha</th>
         <th>Creado por</th>
             <th>Action</th>
         </tr>
@@ -12,6 +13,7 @@
         <tr>
             <td>{!! $valoresConcepto->des !!}</td>
             <td>{!! $valoresConcepto->valor !!}</td>
+            <td>{!! $valoresConcepto->fecha !!}</td>
             <td>{!! $valoresConcepto->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['valoresConceptos.destroy', $valoresConcepto->id], 'method' => 'delete']) !!}

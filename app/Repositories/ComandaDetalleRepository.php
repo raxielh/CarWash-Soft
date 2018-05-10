@@ -22,6 +22,7 @@ class ComandaDetalleRepository extends BaseRepository
     protected $fieldSearchable = [
         'comanda_id',
         'concepto_id',
+        'cantidad',
         'descuentos_id',
         'valor',
         'users_id'

@@ -96,6 +96,7 @@
                             <tr>
                                 <th>Comanda</th>
                             <th>Descuento</th>
+                            <th>Cantidad</th>
                             <th>Valor</th>
                             <th>Total</th>
                             
@@ -107,6 +108,7 @@
                             <tr>
                                 <td>{!! $comandaDetalle->descripcion !!}</td>
                                 <td>{!! $comandaDetalle->porcentaje !!}</td>
+                                <td>{!! $comandaDetalle->cantidad !!}</td>
                                 <td>{!! $comandaDetalle->valor !!}</td>
                                 <td>{!! $comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100)) !!}</td>
                                 <div style="display: none;">{{$t=$t+$comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100))}}</div>
@@ -116,7 +118,7 @@
                         <tfoot>
                             <tr>
                                 <th></th>
-                                <th></th>
+                                <th></th><th></th>
                                 <th>Total</th>
                                 <th>{{ $t }}</th>
                             </tr>
@@ -128,6 +130,7 @@
                             <tr>
                                 <th>Comanda</th>
                             <th>Descuento</th>
+                            <th>Cantidad</th>
                             <th>Valor</th>
                             <th>Total</th>
                            </tr>
@@ -138,6 +141,7 @@
                             <tr>
                                 <td>{!! $comandaDetalle->descripcion !!}</td>
                                 <td>{!! $comandaDetalle->porcentaje !!}</td>
+                                <td>{!! $comandaDetalle->cantidad !!}</td>
                                 <td>{!! $comandaDetalle->valor !!}</td>
                                 <td>{!! $comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100)) !!}</td>
                                 <div style="display: none;">{{$t=$t+$comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100))}}</div>
@@ -147,7 +151,7 @@
                         <tfoot>
                             <tr>
                                 <th></th>
-                                <th></th>
+                                <th></th><th></th>
                                 <th>Total</th>
                                 <th>{{ $t }}</th>
                                 <th></th>

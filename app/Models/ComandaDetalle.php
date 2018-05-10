@@ -29,6 +29,7 @@ class ComandaDetalle extends Model
     public $fillable = [
         'comanda_id',
         'concepto_id',
+        'cantidad',
         'descuentos_id',
         'valor',
         'users_id'
@@ -42,6 +43,7 @@ class ComandaDetalle extends Model
     protected $casts = [
         'comanda_id' => 'integer',
         'concepto_id' => 'integer',
+        'cantidad' => 'integer',
         'descuentos_id' => 'integer',
         'valor' => 'string',
         'users_id' => 'integer'
@@ -54,6 +56,7 @@ class ComandaDetalle extends Model
      */
     public static $rules = [
         'concepto_id' => 'required',
+        'cantidad' => 'required',
         'descuentos_id' => 'required',
         'valor' => 'required'
     ];

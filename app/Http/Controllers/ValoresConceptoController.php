@@ -37,7 +37,8 @@ class ValoresConceptoController extends AppBaseController
         $valoresConceptos =  DB::table('valores_conceptos')
                 ->join('users', 'valores_conceptos.users_id', '=', 'users.id')
                 ->join('conceptos', 'valores_conceptos.concepto_id', '=', 'conceptos.id')
-                ->selectRaw('valores_conceptos.*,users.name,conceptos.descripcion as des')
+                ->selectRaw('valores_conceptos.*,users.name,conceptos.descripcion as des,valores_conceptos.created_at as fecha')
+                ->orderByRaw('created_at DESC')
                 ->get();
 
         return view('valores_conceptos.index')
