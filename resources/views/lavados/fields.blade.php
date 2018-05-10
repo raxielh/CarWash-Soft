@@ -10,5 +10,5 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Asignar Equipo', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('comandas.show',$datos['id']) !!}" class="btn btn-default">Cancelar</a>
+    <a href="{!! route('comandas.show',$datos['id']) !!}" class="btn btn-default">Atras</a>
 </div>
