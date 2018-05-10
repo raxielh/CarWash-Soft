@@ -32,6 +32,11 @@ class CreateTipoConceptosTable extends Migration
         ]);
 
         DB::table('tipo_conceptos')->insert([
+            'descripcion' => 'Servicio',
+            'users_id' => '1',
+        ]);
+
+        DB::table('tipo_conceptos')->insert([
             'descripcion' => 'Gasto',
             'users_id' => '1',
         ]);

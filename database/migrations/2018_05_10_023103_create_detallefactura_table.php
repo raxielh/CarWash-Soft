@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreateComandaDetallesTable extends Migration
+class CreateDetallefacturaTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -13,16 +13,16 @@ class CreateComandaDetallesTable extends Migration
      */
     public function up()
     {
-        Schema::create('comanda_detalles', function (Blueprint $table) {
+        Schema::create('detallefactura', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('comanda_id')->unsigned();
+            $table->integer('factura_id')->unsigned();
             $table->integer('concepto_id')->unsigned();
             $table->integer('cantidad')->unsigned();
             $table->integer('descuentos_id')->unsigned();
             $table->char('valor', 100);
             $table->integer('users_id')->unsigned();
             $table->timestamps();
-            $table->foreign('comanda_id')->references('id')->on('comandas');
+            $table->foreign('factura_id')->references('id')->on('factura');
             $table->foreign('concepto_id')->references('id')->on('conceptos');
             $table->foreign('descuentos_id')->references('id')->on('descuentos');
             $table->foreign('users_id')->references('id')->on('users');
@@ -37,6 +37,6 @@ class CreateComandaDetallesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('comanda_detalles');
+        Schema::dropIfExists('detallefactura');
     }
 }

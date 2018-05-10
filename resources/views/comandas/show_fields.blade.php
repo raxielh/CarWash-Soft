@@ -42,18 +42,40 @@
 
 </div>
 <div class="titulo">
-    <h3 style="text-align: center;">CarWash-Soft</h3><hr>
-    <h5 style="text-align: center;">Comanda</h5>
+    <h3 style="text-align: center;"><span style="color: red">BRILLAN</span>COR</h3>
+    <h5 style="text-align: center;">CRA 2 # 45-775</h5>
+    <h5 style="text-align: center;">TEL: 3054035921</h5>
+    <br>
+    <center><img src="data:image/png;base64,{!! DNS1D::getBarcodePNG($datos['comandas'][0]->id, "C39+") !!}" width="20%" /></center>     
+    <br><br>
+    <table width="100%" border="1" align="center">
+        <tr>
+            <td><strong>Cliente</strong></td>
+            <td>{!! $datos['comandas'][0]->nom !!}</td>
+        </tr>
+        <tr>
+            <td><strong>Identificacion</strong></td>
+            <td>{!! $datos['comandas'][0]->iden !!}</td>
+        </tr>
+        <tr>
+            <td><strong>Vehiculo</strong></td>
+            <td>{!! $datos['comandas'][0]->placa !!}</td>
+        </tr>
+        <tr>
+            <td><strong>Observaciones</strong></td>
+            <td>{!! $datos['comandas'][0]->observacion !!}</td>
+        </tr>
+    </table>
 </div>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 quitar">
 
         <!-- Id Field -->
         <div class="form-group">
             {!! Form::label('id', 'Id:') !!}
             <p>{!! $datos['comandas'][0]->id !!}</p>
             
-            <img src="data:image/png;base64,{!! DNS1D::getBarcodePNG($datos['comandas'][0]->id, "C39+") !!}" width="40%" />        
+            <img src="data:image/png;base64,{!! DNS1D::getBarcodePNG($datos['comandas'][0]->id, "C39+") !!}" width="20%" />        
 
 
         </div>
@@ -138,7 +160,7 @@
 
                         <!-- Submit Field -->
                         <div class="form-group col-sm-12">
-                            {!! Form::submit('<i class="glyphicon glyphicon-plus"></i> Agregar', ['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
                         </div>
 
                     {!! Form::close() !!}
@@ -149,7 +171,7 @@
                     <table class="table table-responsive" id="comandaDetalles-table" style="width: 100%">
                         <thead>
                             <tr>
-                                <th>Comanda</th>
+                                <th>Servicio</th>
                             <th>Descuento</th>
                             <th>Valor</th>
                             <th>Total</th>
