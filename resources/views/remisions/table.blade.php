@@ -1,14 +1,15 @@
-<table class="table table-responsive" id="remisions-table">
+<table class="table table-responsive" id="remisions-table" style="width: 100%">
     <thead>
         <tr>
             <th>Descripcion</th>
-        <th>Persona Id</th>
-        <th>Proveedor Id</th>
-        <th>Concepto Id</th>
-        <th>Tipo Remision Id</th>
         <th>Fecha</th>
         <th>Valor</th>
-        <th>Users Id</th>
+        <th>Persona</th>
+        <th>Proveedor</th>
+        <th>Concepto</th>
+        <th>Tipo Remision</th>
+
+        <th>Creado Por</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -16,13 +17,13 @@
     @foreach($remisions as $remision)
         <tr>
             <td>{!! $remision->descripcion !!}</td>
-            <td>{!! $remision->persona_id !!}</td>
-            <td>{!! $remision->proveedor_id !!}</td>
-            <td>{!! $remision->concepto_id !!}</td>
-            <td>{!! $remision->tipo_remision_id !!}</td>
             <td>{!! $remision->fecha !!}</td>
-            <td>{!! $remision->valor !!}</td>
-            <td>{!! $remision->users_id !!}</td>
+            <td>{!! number_format($remision->valor) !!}</td>
+            <td>{!! $remision->nombre !!} {!! $remision->apellido !!} {!! $remision->identificacion !!}</td>
+            <td>{!! $remision->razon_social !!}</td>
+            <td>{!! $remision->con !!}</td>
+            <td>{!! $remision->tr !!}</td>
+            <td>{!! $remision->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['remisions.destroy', $remision->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

@@ -6,32 +6,32 @@
 
 <!-- Persona Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('persona_id', 'Persona Id:') !!}
-    {!! Form::select('persona_id', ], null, ['class' => 'form-control chosen-select']) !!}
+    {!! Form::label('persona_id', 'Persona:') !!}
+    {!! Form::select('persona_id',$datos['personas'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Proveedor Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('proveedor_id', 'Proveedor Id:') !!}
-    {!! Form::select('proveedor_id', ], null, ['class' => 'form-control chosen-select']) !!}
+    {!! Form::label('proveedor_id', 'Proveedor:') !!}
+    {!! Form::select('proveedor_id', $datos['proveedores'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Concepto Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('concepto_id', 'Concepto Id:') !!}
-    {!! Form::select('concepto_id', ], null, ['class' => 'form-control chosen-select']) !!}
+    {!! Form::label('concepto_id', 'Concepto:') !!}
+    {!! Form::select('concepto_id', $datos['Conceptos'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Tipo Remision Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('tipo_remision_id', 'Tipo Remision Id:') !!}
-    {!! Form::select('tipo_remision_id', ], null, ['class' => 'form-control chosen-select']) !!}
+    {!! Form::label('tipo_remision_id', 'Tipo Remision:') !!}
+    {!! Form::select('tipo_remision_id', $datos['tipo_r'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Fecha Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha', 'Fecha:') !!}
-    {!! Form::text('fecha', null, ['class' => 'form-control']) !!}
+    {!! Form::text('fecha', null, ['class' => 'form-control date']) !!}
 </div>
 
 <!-- Valor Field -->

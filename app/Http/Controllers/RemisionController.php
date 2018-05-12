@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Estados;
+use App\Models\Proveedores;
+use App\Models\Conceptos;
 
 class RemisionController extends AppBaseController
 {
@@ -29,8 +34,17 @@ class RemisionController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->remisionRepository->pushCriteria(new RequestCriteria($request));
-        $remisions = $this->remisionRepository->all();
+       /* $this->remisionRepository->pushCriteria(new RequestCriteria($request));
+        $remisions = $this->remisionRepository->all();*/
+
+        $remisions =  DB::table('remisions')
+                ->join('users', 'remisions.users_id', '=', 'users.id')
+                ->join('personas', 'remisions.persona_id', '=', 'personas.id')
+                ->join('proveedores', 'remisions.proveedor_id', '=', 'proveedores.id')
+                ->join('conceptos', 'remisions.concepto_id', '=', 'conceptos.id')
+                ->join('tipo_remision', 'remisions.tipo_remision_id', '=', 'tipo_remision.id')
+                ->selectRaw('remisions.*,users.name,personas.nombre,personas.apellido,personas.identificacion,proveedores.razon_social,conceptos.descripcion as con,tipo_remision.descripcion as tr')
+                ->get();
 
         return view('remisions.index')
             ->with('remisions', $remisions);
@@ -43,7 +57,21 @@ class RemisionController extends AppBaseController
      */
     public function create()
     {
-        return view('remisions.create');
+        $personas = DB::table('personas')
+            ->select(DB::raw('CONCAT(nombre, " ", apellido, " ",identificacion) AS identificacion'), 'id')
+            ->pluck('identificacion','id');
+        
+        $proveedores=Proveedores::pluck('razon_social','id');
+
+        $Conceptos = DB::table('conceptos')
+            ->where('tipo_conceptos_id', '4')
+            ->pluck('descripcion','id');
+
+        $tipo_r = DB::table('tipo_remision')
+            ->pluck('descripcion','id');
+
+        $datos = ['personas' => $personas,'proveedores' => $proveedores,'Conceptos' => $Conceptos,'tipo_r' => $tipo_r];
+        return view('remisions.create')->with('datos', $datos);
     }
 
     /**
@@ -56,6 +84,7 @@ class RemisionController extends AppBaseController
     public function store(CreateRemisionRequest $request)
     {
         $input = $request->all();
+        $input['users_id']=Auth::id();
 
         $remision = $this->remisionRepository->create($input);
 
@@ -101,7 +130,23 @@ class RemisionController extends AppBaseController
             return redirect(route('remisions.index'));
         }
 
-        return view('remisions.edit')->with('remision', $remision);
+        $personas = DB::table('personas')
+            ->select(DB::raw('CONCAT(nombre, " ", apellido, " ",identificacion) AS identificacion'), 'id')
+            ->pluck('identificacion','id');
+        
+        $proveedores=Proveedores::pluck('razon_social','id');
+
+        $Conceptos = DB::table('conceptos')
+            ->where('tipo_conceptos_id', '4')
+            ->pluck('descripcion','id');
+
+        $tipo_r = DB::table('tipo_remision')
+            ->pluck('descripcion','id');
+
+        $datos = ['personas' => $personas,'proveedores' => $proveedores,'Conceptos' => $Conceptos,'tipo_r' => $tipo_r,'remision'=>$remision ];
+
+
+        return view('remisions.edit')->with('datos', $datos);
     }
 
     /**

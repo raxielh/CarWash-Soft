@@ -20,11 +20,11 @@ class CreateTipoRemisionTable extends Migration
         });
 
         DB::table('tipo_remision')->insert([
-            'descripcion' => 'Diarios'
+            'descripcion' => 'Diaria'
         ]);
         
         DB::table('tipo_remision')->insert([
-            'descripcion' => 'Mensuales'
+            'descripcion' => 'Mensual'
         ]);
        
     }

@@ -69,7 +69,6 @@ class Remision extends Model
         'tipo_remision_id' => 'required',
         'fecha' => 'required',
         'valor' => 'required',
-        'users_id' => 'required'
     ];
 
     
