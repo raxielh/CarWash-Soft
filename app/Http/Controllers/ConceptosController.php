@@ -128,6 +128,8 @@ class ConceptosController extends AppBaseController
         $productos=Conceptos::where('tipo_conceptos_id', '<>' , 1)->pluck('descripcion','id');
         $estados=Estados::pluck('descripcion','id');
 
+
+
         $datos = [
                     'conceptos' => $conceptos,
                     'productos' => $productos,

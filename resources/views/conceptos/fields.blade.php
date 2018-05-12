@@ -7,7 +7,7 @@
 <!-- Descripcion Field -->
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('descripcion', 'Descripcion:') !!}
-    {!! Form::textarea('descripcion', null, ['class' => 'form-control']) !!}
+    {!! Form::text('descripcion', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tipo Conceptos Id Field -->
