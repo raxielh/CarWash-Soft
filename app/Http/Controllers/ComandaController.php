@@ -159,7 +159,7 @@ class ComandaController extends AppBaseController
                 ->get();
 
 
-        return $conceptos=Conceptos::pluck('descripcion','id');
+        $conceptos=Conceptos::pluck('descripcion','id');
         $descuento=Descuento::pluck('descripcion','id');
 
         $datos = [
