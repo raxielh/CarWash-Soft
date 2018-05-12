@@ -141,3 +141,7 @@
 -->
 
 
+<li class="{{ Request::is('configuracions*') ? 'active' : '' }}">
+    <a href="{!! route('configuracions.index') !!}"><i class="fa fa-edit"></i><span>Configuracions</span></a>
+</li>
+

@@ -19,6 +19,7 @@ class CreateDetallefacturaTable extends Migration
             $table->integer('concepto_id')->unsigned();
             $table->integer('cantidad')->unsigned();
             $table->integer('descuentos_id')->unsigned();
+            $table->integer('descuento')->unsigned();
             $table->char('valor', 100);
             $table->integer('comision');
             $table->integer('impuesto');
