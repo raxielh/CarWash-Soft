@@ -97,11 +97,17 @@
 
 
 <li class="{{ Request::is('comandas*') ? 'active' : '' }}">
-    <a href="{!! route('comandas.index') !!}"><i class="fa fa-shopping-bag"></i><span>Comandas</span></a>
+    <a href="{!! route('comandas.index') !!}"><i class="fa fa-shopping-bag"></i><span> Comandas</span></a>
 </li>
 
+
+<li class="{{ Request::is('remisions*') ? 'active' : '' }}">
+    <a href="{!! route('remisions.index') !!}"><i class="fa fa-credit-card-alt"></i><span> Remision</span></a>
+</li>
+
+
 <li>
-    <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-signal"></i> <span>Reportes</span></a>
+    <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-signal"></i> <span> Reportes</span></a>
     <ul class="nav nav-list tree" style="display: none;background:rgb(55, 65, 69);width: 230px;">
         <li>
             <a href="#"><i class="fa fa-edit"></i><span> Ventas</span></a>

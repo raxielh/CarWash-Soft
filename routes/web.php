@@ -82,3 +82,5 @@ Route::resource('marcas', 'MarcaController');
 
 Route::resource('lineas', 'LineaController');
 Route::get('lineas_marca/{marca}','LineaController@marca');
+
+Route::resource('remisions', 'RemisionController');

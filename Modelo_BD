@@ -196,13 +196,20 @@ faturacion_detalle
 	users_id integer:unsigned:foreign,users,id hidden
 
 Remision
-	observacion
-	persona
-	proveedor
-	concepto
-	tipo_remision
-	fecha 
-	valor
+	descripcion char,100 textarea
+		required
+	persona_id integer:unsigned:foreign,personas,id select
+		required
+	proveedor_id integer:unsigned:foreign,proveedores,id select
+		required
+	concepto_id integer:unsigned:foreign,conceptos,id select
+		required
+	tipo_remision_id integer:unsigned:foreign,tipo_remision,id select
+		required
+	fecha date,100 text
+		required
+	valor integer number
+		required
 	users_id integer:unsigned:foreign,users,id hidden
 
 
