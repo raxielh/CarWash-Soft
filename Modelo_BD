@@ -183,6 +183,18 @@ faturacion_detalle
 	telefono1 char,100 text
 	users_id integer:unsigned:foreign,users,id hidden
 
+*Marca
+	descripcion char,100 textarea
+		required
+	users_id integer:unsigned:foreign,users,id hidden
+
+*Linea
+	marca_id integer:unsigned:foreign,marcas,id select
+		required
+	descripcion char,100 textarea
+		required
+	users_id integer:unsigned:foreign,users,id hidden
+
 egresos_diario
 	descripcion
 	proveedor 
@@ -195,31 +207,19 @@ remision_detalle
 	valor
 	users_id integer:unsigned:foreign,users,id hidden
 
-Marca
-	descripcion char,100 textarea
-		required
-	users_id integer:unsigned:foreign,users,id hidden
-
-Linea
-	marca_id integer:unsigned:foreign,marcas,id select
-		required
-	descripcion char,100 textarea
-		required
-	users_id integer:unsigned:foreign,users,id hidden
 
 
 
 
 
-
-validar en personas la fecha nacimiento
-agregar marca del vehiculo
-linea del vehiculo
+*validar en personas la fecha nacimiento
+*agregar marca del vehiculo
+*linea del vehiculo
 reporte de equipo carros lavados
-en la comanda colocar cantidad de conceptos
+*en la comanda colocar cantidad de conceptos
 diseño factura depende del modelo que envio diego
-modelo de impresion de comanda que envia diego
-porcentage de comision en los conceptos para los equipos
+*modelo de impresion de comanda que envia diego
+*porcentage de comision en los conceptos para los equipos
 diego va diseñar del informe final de egresos e ingresos
 
 crear adminsitradores que ganarian comision con respecto a : el producido de los servicios no incluidas las bebidas y aliments

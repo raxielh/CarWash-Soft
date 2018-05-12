@@ -54,7 +54,7 @@
     <div class="col-md-8" style="padding: 2em">
         @include('adminlte-templates::common.errors')
         <div class="box box-primary">
-            <h4 style="padding-left: 10px;">Adicionar Producto al combo</h4>
+            <h4 style="padding-left: 10px;">Adicionar Producto ó Servicio al combo</h4>
             <div class="box-body">
                 {!! Form::open(['route' => 'combos.store']) !!}
 
@@ -62,7 +62,7 @@
                     <input type="hidden" name="concepto_id1" id="concepto_id1" value="{{$datos['conceptos'][0]->id}}">
                     <!-- Concepto Id Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('concepto_id2', 'Productos:') !!}
+                        {!! Form::label('concepto_id2', 'Productos ó Servicios:') !!}
                         {!! Form::select('concepto_id2', $datos['productos'], null, ['class' => 'form-control chosen-select']) !!}
                     </div>
 
@@ -79,10 +79,12 @@
 
                 {!! Form::close() !!}
                 
-                <table class="table table-responsive" id="combos-table">
+                <table class="table table-responsive" id="combos-table" style="width:100%">
                     <thead>
                         <tr>
-                        <th>Productos</th>
+                        <th>Producto ó Servicio</th>
+                        <th>% Comision</th>
+                        <th>% Impuesto</th>
                         <th>Estado</th>
                         <th>Creado por</th>
                             <th>Action</th>
@@ -92,6 +94,8 @@
                     @foreach($datos['combos'] as $combos)
                         <tr>
                             <td>{!! $combos->producto !!}</td>
+                            <td>{!! $combos->comision !!}</td>
+                            <td>{!! $combos->impuesto !!}</td>
                             <td>{!! $combos->descestado !!}</td>
                             <td>{!! $combos->name !!}</td>
                             <td>

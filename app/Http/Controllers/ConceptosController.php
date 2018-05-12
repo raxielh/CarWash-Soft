@@ -108,7 +108,9 @@ class ConceptosController extends AppBaseController
                     users.name,
                     estados.descripcion AS descestado,
                     conceptos1.descripcion AS combo,
-                    conceptos2.descripcion AS producto
+                    conceptos2.descripcion AS producto,
+                    conceptos2.comision,
+                    conceptos2.impuesto
                     FROM 
                     combos,
                     conceptos AS conceptos1,
@@ -119,7 +121,8 @@ class ConceptosController extends AppBaseController
                     combos.users_id=users.id AND
                     combos.estado_id=estados.id AND
                     combos.concepto_id1=conceptos1.id AND
-                    combos.concepto_id2=conceptos2.id";
+                    combos.concepto_id2=conceptos2.id AND
+                     combos.concepto_id1=".$id;
         $combos = DB::select($sql);
 
         $productos=Conceptos::where('tipo_conceptos_id', '<>' , 1)->pluck('descripcion','id');
@@ -168,6 +171,8 @@ class ConceptosController extends AppBaseController
      */
     public function update($id, UpdateConceptosRequest $request)
     {
+        //dd($request->all());
+
         $conceptos = $this->conceptosRepository->findWithoutFail($id);
 
         if (empty($conceptos)) {
@@ -177,6 +182,8 @@ class ConceptosController extends AppBaseController
         }
 
         $conceptos = $this->conceptosRepository->update($request->all(), $id);
+
+        //dd($conceptos);
 
         Flash::success('Conceptos Actualizado con exito.');
 

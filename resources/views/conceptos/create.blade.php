@@ -21,4 +21,9 @@
             </div>
         </div>
     </div>
+    <script>
+        $(function() {
+            $('#comision,#impuesto').val(0);
+        });
+    </script>
 @endsection

@@ -23,6 +23,8 @@ class ConceptosRepository extends BaseRepository
         'codigo',
         'descripcion',
         'tipo_conceptos_id',
+        'comision',
+        'impuesto',
         'estado_id',
         'users_id'
     ];

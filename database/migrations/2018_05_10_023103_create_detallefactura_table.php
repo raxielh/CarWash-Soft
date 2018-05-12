@@ -20,6 +20,8 @@ class CreateDetallefacturaTable extends Migration
             $table->integer('cantidad')->unsigned();
             $table->integer('descuentos_id')->unsigned();
             $table->char('valor', 100);
+            $table->integer('comision');
+            $table->integer('impuesto');
             $table->integer('users_id')->unsigned();
             $table->timestamps();
             $table->foreign('factura_id')->references('id')->on('factura');

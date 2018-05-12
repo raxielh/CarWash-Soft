@@ -18,6 +18,8 @@ class CreateConceptosTable extends Migration
             $table->char('codigo', 100)->unique();
             $table->mediumText('descripcion');
             $table->integer('tipo_conceptos_id')->unsigned();
+            $table->integer('comision')->default(0);
+            $table->integer('impuesto')->default(0);
             $table->integer('estado_id')->unsigned();
             $table->integer('users_id')->unsigned();
             $table->timestamps();

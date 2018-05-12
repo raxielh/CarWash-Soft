@@ -22,6 +22,18 @@
     {!! Form::select('estado_id',$datos['estados'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('comision', 'Comision:') !!}
+    {!! Form::text('comision', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('impuesto', 'Impuesto:') !!}
+    {!! Form::text('impuesto', null, ['class' => 'form-control']) !!}
+</div>
+
+
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}

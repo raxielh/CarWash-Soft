@@ -30,6 +30,8 @@ class Conceptos extends Model
         'codigo',
         'descripcion',
         'tipo_conceptos_id',
+        'comision',
+        'impuesto',
         'estado_id',
         'users_id'
     ];
@@ -42,6 +44,8 @@ class Conceptos extends Model
     protected $casts = [
         'codigo' => 'string',
         'tipo_conceptos_id' => 'integer',
+        'comision'=> 'integer',
+        'impuesto'=> 'integer',
         'estado_id' => 'integer',
         'users_id' => 'integer'
     ];
@@ -55,6 +59,8 @@ class Conceptos extends Model
         'codigo' => 'required',
         'descripcion' => 'required',
         'tipo_conceptos_id' => 'required',
+        'comision'=> 'required',
+        'impuesto'=> 'required',
         'estado_id' => 'required'
     ];
 
