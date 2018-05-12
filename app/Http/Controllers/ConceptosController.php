@@ -128,6 +128,12 @@ class ConceptosController extends AppBaseController
         $productos=Conceptos::where('tipo_conceptos_id', '<>' , 1)->pluck('descripcion','id');
         $estados=Estados::pluck('descripcion','id');
 
+        $precios =  DB::table('valores_conceptos')
+                ->where('valores_conceptos.concepto_id',$id)
+                ->selectRaw('valores_conceptos.*')
+                ->orderByRaw('created_at DESC')
+                ->get();
+
 
 
         $datos = [
@@ -135,6 +141,7 @@ class ConceptosController extends AppBaseController
                     'productos' => $productos,
                     'estados' => $estados,
                     'combos' => $combos,
+                    'precios' => $precios,
                 ];
 
         return view('conceptos.show')->with('datos', $datos);

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-sm-2">
 
         <!-- Id Field -->
         <div class="form-group">
@@ -50,33 +50,39 @@
         </div>
 
     </div>
-
-    <div class="col-md-8" style="padding: 2em">
-
-
-                        <div class="row">
-                            {!! Form::open(['route' => 'valoresConceptos.store']) !!}
-
-                                <!-- Concepto Id Field -->
-                                <div class="form-group col-sm-6">
-                                    <input type="text id="concepto_id" name="concepto_id">
-                                </div>
-
-                                <!-- Valor Field -->
-                                <div class="form-group col-sm-6">
-                                    {!! Form::label('valor', 'Valor:') !!}
-                                    {!! Form::number('valor', null, ['class' => 'form-control','autofocus'=>'autofocus']) !!}
-                                </div>
-
-                                <!-- Submit Field -->
-                                <div class="form-group col-sm-12">
-                                    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-                                </div>
-
-
-                            {!! Form::close() !!}
-                        </div>
-                   
+    <div class="col-sm-4" style="padding-right: 2em">
+        <div class="box box-primary">
+            <div class="box-body">
+                {!! Form::open(['route' => 'valoresConceptos.store']) !!}
+                    <input type="hidden" id="concepto_id" name="concepto_id" value="{!! $datos['conceptos'][0]->id !!}">
+                    <div class="form-group col-sm-6">
+                        {!! Form::label('valor', 'Agregar Precio:') !!}
+                        {!! Form::number('valor', null, ['class' => 'form-control','autofocus'=>'autofocus']) !!}
+                    </div>
+                    <div class="form-group col-sm-6" style="margin-top: 24px;">
+                        {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+                    </div>
+                {!! Form::close() !!}
+                <table class="table table-responsive" id="combos-table" style="width: 100%">
+                    <thead>
+                        <tr>
+                        <th>Precio</th>
+                        <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($datos['precios'] as $precio)
+                        <tr>
+                            <td>{!! $precio->valor !!}</td>
+                            <td>{!! $precio->created_at !!}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6" >                   
     @if ($datos['conceptos'][0]->idtipo === 1)
         @include('adminlte-templates::common.errors')
         <div class="box box-primary">
@@ -140,4 +146,9 @@
         </div>
     @endif
     </div>
+
+
+
+
+
 </div>
