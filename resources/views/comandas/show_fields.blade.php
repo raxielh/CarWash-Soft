@@ -148,7 +148,7 @@
                             {!! Form::label('descuentos_id', 'Descuentos:') !!}
                             {!! Form::select('descuentos_id', $datos['descuento'], null, ['class' => 'form-control chosen-select']) !!}
                         </div>
-                        <input type="hidden" id="descuento">
+                        <input type="hidden" id="descuento" name="descuento">
 
                         <!-- Valor Field -->
                         <div class="form-group col-sm-3">
@@ -202,7 +202,7 @@
                                 <td>{!! $v=$comandaDetalle->valor !!}</td>
                                 <td>{!! $c=$comandaDetalle->cantidad !!}</td>
                                 <td>{!! $i=($v*$c*($comandaDetalle->impuesto/100)) !!}</td>
-                                <td>{!! $d=($v*$c*($comandaDetalle->porcentaje/100)) !!}</td>
+                                <td>{!! $d=($v*$c*($comandaDetalle->descuento/100)) !!}</td>
                                 
                                 <td>{!! number_format($x=(($v*$c)+$i)-$d) !!}</td>
                                 <div style="display: none;">{{$t=$t+$x}}</div>

@@ -149,7 +149,7 @@ class ComandaController extends AppBaseController
                 ->join('conceptos', 'comanda_detalles.concepto_id', '=', 'conceptos.id')
                 ->join('descuentos', 'comanda_detalles.descuentos_id', '=', 'descuentos.id')
                 ->where('comanda_detalles.comanda_id',$id)
-                ->selectRaw('comanda_detalles.id,conceptos.descripcion,descuentos.porcentaje,comanda_detalles.valor,comanda_detalles.cantidad,comanda_detalles.impuesto')
+                ->selectRaw('comanda_detalles.id,conceptos.descripcion,comanda_detalles.descuento,comanda_detalles.valor,comanda_detalles.cantidad,comanda_detalles.impuesto')
                 ->get();
 
         $lavado =  DB::table('lavados')

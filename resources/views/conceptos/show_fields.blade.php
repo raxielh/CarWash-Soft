@@ -50,8 +50,34 @@
         </div>
 
     </div>
-    @if ($datos['conceptos'][0]->idtipo === 1)
+
     <div class="col-md-8" style="padding: 2em">
+
+
+                        <div class="row">
+                            {!! Form::open(['route' => 'valoresConceptos.store']) !!}
+
+                                <!-- Concepto Id Field -->
+                                <div class="form-group col-sm-6">
+                                    <input type="text id="concepto_id" name="concepto_id">
+                                </div>
+
+                                <!-- Valor Field -->
+                                <div class="form-group col-sm-6">
+                                    {!! Form::label('valor', 'Valor:') !!}
+                                    {!! Form::number('valor', null, ['class' => 'form-control','autofocus'=>'autofocus']) !!}
+                                </div>
+
+                                <!-- Submit Field -->
+                                <div class="form-group col-sm-12">
+                                    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+                                </div>
+
+
+                            {!! Form::close() !!}
+                        </div>
+                   
+    @if ($datos['conceptos'][0]->idtipo === 1)
         @include('adminlte-templates::common.errors')
         <div class="box box-primary">
             <h4 style="padding-left: 10px;">Adicionar Producto ó Servicio al combo</h4>
@@ -112,6 +138,6 @@
 
             </div>
         </div>
-    </div>
     @endif
+    </div>
 </div>

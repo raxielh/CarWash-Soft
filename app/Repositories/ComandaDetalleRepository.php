@@ -24,6 +24,7 @@ class ComandaDetalleRepository extends BaseRepository
         'concepto_id',
         'cantidad',
         'descuentos_id',
+        'descuento',
         'valor',
         'comision',
         'impuesto',
