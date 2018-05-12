@@ -144,30 +144,31 @@
                         </div>
 
                         <!-- Descuentos Id Field -->
-                        <div class="form-group col-sm-6">
+                        <div class="form-group col-sm-3">
                             {!! Form::label('descuentos_id', 'Descuentos:') !!}
                             {!! Form::select('descuentos_id', $datos['descuento'], null, ['class' => 'form-control chosen-select']) !!}
                         </div>
                         <input type="hidden" id="descuento">
 
                         <!-- Valor Field -->
-                        <div class="form-group col-sm-6">
+                        <div class="form-group col-sm-3">
                             {!! Form::label('valor', 'Valor:') !!}
                             {!! Form::text('valor', null, ['class' => 'form-control']) !!}
                         </div>
                         
-                        <div class="form-group col-sm-6 cantidad">
+                        <div class="form-group col-sm-3 cantidad">
                             {!! Form::label('cantidad', 'Cantidad:') !!}
                             {!! Form::text('cantidad', 1, ['class' => 'form-control']) !!}
                         </div>
 
+                        <input type="hidden" value="" id="impuesto" name="impuesto">
+                        <input type="hidden" value="" id="comision" name="comision">
                         <input type="hidden" value="" id="total">
                         <!-- Total Field -->
-                        <div class="form-group col-sm-6">
+                        <div class="form-group col-sm-3">
                             {!! Form::label('totalc', 'Total:') !!}
                             {!! Form::number('totalc', null, ['class' => 'form-control','disabled' => 'disabled']) !!}
                         </div>
-
                         <!-- Submit Field -->
                         <div class="form-group col-sm-12">
                             {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
@@ -181,10 +182,13 @@
                     <table class="table table-responsive" id="comandaDetalles-table" style="width: 100%">
                         <thead>
                             <tr>
-                                <th>Servicio</th>
+                            <th>Servicio ó Producto</th>
+                            <th>Valor U</th>
+                            <th>Cantidad</th>
+                            <th>Impuesto</th>
                             <th>Descuento</th>
-                             <th>Cantidad</th>
-                            <th>Valor</th>
+                            
+                            
                             <th>Total</th>
                                 <th class="quitar">Action</th>
                             
@@ -195,11 +199,13 @@
                         @foreach($datos['detalles'] as $comandaDetalle)
                             <tr>
                                 <td>{!! $comandaDetalle->descripcion !!}</td>
-                                <td>{!! $comandaDetalle->porcentaje !!}%</td>
-                                <td>{!! $comandaDetalle->cantidad !!}</td>
-                                <td>{!! $comandaDetalle->valor !!}</td>
-                                <td>{!! ($comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100)))*$comandaDetalle->cantidad !!}</td>
-                                <div style="display: none;">{{$t=$t+$comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100))}}</div>
+                                <td>{!! $v=$comandaDetalle->valor !!}</td>
+                                <td>{!! $c=$comandaDetalle->cantidad !!}</td>
+                                <td>{!! $i=($v*$c*($comandaDetalle->impuesto/100)) !!}</td>
+                                <td>{!! $d=($v*$c*($comandaDetalle->porcentaje/100)) !!}</td>
+                                
+                                <td>{!! number_format($x=(($v*$c)+$i)-$d) !!}</td>
+                                <div style="display: none;">{{$t=$t+$x}}</div>
                                 <td class="quitar">
                                     {!! Form::open(['route' => ['comandaDetalles.destroy', $comandaDetalle->id], 'method' => 'delete']) !!}
                                     <div class='btn-group'>
@@ -213,44 +219,51 @@
                         <tfoot>
                             <tr>
                                 <th></th>
-                                <th></th><th></th>
+                                <th></th><th></th><th></th>
                                 <th>Total</th>
-                                <th>{{ $t }}</th>
+                                <th>{{ number_format($t) }}</th>
                                 <th class="quitar"></th>
                             </tr>
                         </tfoot>
                     </table>
                     @else
-                    <table class="table1 table-responsive" id="comandaDetalles-table">
+                    <table class="table table-responsive" id="comandaDetalles-table" style="width: 100%">
                         <thead>
                             <tr>
-                                <th>Comanda</th>
+                            <th>Servicio ó Producto</th>
+                            <th>Valor U</th>
+                            <th>Cantidad</th>
+                            <th>Impuesto</th>
                             <th>Descuento</th>
-                             <th>Cantidad</th>
-                            <th>Valor</th>
+                            
+                            
                             <th>Total</th>
-                           </tr>
+     
+                            
+                            </tr>
                         </thead>
                         <tbody>
                         <?php $t = 0; ?>
                         @foreach($datos['detalles'] as $comandaDetalle)
                             <tr>
                                 <td>{!! $comandaDetalle->descripcion !!}</td>
-                                <td>{!! $comandaDetalle->porcentaje !!}</td>
-                                <td>{!! $comandaDetalle->cantidad !!}</td>
-                                <td>{!! $comandaDetalle->valor !!}</td>
-                                <td>{!! $comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100)) !!}</td>
-                                <div style="display: none;">{{$t=$t+$comandaDetalle->valor-($comandaDetalle->valor*($comandaDetalle->porcentaje/100))}}</div>
+                                <td>{!! $v=$comandaDetalle->valor !!}</td>
+                                <td>{!! $c=$comandaDetalle->cantidad !!}</td>
+                                <td>{!! $i=($v*$c*($comandaDetalle->impuesto/100)) !!}</td>
+                                <td>{!! $d=($v*$c*($comandaDetalle->porcentaje/100)) !!}</td>
+                                
+                                <td>{!! number_format($x=(($v*$c)+$i)-$d) !!}</td>
+                                <div style="display: none;">{{$t=$t+$x}}</div>
                             </tr>
                         @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th></th>
-                                <th></th><th></th>
+                                <th></th><th></th><th></th>
                                 <th>Total</th>
-                                <th>{{ $t }}</th>
-                                <th></th>
+                                <th>{{ number_format($t) }}</th>
+                            
                             </tr>
                         </tfoot>
                     </table>

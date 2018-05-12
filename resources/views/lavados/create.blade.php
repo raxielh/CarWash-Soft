@@ -19,12 +19,12 @@
 
                         {!! Form::close() !!}
                     @else
-                        <div class="form-group col-sm-6">
+                        <div class="form-group col-sm-12">
                             <h4>Esta comanda se le asigno el equipo {{$datos['lavados'][0]->equipo}} con codigo {{$datos['lavados'][0]->codigo}} </h4>
                             {!! Form::open(['route' => ['lavados.destroy',$datos['lavados'][0]->id ], 'method' => 'delete']) !!}
                                 {!! Form::button('<i class="glyphicon glyphicon-trash"></i> Desasignar equipo', ['type' => 'submit', 'class' => 'btn btn-danger btn-xl', 'onclick' => "return confirm('Estas seguro?')"]) !!}
                             {!! Form::close() !!} <hr>
-                            <a href="{!! route('comandas.show',$datos['id']) !!}" class="btn btn-default">Cancelar</a>
+                            <a href="{!! route('comandas.show',$datos['id']) !!}" class="btn btn-default">Atras</a>
                         </div>
                     @endif
 

@@ -32,6 +32,8 @@ class ComandaDetalle extends Model
         'cantidad',
         'descuentos_id',
         'valor',
+        'comision',
+        'impuesto',
         'users_id'
     ];
 
@@ -46,6 +48,8 @@ class ComandaDetalle extends Model
         'cantidad' => 'integer',
         'descuentos_id' => 'integer',
         'valor' => 'string',
+        'comision' => 'integer',
+        'impuesto' => 'integer',
         'users_id' => 'integer'
     ];
 

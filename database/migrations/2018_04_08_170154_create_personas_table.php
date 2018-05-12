@@ -28,6 +28,15 @@ class CreatePersonasTable extends Migration
             $table->foreign('tipo_identificacion_id')->references('id')->on('tipo_identificacions');
             $table->foreign('users_id')->references('id')->on('users');
         });
+
+        DB::table('personas')->insert([
+            'nombre' => 'Diego',
+            'apellido' => 'Santiago',
+            'tipo_identificacion_id'=>'1',
+            'identificacion'=>'123456',
+            'users_id'=>'1',
+        ]);
+
     }
 
     /**

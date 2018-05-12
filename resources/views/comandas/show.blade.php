@@ -62,13 +62,12 @@
         function cargar_valor_concepto(id)
         {
             $.getJSON( "concepto_valor/"+id, function( data ) {
+                //console.log(data);
                 if(data.length==0){
                     $("#valor").prop('disabled', true);
                     $('#valor').val('');
-                    var v=parseInt($('#valor').val());
-                    var d=parseInt($('#descuento').val());
-                    var c=parseInt($('#cantidad').val());
-                    calcular(v,d,c);
+                    $('#totalc').val('');
+                    $('.cantidad').hide();
                 }else{
                     if(data[0].des=='Producto'){
                         $('.cantidad').show();
@@ -76,7 +75,10 @@
                         $('.cantidad').hide();
                     }
                     $("#valor").prop('disabled', false);
+                    //var valor=data[0].valor+(data[0].valor*(data[0].impuesto/100));
                     $('#valor').val(data[0].valor);
+                    $('#impuesto').val(data[0].impuesto);
+                    $('#comision').val(data[0].comision);
                     var v=parseInt($('#valor').val());
                     var d=parseInt($('#descuento').val());
                     var c=parseInt($('#cantidad').val());
@@ -85,10 +87,22 @@
             });
         }
 
-        function calcular(v,d,c){
-            //console.log(v+" "+d+" "+c);
-            $('#totalc').val((v-(v*(d/100)))*c);
-            $('#total').val((v-(v*(d/100)))*c);
+        function calcular(){
+            var v=parseInt($('#valor').val());
+            var d=parseInt($('#descuento').val());
+            var c=parseInt($('#cantidad').val());
+            var i=parseInt($('#impuesto').val());
+
+            var sub=v*c;
+            var des=(sub*(d/100));
+            var imp=(sub*(i/100));
+            var total=(sub+imp)-des;
+
+            console.log(des+' '+imp);
+            console.log(total);
+
+           $('#totalc').val(total);
+           $('#total').val(sub);
         }
 
     </script>

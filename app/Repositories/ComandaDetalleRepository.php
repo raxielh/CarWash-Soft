@@ -25,6 +25,8 @@ class ComandaDetalleRepository extends BaseRepository
         'cantidad',
         'descuentos_id',
         'valor',
+        'comision',
+        'impuesto',
         'users_id'
     ];
 

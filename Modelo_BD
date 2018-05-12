@@ -195,15 +195,13 @@ faturacion_detalle
 		required
 	users_id integer:unsigned:foreign,users,id hidden
 
-egresos_diario
-	descripcion
-	proveedor 
-	users_id integer:unsigned:foreign,users,id hidden
-
-remision_detalle
-	egreso
+Remision
+	observacion
+	persona
+	proveedor
 	concepto
-	descuento 
+	tipo_remision
+	fecha 
 	valor
 	users_id integer:unsigned:foreign,users,id hidden
 
@@ -221,6 +219,7 @@ diseño factura depende del modelo que envio diego
 *modelo de impresion de comanda que envia diego
 *porcentage de comision en los conceptos para los equipos
 diego va diseñar del informe final de egresos e ingresos
+Administrador -> persona comision concepto estado
 
 crear adminsitradores que ganarian comision con respecto a : el producido de los servicios no incluidas las bebidas y aliments
 

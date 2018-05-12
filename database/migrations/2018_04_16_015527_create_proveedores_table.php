@@ -27,6 +27,15 @@ class CreateProveedoresTable extends Migration
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('users_id')->references('id')->on('users');
         });
+
+        DB::table('proveedores')->insert([
+            'codigo' => '00',
+            'persona_id' => '1',
+            'razon_social'=>'Brillancor',
+            'nit'=>'00000-0',
+            'users_id'=>'1',
+        ]);
+
     }
 
     /**
