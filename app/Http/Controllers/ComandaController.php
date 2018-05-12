@@ -159,8 +159,18 @@ class ComandaController extends AppBaseController
                 ->get();
 
 
-        $conceptos=Conceptos::pluck('descripcion','id');
-        $descuento=Descuento::pluck('descripcion','id');
+        $conceptos = DB::table('conceptos')
+            ->select(DB::raw('CONCAT(codigo, " ", descripcion) AS descripcion'), 'id')
+            ->pluck('descripcion','id');
+
+        //$conceptos=Conceptos::pluck('descripcion','id');
+
+
+
+        $descuento = DB::table('descuentos')
+            ->select(DB::raw('CONCAT(codigo, " ", descripcion) AS descripcion'), 'id')
+            ->pluck('descripcion','id');
+        //$descuento=Descuento::pluck('descripcion','id');
 
         $datos = [
                     'comandas' => $comandas,
