@@ -66,7 +66,11 @@ class ProveedoresController extends AppBaseController
     public function create()
     {
 
-        $personas=Personas::pluck('identificacion','id');
+        $personas = DB::table('personas')
+            ->select(DB::raw('CONCAT(nombre, " ", apellido," ",identificacion) AS des'), 'id')
+            ->pluck('des','id');
+
+        //$personas=Personas::pluck('des','id');
         $datos = ['personas' => $personas];
         return view('proveedores.create')->with('datos', $datos);
 
