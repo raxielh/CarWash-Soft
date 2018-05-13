@@ -5,9 +5,9 @@
 </div>
 
 <!-- Comision Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-6" style="display: none;">
     {!! Form::label('comision', 'Comision:') !!}
-    {!! Form::number('comision', null, ['class' => 'form-control']) !!}
+    {!! Form::number('comision', 0, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Estado Id Field -->

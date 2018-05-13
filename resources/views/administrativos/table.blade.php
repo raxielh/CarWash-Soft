@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Persona</th>
-        <th>Comision</th>
+
         <th>Estado</th>
         <th>Creado por</th>
             <th>Action</th>
@@ -12,7 +12,7 @@
     @foreach($administrativos as $administrativo)
         <tr>
             <td>{!! $administrativo->nom !!} {!! $administrativo->ape !!} {!! $administrativo->iden !!}</td>
-            <td>{!! $administrativo->comision !!}</td>
+
             <td>{!! $administrativo->esta !!}</td>
             <td>{!! $administrativo->name !!}</td>
             <td>
