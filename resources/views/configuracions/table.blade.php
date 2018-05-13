@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="configuracions-table">
+<table class="table table-responsive" id="configuracions-table" style="width: 100%">
     <thead>
         <tr>
             <th>Concepto Admin Gasto</th>
@@ -9,14 +9,12 @@
     <tbody>
     @foreach($configuracions as $configuracion)
         <tr>
-            <td>{!! $configuracion->concepto_admin_gasto !!}</td>
-            <td>{!! $configuracion->concepto_lavador_gasto !!}</td>
+            <td>{!! $configuracion->conceptos1 !!}</td>
+            <td>{!! $configuracion->conceptos2 !!}</td>
             <td>
                 {!! Form::open(['route' => ['configuracions.destroy', $configuracion->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('configuracions.show', [$configuracion->id]) !!}" class='btn btn-default btn-xl'><i class="glyphicon glyphicon-eye-open"></i></a>
                     <a href="{!! route('configuracions.edit', [$configuracion->id]) !!}" class='btn btn-default btn-xl'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xl', 'onclick' => "return confirm('Estas seguro?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>

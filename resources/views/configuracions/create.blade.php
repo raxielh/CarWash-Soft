@@ -12,13 +12,10 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'configuracions.store']) !!}
 
-                        @include('configuracions.fields')
-
-                    {!! Form::close() !!}
                 </div>
             </div>
+
         </div>
     </div>
 @endsection

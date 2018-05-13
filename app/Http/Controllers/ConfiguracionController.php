@@ -33,6 +33,24 @@ class ConfiguracionController extends AppBaseController
         $this->configuracionRepository->pushCriteria(new RequestCriteria($request));
         $configuracions = $this->configuracionRepository->all();
 
+
+        $sql = "SELECT 
+                    configuracions.*,
+                    conceptos1.descripcion AS conceptos1,
+                    conceptos2.descripcion AS conceptos2
+                    FROM 
+                    configuracions,
+                    conceptos AS conceptos1,
+                    conceptos AS conceptos2
+                    WHERE
+                    configuracions.concepto_admin_gasto=conceptos1.id AND
+                    configuracions.concepto_lavador_gasto=conceptos2.id";
+        $configuracions = DB::select($sql);
+
+
+
+
+
         return view('configuracions.index')
             ->with('configuracions', $configuracions);
     }
@@ -111,7 +129,16 @@ class ConfiguracionController extends AppBaseController
             return redirect(route('configuracions.index'));
         }
 
-        return view('configuracions.edit')->with('configuracion', $configuracion);
+        $conceptos = DB::table('conceptos')
+         ->join('tipo_conceptos', 'conceptos.tipo_conceptos_id', '=', 'tipo_conceptos.id')
+                ->where('tipo_conceptos.id',4)
+            ->select(DB::raw('CONCAT(conceptos.codigo, " ", conceptos.descripcion) AS descripci'), 'conceptos.id')
+            ->pluck('conceptos.descripci','conceptos.id');
+
+        //return view('configuracions.edit')->with('configuracion', $configuracion);
+
+        $datos = ['configuracion' => $configuracion, 'conceptos' => $conceptos];
+        return view('configuracions.edit')->with('datos', $datos);
     }
 
     /**
