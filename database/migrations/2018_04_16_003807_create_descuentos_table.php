@@ -15,8 +15,8 @@ class CreateDescuentosTable extends Migration
     {
         Schema::create('descuentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('codigo', 100);
-            $table->char('descripcion', 100);
+            $table->string('codigo', 100);
+            $table->string('descripcion', 100);
             $table->integer('porcentaje');
             $table->integer('users_id')->unsigned();
             $table->timestamps();

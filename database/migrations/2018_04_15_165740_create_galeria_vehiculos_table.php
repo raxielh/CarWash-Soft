@@ -16,7 +16,7 @@ class CreateGaleriaVehiculosTable extends Migration
         Schema::create('galeria_vehiculos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('vehiculo_id')->unsigned();
-            $table->char('foto', 199);
+            $table->string('foto', 199);
             $table->integer('users_id')->unsigned();
             $table->timestamps();
             $table->foreign('vehiculo_id')->references('id')->on('vehiculos');

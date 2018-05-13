@@ -18,7 +18,7 @@ class CreateComandasTable extends Migration
             $table->integer('persona_id')->unsigned();
             $table->integer('vehiculo_id')->unsigned();
             $table->integer('estado_id')->unsigned();
-            $table->char('observacion', 100)->nullable();
+            $table->string('observacion', 100)->nullable();
             $table->integer('users_id')->unsigned();
             $table->timestamps();
             $table->foreign('persona_id')->references('id')->on('personas');

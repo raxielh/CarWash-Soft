@@ -15,7 +15,7 @@ class CreateTipoRemisionTable extends Migration
     {
         Schema::create('tipo_remision', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('descripcion', 100);
+            $table->string('descripcion', 100);
             $table->timestamps();
         });
 

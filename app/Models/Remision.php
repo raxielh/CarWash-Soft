@@ -62,7 +62,6 @@ class Remision extends Model
      * @var array
      */
     public static $rules = [
-        'descripcion' => 'required',
         'persona_id' => 'required',
         'proveedor_id' => 'required',
         'concepto_id' => 'required',

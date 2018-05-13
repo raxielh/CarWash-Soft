@@ -45,7 +45,14 @@
 
 
 <li>
-    <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-cubes"></i> <span>Parametros</span></a>
+    <a class="tree-toggle nav-header 
+    {{ Request::is('tipoConceptos*') ? 'active' : '' }}
+    {{ Request::is('conceptos*') ? 'active' : '' }}
+    {{ Request::is('equipos*') ? 'active' : '' }}
+    {{ Request::is('descuentos*') ? 'active' : '' }}
+    {{ Request::is('configuracions*') ? 'active' : '' }}
+    {{ Request::is('administrativos*') ? 'active' : '' }}
+    " style="cursor: pointer;"><i class="fa fa-cubes"></i> <span>Parametros</span></a>
     <ul class="nav nav-list tree" style="display: none;background:rgb(55, 65, 69);width: 230px;">
         <li class="{{ Request::is('tipoConceptos*') ? 'active' : '' }}">
             <a href="{!! route('tipoConceptos.index') !!}"><i class="fa fa-edit"></i><span> Tipo Conceptos</span></a>

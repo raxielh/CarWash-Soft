@@ -15,7 +15,7 @@ class CreateRemisionsTable extends Migration
     {
         Schema::create('remisions', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('descripcion', 100);
+            $table->string('descripcion', 100)->nullable();
             $table->integer('persona_id')->unsigned();
             $table->integer('proveedor_id')->unsigned();
             $table->integer('concepto_id')->unsigned();

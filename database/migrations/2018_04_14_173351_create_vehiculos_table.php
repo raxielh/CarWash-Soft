@@ -16,9 +16,9 @@ class CreateVehiculosTable extends Migration
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('persona_id')->unsigned();
-            $table->char('placa')->unique(100);
-            $table->char('modelo', 100)->nullable();
-            $table->char('color', 100)->nullable();
+            $table->string('placa')->unique(100);
+            $table->string('modelo', 100)->nullable();
+            $table->string('color', 100)->nullable();
             $table->integer('users_id')->unsigned();
             $table->integer('marcas_id')->unsigned();
             $table->integer('lineas_id')->unsigned();
