@@ -331,8 +331,45 @@ class ComandaController extends AppBaseController
     public function facturar($id)
     {
         $comanda = $id;
-        DB::select('CALL ProFacturarComanda(?)',array($id));
-        return $comanda;   
+        $consultar_factura =  DB::table('factura')
+                ->where('id',$id)
+                ->get();
+
+        if(count($consultar_factura)==0){
+            DB::select('CALL ProFacturarComanda(?)',array($id));
+        }else{
+
+            $factura =  DB::table('factura')
+                ->join('users', 'factura.users_id', '=', 'users.id')
+                ->join('personas', 'factura.persona_id', '=', 'personas.id')
+                ->join('vehiculos', 'factura.vehiculo_id', '=', 'vehiculos.id')
+                ->join('estado_comandas', 'factura.estado_id', '=', 'estado_comandas.id')
+                ->where('factura.id',$id)
+                ->selectRaw('estado_comandas.descripcion as estadodesc,vehiculos.*,factura.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden,estado_comandas.id as estaid,personas.telefono1,personas.direccion,factura.id as numero,'.
+                    DB::raw('DATE_FORMAT(factura.created_at, "%Y-%m-%d")').' as fecha '
+
+                )
+                ->selectRaw(DB::raw('DATE_FORMAT(factura.created_at, "%H:%i:%s")').' as hora ')
+                ->get();
+
+            $detalles =  DB::table('detallefactura')
+                ->join('conceptos', 'detallefactura.concepto_id', '=', 'conceptos.id')
+                ->join('descuentos', 'detallefactura.descuentos_id', '=', 'descuentos.id')
+                ->where('detallefactura.factura_id',$id)
+                ->selectRaw('detallefactura.id,conceptos.descripcion,detallefactura.descuento,detallefactura.valor,detallefactura.cantidad,detallefactura.impuesto')
+                ->get();
+
+            $datos = ['factura' => $factura,'detalles'=> $detalles];
+
+            return view('factura.index')
+                ->with('datos', $datos);
+
+        }
+
+
+
+        //DB::select('CALL ProFacturarComanda(?)',array($id));
+        
     }
 
 }
