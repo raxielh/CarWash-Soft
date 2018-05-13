@@ -1,7 +1,7 @@
 <!-- Persona Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('persona_id', 'Persona Id:') !!}
-    {!! Form::select('persona_id', ], null, ['class' => 'form-control chosen-select']) !!}
+    {!! Form::label('persona_id', 'Persona:') !!}
+    {!! Form::select('persona_id', $datos['personas'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Comision Field -->
@@ -12,8 +12,8 @@
 
 <!-- Estado Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('estado_id', 'Estado Id:') !!}
-    {!! Form::select('estado_id', ], null, ['class' => 'form-control chosen-select']) !!}
+    {!! Form::label('estado_id', 'Estado:') !!}
+    {!! Form::select('estado_id',$datos['estados'], null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Submit Field -->

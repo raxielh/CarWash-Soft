@@ -11,7 +11,7 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($administrativo, ['route' => ['administrativos.update', $administrativo->id], 'method' => 'patch']) !!}
+                   {!! Form::model($datos['administrativo'], ['route' => ['administrativos.update', $datos['administrativo']->id], 'method' => 'patch']) !!}
 
                         @include('administrativos.fields')
 

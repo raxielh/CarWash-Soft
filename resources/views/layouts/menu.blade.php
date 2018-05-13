@@ -66,6 +66,14 @@
         <li class="{{ Request::is('descuentos*') ? 'active' : '' }}">
             <a href="{!! route('descuentos.index') !!}"><i class="fa fa-edit"></i><span> Descuentos</span></a>
         </li>
+        <li class="{{ Request::is('configuracions*') ? 'active' : '' }}">
+            <a href="{!! route('configuracions.index') !!}"><i class="fa fa-edit"></i><span>Configuracions</span></a>
+        </li>
+
+        <li class="{{ Request::is('administrativos*') ? 'active' : '' }}">
+            <a href="{!! route('administrativos.index') !!}"><i class="fa fa-edit"></i><span>Administrativos</span></a>
+        </li>
+
 
     </ul>
 </li>
@@ -140,12 +148,4 @@
 
 -->
 
-
-<li class="{{ Request::is('configuracions*') ? 'active' : '' }}">
-    <a href="{!! route('configuracions.index') !!}"><i class="fa fa-edit"></i><span>Configuracions</span></a>
-</li>
-
-<li class="{{ Request::is('administrativos*') ? 'active' : '' }}">
-    <a href="{!! route('administrativos.index') !!}"><i class="fa fa-edit"></i><span>Administrativos</span></a>
-</li>
 

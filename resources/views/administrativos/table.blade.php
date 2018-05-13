@@ -1,20 +1,20 @@
-<table class="table table-responsive" id="administrativos-table">
+<table class="table table-responsive" id="administrativos-table" style="width: 100%">
     <thead>
         <tr>
-            <th>Persona Id</th>
+            <th>Persona</th>
         <th>Comision</th>
-        <th>Estado Id</th>
-        <th>Users Id</th>
+        <th>Estado</th>
+        <th>Creado por</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($administrativos as $administrativo)
         <tr>
-            <td>{!! $administrativo->persona_id !!}</td>
+            <td>{!! $administrativo->nom !!} {!! $administrativo->ape !!} {!! $administrativo->iden !!}</td>
             <td>{!! $administrativo->comision !!}</td>
-            <td>{!! $administrativo->estado_id !!}</td>
-            <td>{!! $administrativo->users_id !!}</td>
+            <td>{!! $administrativo->esta !!}</td>
+            <td>{!! $administrativo->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['administrativos.destroy', $administrativo->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

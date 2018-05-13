@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AdministrativoController extends AppBaseController
 {
@@ -31,6 +33,13 @@ class AdministrativoController extends AppBaseController
     {
         $this->administrativoRepository->pushCriteria(new RequestCriteria($request));
         $administrativos = $this->administrativoRepository->all();
+        $administrativos =  DB::table('administrativos')
+                ->join('users', 'administrativos.users_id', '=', 'users.id')
+                ->join('personas', 'administrativos.persona_id', '=', 'personas.id')
+                ->join('estados', 'administrativos.estado_id', '=', 'estados.id')
+                ->selectRaw('administrativos.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden,estados.descripcion as esta')
+                ->get();
+
 
         return view('administrativos.index')
             ->with('administrativos', $administrativos);
@@ -43,7 +52,14 @@ class AdministrativoController extends AppBaseController
      */
     public function create()
     {
-        return view('administrativos.create');
+        $personas = DB::table('personas')
+            ->select(DB::raw('CONCAT(nombre, " ", apellido," ",identificacion) AS des'), 'id')
+            ->pluck('des','id');
+        $estados = DB::table('estados')
+            ->pluck('descripcion','id');
+        //$personas=Personas::pluck('des','id');
+        $datos = ['personas' => $personas,'estados' => $estados];
+        return view('administrativos.create')->with('datos', $datos);
     }
 
     /**
@@ -56,6 +72,7 @@ class AdministrativoController extends AppBaseController
     public function store(CreateAdministrativoRequest $request)
     {
         $input = $request->all();
+        $input['users_id']=Auth::id();
 
         $administrativo = $this->administrativoRepository->create($input);
 
@@ -100,8 +117,14 @@ class AdministrativoController extends AppBaseController
 
             return redirect(route('administrativos.index'));
         }
-
-        return view('administrativos.edit')->with('administrativo', $administrativo);
+        $personas = DB::table('personas')
+            ->select(DB::raw('CONCAT(nombre, " ", apellido," ",identificacion) AS des'), 'id')
+            ->pluck('des','id');
+        $estados = DB::table('estados')
+            ->pluck('descripcion','id');
+        //$personas=Personas::pluck('des','id');
+        $datos = ['personas' => $personas,'estados' => $estados,'administrativo' => $administrativo];
+        return view('administrativos.edit')->with('datos', $datos);
     }
 
     /**

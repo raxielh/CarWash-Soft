@@ -242,14 +242,13 @@ diseño factura depende del modelo que envio diego
 *modelo de impresion de comanda que envia diego
 *porcentage de comision en los conceptos para los equipos
 diego va diseñar del informe final de egresos e ingresos
-Administrador -> persona comision estado
 
-crear adminsitradores que ganarian comision con respecto a : el producido de los servicios no incluidas las bebidas y aliments
+*crear adminsitradores que ganarian comision con respecto a : el producido de los servicios no incluidas las bebidas y aliments
 
-en el formulario de proveedor en el campo persona que salga el nombre en la busqueda
+*en el formulario de proveedor en el campo persona que salga el nombre en la busqueda
 en formulario concepto que se puedan agregar los valores
 
-en los combobox de comcepto de todos los furmularios que salga el codigo y la descripcion
+*en los combobox de comcepto de todos los furmularios que salga el codigo y la descripcion
 
 
 
