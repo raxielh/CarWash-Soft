@@ -26,7 +26,7 @@ class CreateDetallefacturaTable extends Migration
             $table->integer('users_id')->unsigned();
             $table->timestamps();
             $table->primary('id');
-            $table->foreign('factura_id')->references('id')->on('factura');
+            //$table->foreign('factura_id')->references('id')->on('factura');
             $table->foreign('concepto_id')->references('id')->on('conceptos');
             $table->foreign('descuentos_id')->references('id')->on('descuentos');
             $table->foreign('users_id')->references('id')->on('users');
