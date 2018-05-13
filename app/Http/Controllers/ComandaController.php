@@ -331,6 +331,7 @@ class ComandaController extends AppBaseController
     public function facturar($id)
     {
         $comanda = $id;
+        DB::select('CALL ProFacturarComanda(?)',array($id));
         return $comanda;   
     }
 
