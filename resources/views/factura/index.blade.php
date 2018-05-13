@@ -125,7 +125,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td align="right"><strong>TOTAL</strong></td>
-    <td align="center"><strong>{{$t}}</strong></td>
+    <td align="center"><strong>{{ number_format($t)}}</strong></td>
   </tr>
   <tr height="19">
     <td height="19"></td>

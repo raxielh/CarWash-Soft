@@ -35,8 +35,8 @@
                     <div class="card" style="width: 100%;padding: 6em">
                       <img class="card-img-top"  width="100%" src="{{URL::asset('img/bt03.jpg')}}" alt="Card image cap">
                       <div class="card-body">
-                        <h5 class="card-title">Cargar Gasto</h5>
-                        <a href="/procesos/cargar/" class="btn btn-primary"><i class="fa fa-calculator"></i> Cargar</a>
+                        <h5 class="card-title">Cerrar Dia</h5>
+                        <a href="/procesos/cargar/" class="btn btn-primary"><i class="fa fa-calculator"></i> Cerrar</a>
                       </div>
                     </div>                    
                 </div>    
