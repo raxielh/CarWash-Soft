@@ -221,7 +221,14 @@ Remision
 	users_id integer:unsigned:foreign,users,id hidden
 
 
-Administrador
+Administrativo
+	persona_id integer:unsigned:foreign,personas,id select
+		required
+	comision integer number
+		required
+	estado_id integer:unsigned:foreign,estados,id select
+		required
+
 
 
 
