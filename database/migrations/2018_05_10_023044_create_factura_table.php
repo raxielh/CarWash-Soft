@@ -14,7 +14,7 @@ class CreateFacturaTable extends Migration
     public function up()
     {
         Schema::create('factura', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id')->unsigned();
             $table->integer('persona_id')->unsigned();
             $table->integer('vehiculo_id')->unsigned();
             $table->integer('estado_id')->unsigned();
