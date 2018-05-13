@@ -251,6 +251,11 @@ en formulario concepto que se puedan agregar los valores
 *en los combobox de comcepto de todos los furmularios que salga el codigo y la descripcion
 
 
+TablaGananciaAdministrivo
+id
+valorini
+valorfin
+porcenganancia
 
 
 
