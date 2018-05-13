@@ -161,6 +161,7 @@ class ComandaController extends AppBaseController
 
         $conceptos = DB::table('conceptos')
             ->select(DB::raw('CONCAT(codigo, " ", descripcion) AS descripcion'), 'id')
+            ->where('tipo_conceptos_id', '<>' , 4)
             ->pluck('descripcion','id');
 
         //$conceptos=Conceptos::pluck('descripcion','id');

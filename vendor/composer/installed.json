@@ -1,5 +1,48 @@
 [
     {
+        "name": "cossou/jasperphp",
+        "version": "v2.5.0",
+        "version_normalized": "2.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cossou/JasperPHP.git",
+            "reference": "aa1b74d8b574f7728f29f50739da3a32a0782586"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cossou/JasperPHP/zipball/aa1b74d8b574f7728f29f50739da3a32a0782586",
+            "reference": "aa1b74d8b574f7728f29f50739da3a32a0782586",
+            "shasum": ""
+        },
+        "time": "2017-12-07T11:46:28+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "JasperPHP": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Hélder Duarte",
+                "email": "cossou@gmail.com"
+            }
+        ],
+        "description": "Create Reports in PHP with JasperReports",
+        "homepage": "https://github.com/cossou/JasperPHP",
+        "keywords": [
+            "jasper",
+            "jasperreports",
+            "java",
+            "pdf",
+            "reports"
+        ]
+    },
+    {
         "name": "dnoegel/php-xdg-base-dir",
         "version": "0.1",
         "version_normalized": "0.1.0.0",

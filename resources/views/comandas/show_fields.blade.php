@@ -32,6 +32,7 @@
     }
 </style>
 <div class="row">
+    <a href="{!! route('comandas.index') !!}" class="btn btn-default quitar" style="margin-left: 10px">Atras</a>
     @if (count($datos['lavado']) == 0)
     @else
         <a href="#" class="btn btn-info pull-right" onclick="window.print();" style="margin-right: 30px;"><i class="fa fa-print"></i> Imprimir</a>

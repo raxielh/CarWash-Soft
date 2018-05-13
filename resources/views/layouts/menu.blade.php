@@ -55,10 +55,6 @@
             <a href="{!! route('conceptos.index') !!}"><i class="fa fa-edit"></i><span> Conceptos</span></a>
         </li>
 
-        <li class="{{ Request::is('valoresConceptos*') ? 'active' : '' }}">
-            <a href="{!! route('valoresConceptos.index') !!}"><i class="fa fa-edit"></i><span> Valores Conceptos</span></a>
-        </li>
-
         <li class="{{ Request::is('equipos*') ? 'active' : '' }}">
             <a href="{!! route('equipos.index') !!}"><i class="fa fa-edit"></i><span> Equipos</span></a>
         </li>
@@ -142,10 +138,15 @@
 <li class="{{ Request::is('equipoPersonas*') ? 'active' : '' }}">
     <a href="{!! route('equipoPersonas.index') !!}"><i class="fa fa-edit"></i><span>Equipo Personas</span></a>
 </li>
-
+<li class="{{ Request::is('valoresConceptos*') ? 'active' : '' }}">
+    <a href="{!! route('valoresConceptos.index') !!}"><i class="fa fa-edit"></i><span> Valores Conceptos</span></a>
+</li>
 
 
 
 -->
 
+<li class="{{ Request::is('procesos*') ? 'active' : '' }}">
+    <a href="{!! route('procesos') !!}"><i class="fa fa-calculator"></i><span>Procesos</span></a>
+</li>
 
