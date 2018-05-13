@@ -93,3 +93,5 @@ Route::get('procesos/',["as" => "procesos", "uses" => "ProcesosController@index"
 Route::get('procesos/administrativo',["as" => "procesos_admin", "uses" => "ProcesosController@Administrativo"] );
 Route::get('procesos/lavadero',["as" => "procesos_lavadero", "uses" => "ProcesosController@Lavadero"] );
 Route::get('procesos/cargar',["as" => "procesos_cargar", "uses" => "ProcesosController@Cargar"] );
+
+Route::resource('gananciaAdministrivos', 'GananciaAdministrivoController');

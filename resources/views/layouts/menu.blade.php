@@ -149,6 +149,13 @@
     <a href="{!! route('remisions.index') !!}"><i class="fa fa-credit-card-alt"></i><span> Remision</span></a>
 </li>
 
+<li class="{{ Request::is('gananciaAdministrivos*') ? 'active' : '' }}">
+    <a href="{!! route('gananciaAdministrivos.index') !!}"><i class="fa fa-bar-chart"></i><span>Ganancia Administrivos</span></a>
+</li>
+
+<li class="{{ Request::is('procesos*') ? 'active' : '' }}">
+    <a href="{!! route('procesos') !!}"><i class="fa fa-calculator"></i><span>Procesos</span></a>
+</li>
 
 <li>
     <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-signal"></i> <span> Reportes</span></a>
@@ -186,7 +193,4 @@
 
 -->
 
-<li class="{{ Request::is('procesos*') ? 'active' : '' }}">
-    <a href="{!! route('procesos') !!}"><i class="fa fa-calculator"></i><span>Procesos</span></a>
-</li>
 

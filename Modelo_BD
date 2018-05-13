@@ -203,7 +203,7 @@ faturacion_detalle
 		required
 	users_id integer:unsigned:foreign,users,id hidden
 
-Remision
+*Remision
 	descripcion char,100 textarea
 		required
 	persona_id integer:unsigned:foreign,personas,id select
@@ -221,7 +221,7 @@ Remision
 	users_id integer:unsigned:foreign,users,id hidden
 
 
-Administrativo
+*Administrativo
 	persona_id integer:unsigned:foreign,personas,id select
 		required
 	comision integer number
@@ -229,6 +229,14 @@ Administrativo
 	estado_id integer:unsigned:foreign,estados,id select
 		required
 
+
+GananciaAdministrivo
+	valorini integer number
+		required
+	valorfin integer number
+		required
+	porcenganancia integer number
+		required
 
 
 
@@ -249,13 +257,6 @@ diego va diseñar del informe final de egresos e ingresos
 en formulario concepto que se puedan agregar los valores
 
 *en los combobox de comcepto de todos los furmularios que salga el codigo y la descripcion
-
-
-TablaGananciaAdministrivo
-id
-valorini
-valorfin
-porcenganancia
 
 
 
