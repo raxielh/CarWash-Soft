@@ -73,7 +73,8 @@ class ValoresConceptoController extends AppBaseController
 
         Flash::success('Valores Concepto Guardado exitosamente.');
 
-        return redirect(route('valoresConceptos.index'));
+        //return redirect(route('valoresConceptos.index'));
+         return back();
     }
 
     /**

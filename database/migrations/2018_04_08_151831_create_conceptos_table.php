@@ -27,6 +27,22 @@ class CreateConceptosTable extends Migration
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->foreign('users_id')->references('id')->on('users');
         });
+
+        DB::table('conceptos')->insert([
+            'codigo' => '000-1',
+            'descripcion' => 'Gasto Trabajador',
+            'tipo_conceptos_id' => '4',
+            'estado_id' => '1',
+            'users_id' => '1',
+        ]);
+
+        DB::table('conceptos')->insert([
+            'codigo' => '000-2',
+            'descripcion' => 'Gasto Lavador',
+            'tipo_conceptos_id' => '4',
+            'estado_id' => '1',
+            'users_id' => '1',
+        ]);
     }
 
     /**
