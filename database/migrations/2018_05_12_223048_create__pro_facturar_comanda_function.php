@@ -16,6 +16,17 @@ class CreateProFacturarComandaFunction extends Migration
         DB::unprepared('CREATE PROCEDURE ProFacturarComanda(IN `v_id` INTEGER(10))
                             BEGIN
                                 DECLARE s_salida VARCHAR(20);
+
+
+                                 delete FROM  `detallefactura` 
+                                  WHERE `id`=v_id; 
+                                  
+                             
+
+                                   delete FROM  `detallefactura` 
+                                  where  `factura_id` =v_id;
+
+
                                 
                                 INSERT INTO 
                                   `factura`
