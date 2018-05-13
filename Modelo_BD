@@ -221,6 +221,8 @@ Remision
 	users_id integer:unsigned:foreign,users,id hidden
 
 
+Administrador
+
 
 
 
