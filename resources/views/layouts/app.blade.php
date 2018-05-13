@@ -67,6 +67,12 @@
         .active{
             background-color: #3c8dbc;
         }
+        .active2{
+            background-color: #3f6b77;
+        }
+        .mostrar{
+            display: block !important;
+        }
 
     </style>
     <script src="{{URL::asset('js/jquery.min.js')}}"></script>
