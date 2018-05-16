@@ -32,17 +32,26 @@ class ProcesosController extends AppBaseController
 
     public function Administrativo(Request $request)
     {
-        return view('procesos.msg');
+        $fecha=$request->fecha;
+        $dato='Hola';
+        //$dato=DB::select('CALL ProFacturarComanda(?)',array($fecha));
+        return view('procesos.msg')->with('dato', $dato);
     }
 
     public function Lavadero(Request $request)
     {
-        return view('procesos.msg');
+        $fecha=$request->fecha;
+        $dato='Hola';
+        //$dato=DB::select('CALL ProFacturarComanda(?)',array($fecha));
+        return view('procesos.msg')->with('dato', $dato);
     }
 
     public function Cargar(Request $request)
     {
-        return view('procesos.msg');
+        $fecha=$request->fecha;
+        $dato='Hola';
+        //$dato=DB::select('CALL ProFacturarComanda(?)',array($fecha));
+        return view('procesos.msg')->with('dato', $dato);
     }    
 
 }

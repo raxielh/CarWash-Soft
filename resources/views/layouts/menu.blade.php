@@ -161,7 +161,7 @@
     <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-signal"></i> <span> Reportes</span></a>
     <ul class="nav nav-list tree" style="display: none;background:rgb(55, 65, 69);width: 230px;">
         <li>
-            <a href="#"><i class="fa fa-edit"></i><span> Ventas</span></a>
+            <a href="/reportes/v_ingresosyegresos/"><i class="fa fa-edit"></i><span> Ingresos y Egresos</span></a>
         </li>
     </ul>
 </li>

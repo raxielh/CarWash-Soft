@@ -37,6 +37,7 @@ return array(
     'App\\Http\\Controllers\\ProcesosController' => $baseDir . '/app/Http/Controllers/ProcesosController.php',
     'App\\Http\\Controllers\\ProveedoresController' => $baseDir . '/app/Http/Controllers/ProveedoresController.php',
     'App\\Http\\Controllers\\RemisionController' => $baseDir . '/app/Http/Controllers/RemisionController.php',
+    'App\\Http\\Controllers\\ReportesController' => $baseDir . '/app/Http/Controllers/ReportesController.php',
     'App\\Http\\Controllers\\RolesController' => $baseDir . '/app/Http/Controllers/RolesController.php',
     'App\\Http\\Controllers\\TipoConceptosController' => $baseDir . '/app/Http/Controllers/tipoConceptosController.php',
     'App\\Http\\Controllers\\TipoIdentificacionController' => $baseDir . '/app/Http/Controllers/TipoIdentificacionController.php',

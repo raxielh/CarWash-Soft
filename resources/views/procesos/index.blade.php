@@ -18,7 +18,10 @@
                       <img class="card-img-top" width="100%" src="{{URL::asset('img/bt01.jpg')}}" alt="Card image cap">
                       <div class="card-body">
                         <h5 class="card-title">Calcular Comision Administrativos</h5>
-                        <a href="{!! route('procesos_admin') !!}" class="btn btn-primary"><i class="fa fa-calculator"></i> Calcular</a>
+                        <form action="{!! route('procesos_admin') !!}">
+                          <input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>">
+                          <input type="submit" value="Calcular" class="btn btn-primary">
+                        </form>
                       </div>
                     </div>
                 </div>
@@ -27,7 +30,10 @@
                       <img class="card-img-top"  width="100%" src="{{URL::asset('img/bt02.jpg')}}" alt="Card image cap">
                       <div class="card-body">
                         <h5 class="card-title">Calcular Comision Lavaderos</h5>
-                        <a href="/procesos/lavadero/" class="btn btn-primary"><i class="fa fa-calculator"></i> Calcular</a>
+                        <form action="/procesos/lavadero/">
+                          <input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>">
+                          <input type="submit" value="Calcular" class="btn btn-primary">
+                        </form>
                       </div>
                     </div>                    
                 </div>
@@ -36,7 +42,10 @@
                       <img class="card-img-top"  width="100%" src="{{URL::asset('img/bt03.jpg')}}" alt="Card image cap">
                       <div class="card-body">
                         <h5 class="card-title">Cerrar Dia</h5>
-                        <a href="/procesos/cargar/" class="btn btn-primary"><i class="fa fa-calculator"></i> Cerrar</a>
+                        <form action="/procesos/cargar/">
+                          <input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>">
+                          <input type="submit" value="Cerrar" class="btn btn-primary">
+                        </form>
                       </div>
                     </div>                    
                 </div>    

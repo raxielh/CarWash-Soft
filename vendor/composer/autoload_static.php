@@ -421,6 +421,7 @@ class ComposerStaticInitcafd2a2de53e58ce555bea33a21ea1ac
         'App\\Http\\Controllers\\ProcesosController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProcesosController.php',
         'App\\Http\\Controllers\\ProveedoresController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProveedoresController.php',
         'App\\Http\\Controllers\\RemisionController' => __DIR__ . '/../..' . '/app/Http/Controllers/RemisionController.php',
+        'App\\Http\\Controllers\\ReportesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReportesController.php',
         'App\\Http\\Controllers\\RolesController' => __DIR__ . '/../..' . '/app/Http/Controllers/RolesController.php',
         'App\\Http\\Controllers\\TipoConceptosController' => __DIR__ . '/../..' . '/app/Http/Controllers/tipoConceptosController.php',
         'App\\Http\\Controllers\\TipoIdentificacionController' => __DIR__ . '/../..' . '/app/Http/Controllers/TipoIdentificacionController.php',

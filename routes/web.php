@@ -95,3 +95,7 @@ Route::get('procesos/lavadero',["as" => "procesos_lavadero", "uses" => "Procesos
 Route::get('procesos/cargar',["as" => "procesos_cargar", "uses" => "ProcesosController@Cargar"] );
 
 Route::resource('gananciaAdministrivos', 'GananciaAdministrivoController');
+
+
+Route::get('reportes/v_ingresosyegresos',["as"=>"v_ingresosyegresos","uses"=>"ReportesController@v_ingresosyegresos"]);
+Route::get('reportes/ingresosyegresos',["as"=>"ingresosyegresos","uses"=>"ReportesController@ingresosyegresos"]);
