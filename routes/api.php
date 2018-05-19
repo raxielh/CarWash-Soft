@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('marcas/','ConsultaController@marcas');
+Route::get('lineas/{marca}','ConsultaController@lineas');
