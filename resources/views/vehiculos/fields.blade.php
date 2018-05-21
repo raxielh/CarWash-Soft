@@ -43,6 +43,7 @@
     $(function() {
         cargar_lineas($('#marcas_id').val());
         $('#marcas_id').change(function(event) {
+            //console.log($('#marcas_id').val());
             var marca=$('#marcas_id').val();
             cargar_lineas(marca);
         });
@@ -55,6 +56,7 @@
                 echo 'var linea='.$datos['vehiculos']->lineas_id.';';
         ?>
         $.getJSON('{{ url('lineas_marca')}}'+'/'+marca, function( data ) {
+            console.log(data);
             $.each(data, function(id,value){
                 if(value.id==linea){
                     $("#lineas_id").append('<option value="'+value.id+'" selected>'+value.descripcion+'</option>');
@@ -67,7 +69,9 @@
             }else{
         ?>
         $.getJSON('{{ url('lineas_marca')}}'+'/'+marca, function( data ) {
+            //console.log(data);
             $.each(data, function(id,value){
+                console.log(value.descripcion);
                 $("#lineas_id").append('<option value="'+value.id+'">'+value.descripcion+'</option>');
             });
         });
