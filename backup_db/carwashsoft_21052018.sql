@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2018 a las 23:28:32
+-- Tiempo de generación: 22-05-2018 a las 00:07:34
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -172,9 +172,8 @@ CREATE TABLE `administrativos` (
 -- Volcado de datos para la tabla `administrativos`
 --
 
-INSERT INTO `administrativos` (`id`, `persona_id`, `comision`, `estado_id`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 5, 0, 1, 2, '2018-05-22 02:25:28', '2018-05-22 02:25:28'),
-(2, 6, 0, 1, 2, '2018-05-22 02:25:33', '2018-05-22 02:25:33');
+INSERT INTO `administrativos` VALUES(1, 5, 0, 1, 2, '2018-05-22 02:25:28', '2018-05-22 02:25:28');
+INSERT INTO `administrativos` VALUES(2, 6, 0, 1, 2, '2018-05-22 02:25:33', '2018-05-22 02:25:33');
 
 -- --------------------------------------------------------
 
@@ -225,6 +224,14 @@ CREATE TABLE `comandas` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `comandas`
+--
+
+INSERT INTO `comandas` VALUES(1, 1, 1, 3, NULL, 2, '2018-05-22 02:38:31', '2018-05-22 02:38:31');
+INSERT INTO `comandas` VALUES(2, 2, 2, 3, NULL, 2, '2018-05-22 03:00:53', '2018-05-22 03:00:53');
+INSERT INTO `comandas` VALUES(3, 4, 3, 3, NULL, 2, '2018-05-22 03:04:48', '2018-05-22 03:04:48');
+
 -- --------------------------------------------------------
 
 --
@@ -246,6 +253,23 @@ CREATE TABLE `comanda_detalles` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `comanda_detalles`
+--
+
+INSERT INTO `comanda_detalles` VALUES(1, 1, 11, 1, 1, 0, '30000', 50, 0, 2, '2018-05-22 02:38:56', '2018-05-22 02:38:56');
+INSERT INTO `comanda_detalles` VALUES(2, 1, 3, 1, 1, 0, '2000', 0, 0, 2, '2018-05-22 02:38:59', '2018-05-22 02:38:59');
+INSERT INTO `comanda_detalles` VALUES(3, 1, 7, 3, 1, 0, '1800', 0, 0, 2, '2018-05-22 02:39:04', '2018-05-22 02:39:04');
+INSERT INTO `comanda_detalles` VALUES(4, 2, 3, 5, 1, 0, '2000', 0, 0, 2, '2018-05-22 03:04:00', '2018-05-22 03:04:00');
+INSERT INTO `comanda_detalles` VALUES(5, 2, 4, 2, 1, 0, '5500', 0, 0, 2, '2018-05-22 03:04:05', '2018-05-22 03:04:05');
+INSERT INTO `comanda_detalles` VALUES(6, 2, 7, 5, 1, 0, '1800', 0, 0, 2, '2018-05-22 03:04:09', '2018-05-22 03:04:09');
+INSERT INTO `comanda_detalles` VALUES(7, 2, 10, 1, 1, 0, '25000', 40, 0, 2, '2018-05-22 03:04:14', '2018-05-22 03:04:14');
+INSERT INTO `comanda_detalles` VALUES(8, 2, 8, 1, 1, 0, '15000', 10, 0, 2, '2018-05-22 03:04:18', '2018-05-22 03:04:18');
+INSERT INTO `comanda_detalles` VALUES(9, 3, 3, 1, 1, 0, '2000', 0, 0, 2, '2018-05-22 03:05:00', '2018-05-22 03:05:00');
+INSERT INTO `comanda_detalles` VALUES(10, 3, 5, 1, 1, 0, '2500', 0, 0, 2, '2018-05-22 03:05:03', '2018-05-22 03:05:03');
+INSERT INTO `comanda_detalles` VALUES(11, 3, 7, 1, 1, 0, '1800', 0, 0, 2, '2018-05-22 03:05:05', '2018-05-22 03:05:05');
+INSERT INTO `comanda_detalles` VALUES(12, 3, 8, 1, 1, 0, '15000', 10, 0, 2, '2018-05-22 03:05:10', '2018-05-22 03:05:10');
+
 -- --------------------------------------------------------
 
 --
@@ -266,11 +290,10 @@ CREATE TABLE `combos` (
 -- Volcado de datos para la tabla `combos`
 --
 
-INSERT INTO `combos` (`id`, `concepto_id1`, `concepto_id2`, `estado_id`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 11, 8, 1, 2, '2018-05-22 02:19:45', '2018-05-22 02:19:45'),
-(2, 11, 9, 1, 2, '2018-05-22 02:19:54', '2018-05-22 02:19:54'),
-(3, 12, 10, 1, 2, '2018-05-22 02:20:08', '2018-05-22 02:20:08'),
-(4, 12, 9, 1, 2, '2018-05-22 02:20:12', '2018-05-22 02:20:12');
+INSERT INTO `combos` VALUES(1, 11, 8, 1, 2, '2018-05-22 02:19:45', '2018-05-22 02:19:45');
+INSERT INTO `combos` VALUES(2, 11, 9, 1, 2, '2018-05-22 02:19:54', '2018-05-22 02:19:54');
+INSERT INTO `combos` VALUES(3, 12, 10, 1, 2, '2018-05-22 02:20:08', '2018-05-22 02:20:08');
+INSERT INTO `combos` VALUES(4, 12, 9, 1, 2, '2018-05-22 02:20:12', '2018-05-22 02:20:12');
 
 -- --------------------------------------------------------
 
@@ -295,19 +318,18 @@ CREATE TABLE `conceptos` (
 -- Volcado de datos para la tabla `conceptos`
 --
 
-INSERT INTO `conceptos` (`id`, `codigo`, `descripcion`, `tipo_conceptos_id`, `comision`, `impuesto`, `estado_id`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, '000-1', 'Gasto Trabajador', 4, 0, 0, 1, 1, NULL, NULL),
-(2, '000-2', 'Gasto Lavador', 4, 0, 0, 1, 1, NULL, NULL),
-(3, 'cc1', 'coca cola 350', 2, 0, 0, 1, 2, '2018-05-22 02:11:46', '2018-05-22 02:11:46'),
-(4, 'cc2', 'coca cola litro y medio', 2, 0, 0, 1, 2, '2018-05-22 02:12:01', '2018-05-22 02:12:01'),
-(5, 'aguila1', 'aguila light', 2, 0, 0, 1, 2, '2018-05-22 02:12:44', '2018-05-22 02:26:06'),
-(6, 'aguila2', 'aguila negra', 2, 0, 0, 1, 2, '2018-05-22 02:12:58', '2018-05-22 02:12:58'),
-(7, 'papa1', 'papa pequeña pollo', 2, 0, 0, 1, 2, '2018-05-22 02:14:23', '2018-05-22 02:14:23'),
-(8, 'lavado', 'lavado uno', 3, 10, 0, 1, 2, '2018-05-22 02:14:43', '2018-05-22 02:26:22'),
-(9, 'encerada', 'encerada general', 3, 30, 0, 1, 2, '2018-05-22 02:14:56', '2018-05-22 02:26:29'),
-(10, 'motor1', 'lavado de motor uno', 3, 40, 0, 1, 2, '2018-05-22 02:18:40', '2018-05-22 02:26:43'),
-(11, 'combo1', 'lavado motor y encerado', 1, 50, 0, 1, 2, '2018-05-22 02:19:01', '2018-05-22 02:26:50'),
-(12, 'combo2', 'lavado y lavado de motor', 1, 51, 0, 1, 2, '2018-05-22 02:19:17', '2018-05-22 02:26:59');
+INSERT INTO `conceptos` VALUES(1, '000-1', 'Gasto Trabajador', 4, 0, 0, 1, 1, NULL, NULL);
+INSERT INTO `conceptos` VALUES(2, '000-2', 'Gasto Lavador', 4, 0, 0, 1, 1, NULL, NULL);
+INSERT INTO `conceptos` VALUES(3, 'cc1', 'coca cola 350', 2, 0, 0, 1, 2, '2018-05-22 02:11:46', '2018-05-22 02:11:46');
+INSERT INTO `conceptos` VALUES(4, 'cc2', 'coca cola litro y medio', 2, 0, 0, 1, 2, '2018-05-22 02:12:01', '2018-05-22 02:12:01');
+INSERT INTO `conceptos` VALUES(5, 'aguila1', 'aguila light', 2, 0, 0, 1, 2, '2018-05-22 02:12:44', '2018-05-22 02:26:06');
+INSERT INTO `conceptos` VALUES(6, 'aguila2', 'aguila negra', 2, 0, 0, 1, 2, '2018-05-22 02:12:58', '2018-05-22 02:12:58');
+INSERT INTO `conceptos` VALUES(7, 'papa1', 'papa pequeña pollo', 2, 0, 0, 1, 2, '2018-05-22 02:14:23', '2018-05-22 02:14:23');
+INSERT INTO `conceptos` VALUES(8, 'lavado', 'lavado uno', 3, 10, 0, 1, 2, '2018-05-22 02:14:43', '2018-05-22 02:26:22');
+INSERT INTO `conceptos` VALUES(9, 'encerada', 'encerada general', 3, 30, 0, 1, 2, '2018-05-22 02:14:56', '2018-05-22 02:26:29');
+INSERT INTO `conceptos` VALUES(10, 'motor1', 'lavado de motor uno', 3, 40, 0, 1, 2, '2018-05-22 02:18:40', '2018-05-22 02:26:43');
+INSERT INTO `conceptos` VALUES(11, 'combo1', 'lavado motor y encerado', 1, 50, 0, 1, 2, '2018-05-22 02:19:01', '2018-05-22 02:26:50');
+INSERT INTO `conceptos` VALUES(12, 'combo2', 'lavado y lavado de motor', 1, 51, 0, 1, 2, '2018-05-22 02:19:17', '2018-05-22 02:26:59');
 
 -- --------------------------------------------------------
 
@@ -327,8 +349,7 @@ CREATE TABLE `configuracions` (
 -- Volcado de datos para la tabla `configuracions`
 --
 
-INSERT INTO `configuracions` (`id`, `concepto_admin_gasto`, `concepto_lavador_gasto`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, NULL, NULL);
+INSERT INTO `configuracions` VALUES(1, 1, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -350,8 +371,7 @@ CREATE TABLE `descuentos` (
 -- Volcado de datos para la tabla `descuentos`
 --
 
-INSERT INTO `descuentos` (`id`, `codigo`, `descripcion`, `porcentaje`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, '0', '0', 0, 1, NULL, NULL);
+INSERT INTO `descuentos` VALUES(1, '0', '0', 0, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -374,6 +394,21 @@ CREATE TABLE `detallefactura` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `detallefactura`
+--
+
+INSERT INTO `detallefactura` VALUES(1, 1, 11, 1, 1, 0, '30000', 50, 0, 2, '2018-05-22 02:38:56', '2018-05-22 02:38:56');
+INSERT INTO `detallefactura` VALUES(4, 2, 3, 5, 1, 0, '2000', 0, 0, 2, '2018-05-22 03:04:00', '2018-05-22 03:04:00');
+INSERT INTO `detallefactura` VALUES(5, 2, 4, 2, 1, 0, '5500', 0, 0, 2, '2018-05-22 03:04:05', '2018-05-22 03:04:05');
+INSERT INTO `detallefactura` VALUES(6, 2, 7, 5, 1, 0, '1800', 0, 0, 2, '2018-05-22 03:04:09', '2018-05-22 03:04:09');
+INSERT INTO `detallefactura` VALUES(7, 2, 10, 1, 1, 0, '25000', 40, 0, 2, '2018-05-22 03:04:14', '2018-05-22 03:04:14');
+INSERT INTO `detallefactura` VALUES(8, 2, 8, 1, 1, 0, '15000', 10, 0, 2, '2018-05-22 03:04:18', '2018-05-22 03:04:18');
+INSERT INTO `detallefactura` VALUES(9, 3, 3, 1, 1, 0, '2000', 0, 0, 2, '2018-05-22 03:05:00', '2018-05-22 03:05:00');
+INSERT INTO `detallefactura` VALUES(10, 3, 5, 1, 1, 0, '2500', 0, 0, 2, '2018-05-22 03:05:03', '2018-05-22 03:05:03');
+INSERT INTO `detallefactura` VALUES(11, 3, 7, 1, 1, 0, '1800', 0, 0, 2, '2018-05-22 03:05:05', '2018-05-22 03:05:05');
+INSERT INTO `detallefactura` VALUES(12, 3, 8, 1, 1, 0, '15000', 10, 0, 2, '2018-05-22 03:05:10', '2018-05-22 03:05:10');
+
 -- --------------------------------------------------------
 
 --
@@ -393,10 +428,9 @@ CREATE TABLE `equipos` (
 -- Volcado de datos para la tabla `equipos`
 --
 
-INSERT INTO `equipos` (`id`, `codigo`, `descripcion`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 'eq1', 'equipo uno', 2, '2018-05-22 02:23:50', '2018-05-22 02:23:50'),
-(2, 'eq2', 'equipo dos', 2, '2018-05-22 02:24:15', '2018-05-22 02:24:15'),
-(3, 'eq3', 'equipo tres', 2, '2018-05-22 02:25:00', '2018-05-22 02:25:00');
+INSERT INTO `equipos` VALUES(1, 'eq1', 'equipo uno', 2, '2018-05-22 02:23:50', '2018-05-22 02:23:50');
+INSERT INTO `equipos` VALUES(2, 'eq2', 'equipo dos', 2, '2018-05-22 02:24:15', '2018-05-22 02:24:15');
+INSERT INTO `equipos` VALUES(3, 'eq3', 'equipo tres', 2, '2018-05-22 02:25:00', '2018-05-22 02:25:00');
 
 -- --------------------------------------------------------
 
@@ -418,13 +452,12 @@ CREATE TABLE `equipo_personas` (
 -- Volcado de datos para la tabla `equipo_personas`
 --
 
-INSERT INTO `equipo_personas` (`id`, `equipo_id`, `persona_id`, `estado_id`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 7, 1, 2, '2018-05-22 02:23:58', '2018-05-22 02:23:58'),
-(2, 1, 8, 1, 2, '2018-05-22 02:24:04', '2018-05-22 02:24:04'),
-(3, 2, 9, 1, 2, '2018-05-22 02:24:22', '2018-05-22 02:24:22'),
-(4, 2, 10, 1, 2, '2018-05-22 02:24:31', '2018-05-22 02:24:31'),
-(5, 3, 11, 1, 2, '2018-05-22 02:25:09', '2018-05-22 02:25:09'),
-(6, 3, 12, 1, 2, '2018-05-22 02:25:13', '2018-05-22 02:25:13');
+INSERT INTO `equipo_personas` VALUES(1, 1, 7, 1, 2, '2018-05-22 02:23:58', '2018-05-22 02:23:58');
+INSERT INTO `equipo_personas` VALUES(2, 1, 8, 1, 2, '2018-05-22 02:24:04', '2018-05-22 02:24:04');
+INSERT INTO `equipo_personas` VALUES(3, 2, 9, 1, 2, '2018-05-22 02:24:22', '2018-05-22 02:24:22');
+INSERT INTO `equipo_personas` VALUES(4, 2, 10, 1, 2, '2018-05-22 02:24:31', '2018-05-22 02:24:31');
+INSERT INTO `equipo_personas` VALUES(5, 3, 11, 1, 2, '2018-05-22 02:25:09', '2018-05-22 02:25:09');
+INSERT INTO `equipo_personas` VALUES(6, 3, 12, 1, 2, '2018-05-22 02:25:13', '2018-05-22 02:25:13');
 
 -- --------------------------------------------------------
 
@@ -444,9 +477,8 @@ CREATE TABLE `estados` (
 -- Volcado de datos para la tabla `estados`
 --
 
-INSERT INTO `estados` (`id`, `descripcion`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 'Activo', 1, NULL, NULL),
-(2, 'Inactivo', 1, NULL, NULL);
+INSERT INTO `estados` VALUES(1, 'Activo', 1, NULL, NULL);
+INSERT INTO `estados` VALUES(2, 'Inactivo', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -466,10 +498,9 @@ CREATE TABLE `estado_comandas` (
 -- Volcado de datos para la tabla `estado_comandas`
 --
 
-INSERT INTO `estado_comandas` (`id`, `descripcion`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 'Activa', 1, NULL, NULL),
-(2, 'Inactiva', 1, NULL, NULL),
-(3, 'Facturada', 1, NULL, NULL);
+INSERT INTO `estado_comandas` VALUES(1, 'Activa', 1, NULL, NULL);
+INSERT INTO `estado_comandas` VALUES(2, 'Inactiva', 1, NULL, NULL);
+INSERT INTO `estado_comandas` VALUES(3, 'Facturada', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -489,9 +520,8 @@ CREATE TABLE `estado_facturas` (
 -- Volcado de datos para la tabla `estado_facturas`
 --
 
-INSERT INTO `estado_facturas` (`id`, `descripcion`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 'Activa', 1, NULL, NULL),
-(2, 'Inactiva', 1, NULL, NULL);
+INSERT INTO `estado_facturas` VALUES(1, 'Activa', 1, NULL, NULL);
+INSERT INTO `estado_facturas` VALUES(2, 'Inactiva', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -509,6 +539,14 @@ CREATE TABLE `factura` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `factura`
+--
+
+INSERT INTO `factura` VALUES(1, 1, 1, 1, NULL, 2, '2018-05-22 02:38:31', '2018-05-22 02:38:31');
+INSERT INTO `factura` VALUES(2, 2, 2, 1, NULL, 2, '2018-05-22 03:00:53', '2018-05-22 03:00:53');
+INSERT INTO `factura` VALUES(3, 4, 3, 1, NULL, 2, '2018-05-22 03:04:48', '2018-05-22 03:04:48');
 
 -- --------------------------------------------------------
 
@@ -555,6 +593,14 @@ CREATE TABLE `lavados` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `lavados`
+--
+
+INSERT INTO `lavados` VALUES(1, 1, 1, 2, '2018-05-22 02:38:49', '2018-05-22 02:38:49');
+INSERT INTO `lavados` VALUES(2, 2, 2, 2, '2018-05-22 03:00:58', '2018-05-22 03:00:58');
+INSERT INTO `lavados` VALUES(3, 3, 3, 2, '2018-05-22 03:04:53', '2018-05-22 03:04:53');
+
 -- --------------------------------------------------------
 
 --
@@ -574,10 +620,9 @@ CREATE TABLE `lineas` (
 -- Volcado de datos para la tabla `lineas`
 --
 
-INSERT INTO `lineas` (`id`, `marca_id`, `descripcion`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 'linea 1', 2, '2018-05-22 02:08:55', '2018-05-22 02:08:55'),
-(2, 2, 'linea dos', 2, '2018-05-22 02:09:02', '2018-05-22 02:09:02'),
-(3, 3, 'linea 3', 2, '2018-05-22 02:09:09', '2018-05-22 02:09:09');
+INSERT INTO `lineas` VALUES(1, 1, 'linea 1', 2, '2018-05-22 02:08:55', '2018-05-22 02:08:55');
+INSERT INTO `lineas` VALUES(2, 2, 'linea dos', 2, '2018-05-22 02:09:02', '2018-05-22 02:09:02');
+INSERT INTO `lineas` VALUES(3, 3, 'linea 3', 2, '2018-05-22 02:09:09', '2018-05-22 02:09:09');
 
 -- --------------------------------------------------------
 
@@ -597,10 +642,9 @@ CREATE TABLE `marcas` (
 -- Volcado de datos para la tabla `marcas`
 --
 
-INSERT INTO `marcas` (`id`, `descripcion`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 'marca uno', 2, '2018-05-22 02:08:31', '2018-05-22 02:08:31'),
-(2, 'marca dos', 2, '2018-05-22 02:08:38', '2018-05-22 02:08:38'),
-(3, 'marca tres', 2, '2018-05-22 02:08:46', '2018-05-22 02:08:46');
+INSERT INTO `marcas` VALUES(1, 'marca uno', 2, '2018-05-22 02:08:31', '2018-05-22 02:08:31');
+INSERT INTO `marcas` VALUES(2, 'marca dos', 2, '2018-05-22 02:08:38', '2018-05-22 02:08:38');
+INSERT INTO `marcas` VALUES(3, 'marca tres', 2, '2018-05-22 02:08:46', '2018-05-22 02:08:46');
 
 -- --------------------------------------------------------
 
@@ -618,46 +662,45 @@ CREATE TABLE `migrations` (
 -- Volcado de datos para la tabla `migrations`
 --
 
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2018_04_08_041326_create_roles_table', 1),
-(4, '2018_04_08_042250_create_usuarios_rols_table', 1),
-(5, '2018_04_08_081506_create_estados_table', 1),
-(6, '2018_04_08_151653_create_tipo_conceptos_table', 1),
-(7, '2018_04_08_151831_create_conceptos_table', 1),
-(8, '2018_04_08_160227_create_permisos_table', 1),
-(9, '2018_04_08_164929_create_valores_conceptos_table', 1),
-(10, '2018_04_08_165153_create_tipo_identificacions_table', 1),
-(11, '2018_04_08_170154_create_personas_table', 1),
-(12, '2018_04_13_015043_create_marcas_table', 1),
-(13, '2018_04_13_015850_create_lineas_table', 1),
-(14, '2018_04_14_173351_create_vehiculos_table', 1),
-(15, '2018_04_15_165740_create_galeria_vehiculos_table', 1),
-(16, '2018_04_15_201932_create_equipos_table', 1),
-(17, '2018_04_15_231131_create_estado_facturas_table', 1),
-(18, '2018_04_15_235002_create_estado_comandas_table', 1),
-(19, '2018_04_16_003807_create_descuentos_table', 1),
-(20, '2018_04_16_015527_create_proveedores_table', 1),
-(21, '2018_04_18_001835_create_combos_table', 1),
-(22, '2018_04_18_032122_create_comandas_table', 1),
-(23, '2018_04_18_214037_create_lavados_table', 1),
-(24, '2018_04_20_162958_create_comanda_detalles_table', 1),
-(25, '2018_04_22_004110_create_equipo_personas_table', 1),
-(26, '2018_05_10_023044_create_factura_table', 1),
-(27, '2018_05_10_023103_create_detallefactura_table', 1),
-(28, '2018_05_12_195213_create_tipo_remision_table', 1),
-(29, '2018_05_12_195855_create_remisions_table', 1),
-(30, '2018_05_12_223048_create__pro_facturar_comanda_function', 1),
-(31, '2018_05_12_231407_create_configuracions_table', 1),
-(32, '2018_05_13_151205_create_administrativos_table', 1),
-(33, '2018_05_13_185522_modificar_factura', 1),
-(34, '2018_05_13_190914_modificar_facturados', 1),
-(35, '2018_05_13_192742_modificar_facturatres', 1),
-(36, '2018_05_13_195639_create_basegancia_table', 1),
-(37, '2018_05_13_195654_create_tipopersonal_table', 1),
-(38, '2018_05_13_200204_create_baseadpersonal_table', 1),
-(39, '2018_05_16_163331_create_ganancia_admin_table', 1);
+INSERT INTO `migrations` VALUES(1, '2014_10_12_000000_create_users_table', 1);
+INSERT INTO `migrations` VALUES(2, '2014_10_12_100000_create_password_resets_table', 1);
+INSERT INTO `migrations` VALUES(3, '2018_04_08_041326_create_roles_table', 1);
+INSERT INTO `migrations` VALUES(4, '2018_04_08_042250_create_usuarios_rols_table', 1);
+INSERT INTO `migrations` VALUES(5, '2018_04_08_081506_create_estados_table', 1);
+INSERT INTO `migrations` VALUES(6, '2018_04_08_151653_create_tipo_conceptos_table', 1);
+INSERT INTO `migrations` VALUES(7, '2018_04_08_151831_create_conceptos_table', 1);
+INSERT INTO `migrations` VALUES(8, '2018_04_08_160227_create_permisos_table', 1);
+INSERT INTO `migrations` VALUES(9, '2018_04_08_164929_create_valores_conceptos_table', 1);
+INSERT INTO `migrations` VALUES(10, '2018_04_08_165153_create_tipo_identificacions_table', 1);
+INSERT INTO `migrations` VALUES(11, '2018_04_08_170154_create_personas_table', 1);
+INSERT INTO `migrations` VALUES(12, '2018_04_13_015043_create_marcas_table', 1);
+INSERT INTO `migrations` VALUES(13, '2018_04_13_015850_create_lineas_table', 1);
+INSERT INTO `migrations` VALUES(14, '2018_04_14_173351_create_vehiculos_table', 1);
+INSERT INTO `migrations` VALUES(15, '2018_04_15_165740_create_galeria_vehiculos_table', 1);
+INSERT INTO `migrations` VALUES(16, '2018_04_15_201932_create_equipos_table', 1);
+INSERT INTO `migrations` VALUES(17, '2018_04_15_231131_create_estado_facturas_table', 1);
+INSERT INTO `migrations` VALUES(18, '2018_04_15_235002_create_estado_comandas_table', 1);
+INSERT INTO `migrations` VALUES(19, '2018_04_16_003807_create_descuentos_table', 1);
+INSERT INTO `migrations` VALUES(20, '2018_04_16_015527_create_proveedores_table', 1);
+INSERT INTO `migrations` VALUES(21, '2018_04_18_001835_create_combos_table', 1);
+INSERT INTO `migrations` VALUES(22, '2018_04_18_032122_create_comandas_table', 1);
+INSERT INTO `migrations` VALUES(23, '2018_04_18_214037_create_lavados_table', 1);
+INSERT INTO `migrations` VALUES(24, '2018_04_20_162958_create_comanda_detalles_table', 1);
+INSERT INTO `migrations` VALUES(25, '2018_04_22_004110_create_equipo_personas_table', 1);
+INSERT INTO `migrations` VALUES(26, '2018_05_10_023044_create_factura_table', 1);
+INSERT INTO `migrations` VALUES(27, '2018_05_10_023103_create_detallefactura_table', 1);
+INSERT INTO `migrations` VALUES(28, '2018_05_12_195213_create_tipo_remision_table', 1);
+INSERT INTO `migrations` VALUES(29, '2018_05_12_195855_create_remisions_table', 1);
+INSERT INTO `migrations` VALUES(30, '2018_05_12_223048_create__pro_facturar_comanda_function', 1);
+INSERT INTO `migrations` VALUES(31, '2018_05_12_231407_create_configuracions_table', 1);
+INSERT INTO `migrations` VALUES(32, '2018_05_13_151205_create_administrativos_table', 1);
+INSERT INTO `migrations` VALUES(33, '2018_05_13_185522_modificar_factura', 1);
+INSERT INTO `migrations` VALUES(34, '2018_05_13_190914_modificar_facturados', 1);
+INSERT INTO `migrations` VALUES(35, '2018_05_13_192742_modificar_facturatres', 1);
+INSERT INTO `migrations` VALUES(36, '2018_05_13_195639_create_basegancia_table', 1);
+INSERT INTO `migrations` VALUES(37, '2018_05_13_195654_create_tipopersonal_table', 1);
+INSERT INTO `migrations` VALUES(38, '2018_05_13_200204_create_baseadpersonal_table', 1);
+INSERT INTO `migrations` VALUES(39, '2018_05_16_163331_create_ganancia_admin_table', 1);
 
 -- --------------------------------------------------------
 
@@ -712,23 +755,22 @@ CREATE TABLE `personas` (
 -- Volcado de datos para la tabla `personas`
 --
 
-INSERT INTO `personas` (`id`, `nombre`, `apellido`, `tipo_identificacion_id`, `identificacion`, `fecha_nacimiento`, `direccion`, `telefono1`, `telefono2`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 'Diego', 'Santiago', 1, '123456', NULL, NULL, NULL, NULL, 1, NULL, NULL),
-(2, 'cliente', 'uno', 1, '10001', '2018-05-31', NULL, NULL, NULL, 2, '2018-05-22 01:59:29', '2018-05-22 01:59:29'),
-(3, 'cliente', 'dos', 1, '1002', '2018-05-09', NULL, NULL, NULL, 2, '2018-05-22 01:59:44', '2018-05-22 01:59:44'),
-(4, 'cliente', 'tres', 1, '1003', '2018-05-06', NULL, NULL, NULL, 2, '2018-05-22 02:00:03', '2018-05-22 02:00:03'),
-(5, 'admin', 'uni', 1, '2001', '2018-05-24', NULL, NULL, NULL, 2, '2018-05-22 02:00:20', '2018-05-22 02:00:20'),
-(6, 'admin', 'dos', 1, '2002', '2018-05-31', NULL, NULL, NULL, 2, '2018-05-22 02:00:41', '2018-05-22 02:00:41'),
-(7, 'lavador', 'uno', 1, '3001', '2018-05-23', NULL, NULL, NULL, 2, '2018-05-22 02:00:53', '2018-05-22 02:00:53'),
-(8, 'lavador', 'dos', 1, '3002', '2018-05-16', NULL, NULL, NULL, 2, '2018-05-22 02:01:05', '2018-05-22 02:01:05'),
-(9, 'lavador', 'tres', 1, '3003', '2018-05-26', NULL, NULL, NULL, 2, '2018-05-22 02:01:20', '2018-05-22 02:01:20'),
-(10, 'lavador', 'cuatro', 1, '3004', '2018-05-29', NULL, NULL, NULL, 2, '2018-05-22 02:01:38', '2018-05-22 02:01:38'),
-(11, 'lavador', 'cinco', 1, '3005', '2018-05-22', NULL, NULL, NULL, 2, '2018-05-22 02:01:56', '2018-05-22 02:01:56'),
-(12, 'lavador', 'seis', 1, '3006', '2018-05-26', NULL, NULL, NULL, 2, '2018-05-22 02:02:09', '2018-05-22 02:02:09'),
-(13, 'gasto', 'uno', 1, '4001', '2018-05-30', NULL, NULL, NULL, 2, '2018-05-22 02:02:35', '2018-05-22 02:02:35'),
-(14, 'gasto', 'dos', 1, '4002', '2018-05-19', NULL, NULL, NULL, 2, '2018-05-22 02:02:46', '2018-05-22 02:02:46'),
-(15, 'entrada', 'uno', 1, '5001', '2018-05-25', NULL, NULL, NULL, 2, '2018-05-22 02:03:00', '2018-05-22 02:03:00'),
-(16, 'entrada', 'dos', 1, '5002', '2018-05-25', NULL, NULL, NULL, 2, '2018-05-22 02:03:10', '2018-05-22 02:03:10');
+INSERT INTO `personas` VALUES(1, 'Diego', 'Santiago', 1, '123456', NULL, NULL, NULL, NULL, 1, NULL, NULL);
+INSERT INTO `personas` VALUES(2, 'cliente', 'uno', 1, '10001', '2018-05-31', NULL, NULL, NULL, 2, '2018-05-22 01:59:29', '2018-05-22 01:59:29');
+INSERT INTO `personas` VALUES(3, 'cliente', 'dos', 1, '1002', '2018-05-09', NULL, NULL, NULL, 2, '2018-05-22 01:59:44', '2018-05-22 01:59:44');
+INSERT INTO `personas` VALUES(4, 'cliente', 'tres', 1, '1003', '2018-05-06', NULL, NULL, NULL, 2, '2018-05-22 02:00:03', '2018-05-22 02:00:03');
+INSERT INTO `personas` VALUES(5, 'admin', 'uni', 1, '2001', '2018-05-24', NULL, NULL, NULL, 2, '2018-05-22 02:00:20', '2018-05-22 02:00:20');
+INSERT INTO `personas` VALUES(6, 'admin', 'dos', 1, '2002', '2018-05-31', NULL, NULL, NULL, 2, '2018-05-22 02:00:41', '2018-05-22 02:00:41');
+INSERT INTO `personas` VALUES(7, 'lavador', 'uno', 1, '3001', '2018-05-23', NULL, NULL, NULL, 2, '2018-05-22 02:00:53', '2018-05-22 02:00:53');
+INSERT INTO `personas` VALUES(8, 'lavador', 'dos', 1, '3002', '2018-05-16', NULL, NULL, NULL, 2, '2018-05-22 02:01:05', '2018-05-22 02:01:05');
+INSERT INTO `personas` VALUES(9, 'lavador', 'tres', 1, '3003', '2018-05-26', NULL, NULL, NULL, 2, '2018-05-22 02:01:20', '2018-05-22 02:01:20');
+INSERT INTO `personas` VALUES(10, 'lavador', 'cuatro', 1, '3004', '2018-05-29', NULL, NULL, NULL, 2, '2018-05-22 02:01:38', '2018-05-22 02:01:38');
+INSERT INTO `personas` VALUES(11, 'lavador', 'cinco', 1, '3005', '2018-05-22', NULL, NULL, NULL, 2, '2018-05-22 02:01:56', '2018-05-22 02:01:56');
+INSERT INTO `personas` VALUES(12, 'lavador', 'seis', 1, '3006', '2018-05-26', NULL, NULL, NULL, 2, '2018-05-22 02:02:09', '2018-05-22 02:02:09');
+INSERT INTO `personas` VALUES(13, 'gasto', 'uno', 1, '4001', '2018-05-30', NULL, NULL, NULL, 2, '2018-05-22 02:02:35', '2018-05-22 02:02:35');
+INSERT INTO `personas` VALUES(14, 'gasto', 'dos', 1, '4002', '2018-05-19', NULL, NULL, NULL, 2, '2018-05-22 02:02:46', '2018-05-22 02:02:46');
+INSERT INTO `personas` VALUES(15, 'entrada', 'uno', 1, '5001', '2018-05-25', NULL, NULL, NULL, 2, '2018-05-22 02:03:00', '2018-05-22 02:03:00');
+INSERT INTO `personas` VALUES(16, 'entrada', 'dos', 1, '5002', '2018-05-25', NULL, NULL, NULL, 2, '2018-05-22 02:03:10', '2018-05-22 02:03:10');
 
 -- --------------------------------------------------------
 
@@ -754,10 +796,9 @@ CREATE TABLE `proveedores` (
 -- Volcado de datos para la tabla `proveedores`
 --
 
-INSERT INTO `proveedores` (`id`, `codigo`, `persona_id`, `razon_social`, `nit`, `direccion`, `telefono2`, `telefono1`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, '00', 1, 'Brillancor', '00000-0', NULL, NULL, NULL, 1, NULL, NULL),
-(2, 'pro', 13, 'gasto uno', '10002', NULL, NULL, NULL, 2, '2018-05-22 02:06:29', '2018-05-22 02:06:29'),
-(3, 'pro2', 14, 'gasto dos', '20001', NULL, NULL, NULL, 2, '2018-05-22 02:06:44', '2018-05-22 02:06:44');
+INSERT INTO `proveedores` VALUES(1, '00', 1, 'Brillancor', '00000-0', NULL, NULL, NULL, 1, NULL, NULL);
+INSERT INTO `proveedores` VALUES(2, 'pro', 13, 'gasto uno', '10002', NULL, NULL, NULL, 2, '2018-05-22 02:06:29', '2018-05-22 02:06:29');
+INSERT INTO `proveedores` VALUES(3, 'pro2', 14, 'gasto dos', '20001', NULL, NULL, NULL, 2, '2018-05-22 02:06:44', '2018-05-22 02:06:44');
 
 -- --------------------------------------------------------
 
@@ -797,10 +838,9 @@ CREATE TABLE `roles` (
 -- Volcado de datos para la tabla `roles`
 --
 
-INSERT INTO `roles` (`id`, `descripcion`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 'Super Root', 1, NULL, NULL),
-(2, 'Administrador', 1, NULL, NULL),
-(3, 'Trabajador', 1, NULL, NULL);
+INSERT INTO `roles` VALUES(1, 'Super Root', 1, NULL, NULL);
+INSERT INTO `roles` VALUES(2, 'Administrador', 1, NULL, NULL);
+INSERT INTO `roles` VALUES(3, 'Trabajador', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -819,9 +859,8 @@ CREATE TABLE `tipopersonal` (
 -- Volcado de datos para la tabla `tipopersonal`
 --
 
-INSERT INTO `tipopersonal` (`id`, `descripcion`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', NULL, NULL),
-(2, 'Lavador', NULL, NULL);
+INSERT INTO `tipopersonal` VALUES(1, 'Administrador', NULL, NULL);
+INSERT INTO `tipopersonal` VALUES(2, 'Lavador', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -841,11 +880,10 @@ CREATE TABLE `tipo_conceptos` (
 -- Volcado de datos para la tabla `tipo_conceptos`
 --
 
-INSERT INTO `tipo_conceptos` (`id`, `descripcion`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 'Combo', 1, NULL, NULL),
-(2, 'Producto', 1, NULL, NULL),
-(3, 'Servicio', 1, NULL, NULL),
-(4, 'Entrada o Salida', 1, NULL, '2018-05-22 02:17:51');
+INSERT INTO `tipo_conceptos` VALUES(1, 'Combo', 1, NULL, NULL);
+INSERT INTO `tipo_conceptos` VALUES(2, 'Producto', 1, NULL, NULL);
+INSERT INTO `tipo_conceptos` VALUES(3, 'Servicio', 1, NULL, NULL);
+INSERT INTO `tipo_conceptos` VALUES(4, 'Entrada o Salida', 1, NULL, '2018-05-22 02:17:51');
 
 -- --------------------------------------------------------
 
@@ -865,9 +903,8 @@ CREATE TABLE `tipo_identificacions` (
 -- Volcado de datos para la tabla `tipo_identificacions`
 --
 
-INSERT INTO `tipo_identificacions` (`id`, `descripcion`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 'CC', 1, NULL, NULL),
-(2, 'TI', 1, NULL, NULL);
+INSERT INTO `tipo_identificacions` VALUES(1, 'CC', 1, NULL, NULL);
+INSERT INTO `tipo_identificacions` VALUES(2, 'TI', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -886,9 +923,8 @@ CREATE TABLE `tipo_remision` (
 -- Volcado de datos para la tabla `tipo_remision`
 --
 
-INSERT INTO `tipo_remision` (`id`, `descripcion`, `created_at`, `updated_at`) VALUES
-(1, 'Diaria', NULL, NULL),
-(2, 'Mensual', NULL, NULL);
+INSERT INTO `tipo_remision` VALUES(1, 'Entrada', NULL, NULL);
+INSERT INTO `tipo_remision` VALUES(2, 'Salida', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -910,9 +946,8 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Super Root', 'rodrigo@gmail.com', '$2y$10$ji6WSbe4u3hx0wwiiVUBcuj/52syF7Wln272IT8wEX4c/GzMJQNLu', NULL, NULL, NULL),
-(2, 'Cristian', 'caho@gmail.com', '$2y$10$ji6WSbe4u3hx0wwiiVUBcuj/52syF7Wln272IT8wEX4c/GzMJQNLu', NULL, NULL, NULL);
+INSERT INTO `users` VALUES(1, 'Super Root', 'rodrigo@gmail.com', '$2y$10$ji6WSbe4u3hx0wwiiVUBcuj/52syF7Wln272IT8wEX4c/GzMJQNLu', NULL, NULL, NULL);
+INSERT INTO `users` VALUES(2, 'Cristian', 'caho@gmail.com', '$2y$10$ji6WSbe4u3hx0wwiiVUBcuj/52syF7Wln272IT8wEX4c/GzMJQNLu', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -932,9 +967,8 @@ CREATE TABLE `usuarios_rols` (
 -- Volcado de datos para la tabla `usuarios_rols`
 --
 
-INSERT INTO `usuarios_rols` (`id`, `roles_id`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, NULL, NULL),
-(2, 1, 2, NULL, NULL);
+INSERT INTO `usuarios_rols` VALUES(1, 1, 1, NULL, NULL);
+INSERT INTO `usuarios_rols` VALUES(2, 1, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -955,16 +989,15 @@ CREATE TABLE `valores_conceptos` (
 -- Volcado de datos para la tabla `valores_conceptos`
 --
 
-INSERT INTO `valores_conceptos` (`id`, `concepto_id`, `valor`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 3, 2000, 2, '2018-05-22 02:21:10', '2018-05-22 02:21:10'),
-(2, 4, 5500, 2, '2018-05-22 02:21:23', '2018-05-22 02:21:23'),
-(3, 7, 1800, 2, '2018-05-22 02:21:34', '2018-05-22 02:21:34'),
-(4, 8, 15000, 2, '2018-05-22 02:21:47', '2018-05-22 02:21:47'),
-(5, 9, 18000, 2, '2018-05-22 02:21:59', '2018-05-22 02:21:59'),
-(6, 5, 2500, 2, '2018-05-22 02:22:10', '2018-05-22 02:22:10'),
-(7, 10, 25000, 2, '2018-05-22 02:22:33', '2018-05-22 02:22:33'),
-(8, 11, 30000, 2, '2018-05-22 02:22:52', '2018-05-22 02:22:52'),
-(9, 12, 32000, 2, '2018-05-22 02:23:04', '2018-05-22 02:23:04');
+INSERT INTO `valores_conceptos` VALUES(1, 3, 2000, 2, '2018-05-22 02:21:10', '2018-05-22 02:21:10');
+INSERT INTO `valores_conceptos` VALUES(2, 4, 5500, 2, '2018-05-22 02:21:23', '2018-05-22 02:21:23');
+INSERT INTO `valores_conceptos` VALUES(3, 7, 1800, 2, '2018-05-22 02:21:34', '2018-05-22 02:21:34');
+INSERT INTO `valores_conceptos` VALUES(4, 8, 15000, 2, '2018-05-22 02:21:47', '2018-05-22 02:21:47');
+INSERT INTO `valores_conceptos` VALUES(5, 9, 18000, 2, '2018-05-22 02:21:59', '2018-05-22 02:21:59');
+INSERT INTO `valores_conceptos` VALUES(6, 5, 2500, 2, '2018-05-22 02:22:10', '2018-05-22 02:22:10');
+INSERT INTO `valores_conceptos` VALUES(7, 10, 25000, 2, '2018-05-22 02:22:33', '2018-05-22 02:22:33');
+INSERT INTO `valores_conceptos` VALUES(8, 11, 30000, 2, '2018-05-22 02:22:52', '2018-05-22 02:22:52');
+INSERT INTO `valores_conceptos` VALUES(9, 12, 32000, 2, '2018-05-22 02:23:04', '2018-05-22 02:23:04');
 
 -- --------------------------------------------------------
 
@@ -989,11 +1022,10 @@ CREATE TABLE `vehiculos` (
 -- Volcado de datos para la tabla `vehiculos`
 --
 
-INSERT INTO `vehiculos` (`id`, `persona_id`, `placa`, `modelo`, `color`, `users_id`, `marcas_id`, `lineas_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 'placa1', '2015', '#000000', 2, 1, 1, '2018-05-22 02:10:34', '2018-05-22 02:10:34'),
-(2, 2, 'placa2', '2016', '#000000', 2, 1, 1, '2018-05-22 02:10:47', '2018-05-22 02:10:47'),
-(3, 4, 'placa3', '2014', '#000000', 2, 1, 1, '2018-05-22 02:10:59', '2018-05-22 02:10:59'),
-(4, 2, 'placa5', '2014', '#000000', 2, 1, 1, '2018-05-22 02:11:13', '2018-05-22 02:11:13');
+INSERT INTO `vehiculos` VALUES(1, 1, 'placa1', '2015', '#000000', 2, 1, 1, '2018-05-22 02:10:34', '2018-05-22 02:10:34');
+INSERT INTO `vehiculos` VALUES(2, 2, 'placa2', '2016', '#000000', 2, 1, 1, '2018-05-22 02:10:47', '2018-05-22 02:10:47');
+INSERT INTO `vehiculos` VALUES(3, 4, 'placa3', '2014', '#000000', 2, 1, 1, '2018-05-22 02:10:59', '2018-05-22 02:10:59');
+INSERT INTO `vehiculos` VALUES(4, 2, 'placa5', '2014', '#000000', 2, 1, 1, '2018-05-22 02:11:13', '2018-05-22 02:11:13');
 
 --
 -- Índices para tablas volcadas
@@ -1317,13 +1349,13 @@ ALTER TABLE `basegancia`
 -- AUTO_INCREMENT de la tabla `comandas`
 --
 ALTER TABLE `comandas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `comanda_detalles`
 --
 ALTER TABLE `comanda_detalles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `combos`
@@ -1395,7 +1427,7 @@ ALTER TABLE `ganancia_administrivos`
 -- AUTO_INCREMENT de la tabla `lavados`
 --
 ALTER TABLE `lavados`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `lineas`
