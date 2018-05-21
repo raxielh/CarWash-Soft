@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2018 a las 00:07:34
+-- Tiempo de generación: 22-05-2018 a las 00:22:52
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -330,6 +330,11 @@ INSERT INTO `conceptos` VALUES(9, 'encerada', 'encerada general', 3, 30, 0, 1, 2
 INSERT INTO `conceptos` VALUES(10, 'motor1', 'lavado de motor uno', 3, 40, 0, 1, 2, '2018-05-22 02:18:40', '2018-05-22 02:26:43');
 INSERT INTO `conceptos` VALUES(11, 'combo1', 'lavado motor y encerado', 1, 50, 0, 1, 2, '2018-05-22 02:19:01', '2018-05-22 02:26:50');
 INSERT INTO `conceptos` VALUES(12, 'combo2', 'lavado y lavado de motor', 1, 51, 0, 1, 2, '2018-05-22 02:19:17', '2018-05-22 02:26:59');
+INSERT INTO `conceptos` VALUES(13, 'cera1', 'cera marca acme', 4, 0, 0, 1, 2, '2018-05-22 03:14:40', '2018-05-22 03:14:40');
+INSERT INTO `conceptos` VALUES(14, 'ajuste1', 'ajuste de cierre', 4, 0, 0, 1, 2, '2018-05-22 03:14:55', '2018-05-22 03:14:55');
+INSERT INTO `conceptos` VALUES(15, 'servicio', 'pago de luz electrica', 4, 0, 0, 1, 2, '2018-05-22 03:15:12', '2018-05-22 03:15:12');
+INSERT INTO `conceptos` VALUES(17, 'servicio2', 'pago del servicio de agua', 4, 0, 0, 1, 2, '2018-05-22 03:15:47', '2018-05-22 03:15:47');
+INSERT INTO `conceptos` VALUES(18, 'retirocaja1', 'retiro en efectivo de caja', 4, 0, 0, 1, 2, '2018-05-22 03:18:56', '2018-05-22 03:18:56');
 
 -- --------------------------------------------------------
 
@@ -819,6 +824,14 @@ CREATE TABLE `remisions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `remisions`
+--
+
+INSERT INTO `remisions` VALUES(1, 'compra de cera', 1, 1, 13, 2, '2018-05-21', 20000, 2, '2018-05-22 03:17:29', '2018-05-22 03:18:19');
+INSERT INTO `remisions` VALUES(2, 'retiro para pagaf el colegio de la beba', 1, 1, 18, 2, '2018-05-21', 11000, 2, '2018-05-22 03:19:44', '2018-05-22 03:20:34');
+INSERT INTO `remisions` VALUES(3, 'ingreso por ajuste de caja', 1, 1, 14, 1, '2018-05-21', 450000, 2, '2018-05-22 03:20:20', '2018-05-22 03:20:20');
 
 -- --------------------------------------------------------
 
@@ -1367,7 +1380,7 @@ ALTER TABLE `combos`
 -- AUTO_INCREMENT de la tabla `conceptos`
 --
 ALTER TABLE `conceptos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `configuracions`
@@ -1469,7 +1482,7 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `remisions`
 --
 ALTER TABLE `remisions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
