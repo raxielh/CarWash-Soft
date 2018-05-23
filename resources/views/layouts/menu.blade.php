@@ -140,7 +140,7 @@
 </li>
 
 
-<li class="{{ Request::is('comandas*') ? 'active' : '' }}">
+<li class="{{ Request::is('comandas*') ? 'active' : '' }} {{ Request::is('buscar_concepto*') ? 'active' : '' }}">
     <a href="{!! route('comandas.index') !!}"><i class="fa fa-shopping-bag"></i><span> Comandas</span></a>
 </li>
 

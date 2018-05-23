@@ -1,3 +1,4 @@
+<div>
 {!! Form::open(['route'=>'comandas.index','method'=>'GET','class'=>'navbar-form pull-right','role'=>'search']) !!}
     <div class="form-group">
 
@@ -15,8 +16,10 @@
     <a href="/comandas" class="btn btn-warning btn-xl"><i class="glyphicon glyphicon-tasks"></i> Todos Hoy</a>
     <a href="/comandas_h" class='btn btn-info btn-xl'><i class="glyphicon glyphicon-book"></i> Historial</a>
 {!! Form::close() !!}
-
-<table class="table1 table-responsive table-striped" style="width:100%" id="comandas-table" style="width:100%">
+</div>
+<div style="clear:both;"></div>
+<div class="table-responsive">
+<table class="table1 table-bordered table-hover table-striped" style="width:100%" id="comandas-table" style="width:100%">
     <thead>
         <tr>
             <th>Cliente</th>
@@ -54,4 +57,5 @@
     @endforeach
     </tbody>
 </table>
+</div>
 {{$comandas->render()}}

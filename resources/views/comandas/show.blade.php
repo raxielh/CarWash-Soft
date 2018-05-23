@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
+
+    <section class="content-header oc">
         <h1>
             Comanda
         </h1>
     </section>
-    <div class="content">
+    <div class="content oc">
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">

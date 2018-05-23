@@ -64,6 +64,7 @@ Route::resource('proveedores', 'ProveedoresController');
 Route::resource('combos', 'CombosController');
 
 Route::resource('comandas', 'ComandaController');
+Route::get('buscar_concepto/{comanda}','ComandaController@buscar_concepto');
 Route::get('comandas_h/','ComandaController@historial');
 Route::get('comandas_h_s/{comanda}','ComandaController@show2');
 
@@ -99,3 +100,5 @@ Route::resource('gananciaAdministrivos', 'GananciaAdministrivoController');
 
 Route::get('reportes/v_ingresosyegresos',["as"=>"v_ingresosyegresos","uses"=>"ReportesController@v_ingresosyegresos"]);
 Route::get('reportes/ingresosyegresos',["as"=>"ingresosyegresos","uses"=>"ReportesController@ingresosyegresos"]);
+
+Route::get('buscar_propietario/{vehiculo}',["as"=>"buscar_propietario","uses"=>"ComandaController@buscar_propietario"]);

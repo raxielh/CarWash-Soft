@@ -1,13 +1,13 @@
-<!-- Persona Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('persona_id', 'Cliente:') !!}
-    {!! Form::select('persona_id',  $datos['personas'],null, ['class' => 'form-control chosen-select']) !!}
-</div>
-
 <!-- Vehiculo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('vehiculo_id', 'Vehiculo:') !!}
     {!! Form::select('vehiculo_id', $datos['vehiculos'], null, ['class' => 'form-control chosen-select']) !!}
+</div>
+
+<!-- Persona Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('persona_id', 'Cliente:') !!}
+    {!! Form::select('persona_id',  $datos['personas'],null, ['class' => 'form-control chosen-select']) !!}
 </div>
 
 <!-- Estado Id Field -->

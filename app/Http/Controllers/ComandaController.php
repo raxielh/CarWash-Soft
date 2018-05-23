@@ -181,7 +181,11 @@ class ComandaController extends AppBaseController
                     'lavado' => $lavado,
                 ];
 
-        return view('comandas.show')->with('datos', $datos);
+        $l_conceptos = DB::table('conceptos')
+            ->where('tipo_conceptos_id', '<>' , 4)
+            ->get();
+
+        return view('comandas.show')->with('datos', $datos)->with('l_conceptos', $l_conceptos);
 
     }
 
@@ -370,6 +374,24 @@ class ComandaController extends AppBaseController
 
         //DB::select('CALL ProFacturarComanda(?)',array($id));
         
+    }
+
+    public function buscar_propietario($id)
+    {
+        $propietario =  DB::table('vehiculos')
+                ->where('id',$id)
+                ->get();
+        return $propietario;   
+    }
+
+    public function buscar_concepto($id)
+    {
+        //return $id;
+            $l_conceptos = DB::table('conceptos')
+            ->where('tipo_conceptos_id', '<>' , 4)
+            ->get();
+
+        return view('comandas.busca')->with('l_conceptos', $l_conceptos)->with('id', $id);
     }
 
 }

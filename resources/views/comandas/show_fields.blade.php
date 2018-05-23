@@ -8,7 +8,39 @@
     .cantidad{
         display: none;
     }
-
+    #myModal{
+        padding: 0px !important;
+    }
+.modal-body{
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+.modal-backdrop.in{
+    opacity: 0;
+}
+    .modal-dialog {
+        width: 100%; 
+        margin: 0px auto;
+    }
+@media (max-width: 1030px) {
+  .o {
+    display: none;
+  }
+  .m {
+    display:block !important;
+  }
+    .modal-dialog {
+        width: 100%; 
+        margin: 0px auto;
+    }
+}
+@media (min-width: 768px)
+{
+    .modal-dialog {
+        width: 100%; 
+        margin: 0px auto;
+    }
+}
     @media print {
         .main-sidebar,.btn,form,.dataTables_length,.dataTables_filter,.comandaDetalles-table_info,.dataTables_paginate,.dataTables_info,.main-footer,h4,#update,.quitar{
             display: none;
@@ -30,7 +62,26 @@
             text-align: center;
         }
     }
+.modal-contenido{
+  background-color:#fff;
+  width:100%;
+  padding: 5px 5px;
+  margin: 0% auto;
+  position: relative;
+    z-index: 999999999999999999;
+}
+.mon{
+  background-color:#fff;
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index: 9999999999999999999999999;
+  pointer-events:none;
+}
 </style>
+
 <div class="row">
     <a href="{!! route('comandas.index') !!}" class="btn btn-default quitar" style="margin-left: 10px">Atras</a>
     @if (count($datos['lavado']) == 0)
@@ -40,9 +91,9 @@
     <a href="{!! route('lavados.show', [$datos['comandas'][0]->id]) !!}" style="margin-right: 30px;" class='btn btn-success btn-xl pull-right'><i class="glyphicon glyphicon-user"></i> Equipos de lavado</a>
 
     @if (count($datos['lavado']) == 0)
-        <div class="pull-right" style="margin-right: 10px;"><h4>Sin Equipo</h4></div>
+        <div class="pull-right" style="margin-right: 34px;"><h4>Sin Equipo</h4></div>
     @else
-        <div class="pull-right" style="margin-right: 10px;"><h4><strong>Equipo Asignado </strong>{{$datos['lavado'][0]->equipo}}</h4></div>
+        <div class="pull-right" style="margin-right: 34px;"><h4><strong>Equipo Asignado </strong>{{$datos['lavado'][0]->equipo}}</h4></div>
     @endif
 
 </div>
@@ -140,8 +191,14 @@
                         <input type="hidden" name="comanda_id" id="comanda_id" value="{!! $datos['comandas'][0]->id !!}">
                         <!-- Concepto Id Field -->
                         <div class="form-group col-sm-6">
-                            {!! Form::label('concepto_id', 'Concepto:') !!}
-                            {!! Form::select('concepto_id', $datos['conceptos'], null, ['class' => 'form-control chosen-select']) !!}
+                            <div class="col-sm-3">
+                                {!! Form::label('concepto_id', 'Buscar:') !!}
+                                <a href="/buscar_concepto/{!! $datos['comandas'][0]->id !!}" class="fa fa-search btn btn-primary"></a>
+                            </div>
+                            <div class="col-sm-9">
+                                {!! Form::label('concepto_id', 'Concepto:') !!}
+                                {!! Form::select('concepto_id', $datos['conceptos'], null, ['class' => 'form-control chosen-select']) !!}
+                            </div>
                         </div>
 
                         <!-- Descuentos Id Field -->
@@ -219,10 +276,10 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th></th>
-                                <th></th><th></th><th></th>
-                                <th>Total</th>
-                                <th>{{ number_format($t) }}</th>
+                                <th class="o"></th>
+                                <th class="o"></th><th class="o"></th><th class="o"></th>
+                                <th class="m">Total</th>
+                                <th class="m">{{ number_format($t) }}</th>
                                 <th class="quitar"></th>
                             </tr>
                         </tfoot>

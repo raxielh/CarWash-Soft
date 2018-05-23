@@ -96,7 +96,7 @@
 @if (!Auth::guest())
     <div class="wrapper">
         <!-- Main Header -->
-        <header class="main-header">
+        <header class="main-header oc">
 
             <a href="#" class="logo" style="text-decoration: none;">
                 <span class="logo-mini"><b>C</b>Soft</span>
@@ -161,7 +161,7 @@
         </div>
 
         <!-- Main Footer -->
-        <footer class="main-footer" style="max-height: 100px;text-align: center">
+        <footer class="main-footer oc" style="max-height: 100px;text-align: center">
             <strong>Copyright © <a href="#">CarWash-Soft</a>.</strong> All rights reserved.
         </footer>
 
