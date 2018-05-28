@@ -71,6 +71,8 @@ Route::get('comandas_h_s/{comanda}','ComandaController@show2');
 Route::get('comandas/concepto_valor/{comanda}',["as" => "concepto_valor", "uses" => "ComandaController@valor_concepto"] );
 Route::get('comandas/valor_concepto_descuento/{comanda}',["as" => "valor_concepto_descuento", "uses" => "ComandaController@valor_concepto_descuento"] );
 
+Route::get('comandas/calcular_subtotal/{comanda}',["as" => "calcular_subtotal", "uses" => "ComandaController@calcular_subtotal"] );
+
 Route::get('comandas/facturar/{comanda}',["as" => "facturar", "uses" => "ComandaController@facturar"] );
 
 Route::resource('lavados', 'LavadoController');
@@ -102,3 +104,7 @@ Route::get('reportes/v_ingresosyegresos',["as"=>"v_ingresosyegresos","uses"=>"Re
 Route::get('reportes/ingresosyegresos',["as"=>"ingresosyegresos","uses"=>"ReportesController@ingresosyegresos"]);
 
 Route::get('buscar_propietario/{vehiculo}',["as"=>"buscar_propietario","uses"=>"ComandaController@buscar_propietario"]);
+
+Route::post('comandaDetallesAjax', 'ComandaDetalleController@storeAjax');
+
+Route::post('enquiry', 'EnquiryController@index');
