@@ -34,7 +34,7 @@ class ProcesosController extends AppBaseController
     {
         $fecha=$request->fecha;
         $dato='Hola';
-        //$dato=DB::select('CALL ProFacturarComanda(?)',array($fecha));
+        $dato=DB::select('select FnCalculaAdministradorLava(?)',array($fecha));
         return view('procesos.msg')->with('dato', $dato);
     }
 
@@ -51,7 +51,7 @@ class ProcesosController extends AppBaseController
     {
         $fecha=$request->fecha;
         $dato='Hola';
-        //$dato=DB::select('CALL ProFacturarComanda(?)',array($fecha));
+        $dato=DB::select('select FnCalculaCierre(?)',array($fecha));
         return view('procesos.msg')->with('dato', $dato);
     }    
 
