@@ -44,7 +44,7 @@ tr:nth-child(even) {
                 <h4 style="background-color:#1d79fa;color: #333"><strong>Fecha:</strong> {{$datos['fecha']}}</h4>
 
                 @foreach ($datos['base'] as $base)
-                    <h4 style="background-color: #333;color: red;margin-top: 0px"><strong>Base:</strong> {{ $base->valor_cierre }}</h4>
+                    <h4 style="background-color: #333;color: red;margin-top: 0px"><strong>Base:</strong> {{ $base->valor_inicia }}</h4>
                 @endforeach
 
                 <h4 style="text-align: center;background-color: yellow">Patio</h4>
@@ -66,10 +66,226 @@ tr:nth-child(even) {
                         <td>{{ $cd->valortotal }}</td>
                       </tr>
                     @endforeach
+
+                  @foreach ($datos['numero_carros'] as $base)
+
+                    <tr>
+                        <td><b># DE CARROS DIA</b></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->numerocarros }}</td>
+                      </tr>
+
+                @endforeach
+                  @foreach ($datos['total_patio'] as $base)
+
+                    <tr>
+                        <td><b>VENTAS TOTALES PATIO</b></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->totalpatio }}</td>
+                      </tr>
+
+                @endforeach
+
+                    </tbody>
+                </table>
+               <h4 style="text-align: center;background-color: yellow">CAFETERIA</h4>
+<table>
+                    <thead>
+                      <tr>
+                        <th>Tipo Concepto</th>
+                        <th>Cantidad</th>
+                        <th>Tipo valor</th>
+                        <th>Valor total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($datos['comda_detalle_cafetaria'] as $cd)
+                      <tr>
+                        <td>{{ $cd->tipoconcepto }}</td>
+                        <td>{{ $cd->cantidad }}</td>
+                        <td>{{ $cd->valor }}</td>
+                        <td>{{ $cd->valortotal }}</td>
+                      </tr>
+                    @endforeach
+
+
+                  @foreach ($datos['total_cafetaria'] as $base)
+
+                    <tr>
+                        <td><b>VENTAS TOTALES PATIO</b></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->totalpatio }}</td>
+                      </tr>
+
+                @endforeach
+
+                    </tbody>
+                </table>
+ <h4 style="text-align: center;background-color: yellow">GRAN TOTAL</h4>
+
+ <table>
+                    <thead>
+                      <tr>
+                        <th>Tipo Concepto</th>
+                        <th>Cantidad</th>
+                        <th>Tipo valor</th>
+                        <th>Valor total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($datos['base'] as $base)
+              
+                      <tr>
+                        <td>PATIO</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->valor_ventas_servicios }}</td>
+                      </tr>
+
+                      <tr>
+                        <td>BASE</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->valor_inicia }}</td>
+                      </tr>  
+                        <tr>
+                        <td>CAFETERIA</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->valor_ventas_cafeteria }}</td>
+                      </tr> 
+
+                    <tr>
+                        <td><b>Total</b></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->valor_ventas_servicios+$base->valor_inicia+$base->valor_ventas_cafeteria }}</td>
+                      </tr>
+
+               @endforeach
+
+                    </tbody>
+                </table>
+
+                 <h4 style="text-align: center;background-color: yellow">ENTRADAS</h4>
+<table>
+                    <thead>
+                      <tr>
+                        <th>Tipo Concepto</th>
+                        <th>Cantidad</th>
+                        <th>Tipo valor</th>
+                        <th>Valor total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($datos['entradas'] as $cd)
+                      <tr>
+                        <td>{{ $cd->descconcepto }}</td>
+                        <td>{{ $cd->cantidad }}</td>
+                        <td></td>
+                        <td>{{ $cd->valor }}</td>
+                      </tr>
+                    @endforeach
+
+
+                  @foreach ($datos['base'] as $base)
+
+                    <tr>
+                        <td><b>Total Entradas</b></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->valor_entrada_remisiones }}</td>
+                      </tr>
+
+                @endforeach
+
+                    </tbody>
+                </table>
+
+                 <h4 style="text-align: center;background-color: yellow">SALIDAS</h4>
+<table>
+                    <thead>
+                      <tr>
+                        <th>Tipo Concepto</th>
+                        <th>Cantidad</th>
+                        <th>Tipo valor</th>
+                        <th>Valor total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($datos['salidas'] as $cd)
+                      <tr>
+                        <td>{{ $cd->descconcepto }}</td>
+                        <td>{{ $cd->cantidad }}</td>
+                        <td></td>
+                        <td>{{ $cd->valor }}</td>
+                      </tr>
+                    @endforeach
+
+
+                  @foreach ($datos['base'] as $base)
+
+                    <tr>
+                        <td><b>Total Entradas</b></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->valor_salidas_remisiones }}</td>
+                      </tr>
+
+                @endforeach
+
                     </tbody>
                 </table>
 
 
+                <h4 style="text-align: center;background-color: yellow">EN CAJA</h4>
+
+ <table>
+                    <thead>
+                      <tr>
+                        <th>Tipo Concepto</th>
+                        <th>Cantidad</th>
+                        <th>Tipo valor</th>
+                        <th>Valor total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($datos['base'] as $base)
+              
+                      <tr>
+                        <td>Gran total</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->valor_ventas_servicios+$base->valor_inicia+$base->valor_ventas_cafeteria }}</td>
+                      </tr>
+
+                      <tr>
+                        <td>Entradas</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->valor_entrada_remisiones }}</td>
+                      </tr>  
+                        <tr>
+                        <td>Salidas</td>
+                        <td></td>
+                        <td></td>
+                        <td> - {{ $base->valor_salidas_remisiones }}</td>
+                      </tr> 
+
+                    <tr>
+                        <td><b>Total</b></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $base->valor_cierre }}</td>
+                      </tr>
+
+               @endforeach
+
+                    </tbody>
+                </table>
 
               </div>
             
