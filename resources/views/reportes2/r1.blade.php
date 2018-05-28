@@ -43,38 +43,46 @@ tr:nth-child(even) {
 
                 <h4 style="background-color:#1d79fa;color: #333"><strong>Fecha:</strong> {{$datos['fecha']}}</h4>
 
-                @foreach ($datos['base'] as $base)
-                    <h4 style="background-color: #333;color: red;margin-top: 0px"><strong>Base:</strong> {{ $base->valor_inicia }}</h4>
-                @endforeach
 
-                <h4 style="text-align: center;background-color: yellow">Patio</h4>
-                <table>
-                    <thead>
-                      <tr>
-                        <th>Lavador</th>
-                        <th>Descripción</th>
-                        <th>Comisión</th>
-                        <th>Cantidad</th>
-                        <th>Valor</th>
-                        <th>Valor Comi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+                <h4 style="text-align: center;background-color: yellow">Lavadores</h4>
+                
+
                     @foreach ($datos['adminlava'] as $cd)
+ 
+                     @if($cd->secu === '1')
+                     <table>
+                        <tr>
+                         <td colspan="5" ><p align="center"><b>{{ $cd->apellido." ".$cd->nombre }}</b></p></td>
+                        </tr>
+                        <tr>
+                        <th><b>Descripción</b></th>
+                        <th><b>Comisión</b></th>
+                        <th><b>Cantidad</b></th>
+                        <th><b>Valor</b></th>
+                        <th><b>Valor Comi</b></th>
+                      </tr>
+                     @endif
+
+                      @if($cd->orden === 2)
+                         <tr>
+                        <td colspan="4">{{ $cd->descripcion }}</td>                      
+                        <td><b>{{ $cd->valor_comi }}</b></td>
+                      </tr>                        
+                       </table>
+                       <br>
+                      @else
                       <tr>
-                        <td>{{ $cd->apellido." ".$cd->nombre }}</td>
                         <td>{{ $cd->descripcion }}</td>
                         <td>{{ $cd->comision }}</td>
                         <td>{{ $cd->cantidad }}</td>
                         <td>{{ $cd->valor }}</td>
-                        <td>{{ $cd->valor_comi }}</td>
+                        <td> {{ $cd->valor_comi }}</td>
                       </tr>
-                    @endforeach
- 
+                          
+                      @endif
 
-                    </tbody>
-                </table>
-               <h4 style="text-align: center;background-color: yellow">CAFETERIA</h4>
+                    @endforeach
+
 
 
               </div>

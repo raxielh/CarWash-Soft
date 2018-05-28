@@ -188,7 +188,18 @@ group by c.`descripcion`;
         $adminlava = DB::select(
             " 
 
-                select  *
+               select  cast(if(gh.orden=1,@rownum:=@rownum+1 ,@rownum:=0 ) as char(10)) secu,
+                gh.orden,
+                gh.id, 
+                gh.fecha,
+                gh.apellido,
+                gh.nombre,
+                gh.descripcion,
+                gh.comision,
+                gh.cantidad,
+                gh.valor,
+                gh.valor_comi,
+                gh.tipoper
                 from 
                 (
                   select 1 as orden,
@@ -247,7 +258,7 @@ group by c.`descripcion`;
                 where  bp.fecha='".$fecha."'
                 and   bp.persona_id=pe.id
                 and  bp.`tipopersonal_id`=2
-                ) as gh
+                ) as gh,(SELECT @rownum:=0) r
                 order by gh.apellido,
                 gh.nombre,
                 gh.orden   
