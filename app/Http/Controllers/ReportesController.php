@@ -36,6 +36,11 @@ class ReportesController extends AppBaseController
         return view('reportes2.index');
     } 
 
+        public function v_salida_entrada()
+    {
+        return view('reportes3.index');
+    } 
+
     public function ingresosyegresos(Request $request)
     {
         $fecha=$request->fecha;
@@ -265,14 +270,77 @@ group by c.`descripcion`;
 "
         );
 
-       
+         $admin = DB::select(
+            " 
+            SELECT 
+ 
+  bp.persona_id, 
+ bp.fecha,
+  pe.apellido,
+  pe.nombre,
+bp.comision,
+bp.valorventasdia,
+bp.valor as valorcomi,
+ bp.tipopersonal_id,
+  bp.created_at,
+  bp.updated_at
+FROM 
+  baseadpersonal bp,
+   personas pe
+where  bp.fecha='".$fecha."'
+and   bp.persona_id=pe.id
+and  bp.tipopersonal_id=1
+            ");
 
         $datos = [
                     'fecha'=> $fecha,
                     'base' => $base,
                     'adminlava' => $adminlava,          
+                    'admin'=> $admin,
                 ];
 
         return view('reportes2.r1')->with('datos', $datos);
+    } 
+
+
+     public function salidaentrada(Request $request)
+    {
+        $fecha=$request->fecha;
+        $msg='Reporte Generado...';
+
+        $base = DB::table('basegancia')->where('fecha',$fecha)->get();
+        
+        $salidas=  DB::select(
+            " 
+  SELECT  c.`descripcion` descconcepto, count(*) cantidad,  sum(r.valor)  as valor
+FROM   remisions  r,
+       `conceptos` c
+where  r.fecha='".$fecha."'
+and r.tipo_remision_id=2
+and r.`concepto_id`=c.`id`
+group by c.`descripcion`;
+
+            ");
+
+   $entradas=  DB::select(
+            " 
+  SELECT  c.`descripcion` descconcepto, count(*) cantidad,  sum(r.valor)  as valor
+FROM   remisions  r,
+       `conceptos` c
+where  r.fecha='".$fecha."'
+and r.tipo_remision_id=1 
+and r.`concepto_id`=c.`id`
+group by c.`descripcion`;
+
+            ");
+
+        $datos = [
+                    'fecha'=> $fecha,
+                    'base' => $base,
+                    'salidas' => $salidas,          
+                    'entradas'=> $entradas,
+                ];
+
+        return view('reportes3.r1')->with('datos', $datos);
     } 
 }

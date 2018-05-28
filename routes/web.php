@@ -107,6 +107,8 @@ Route::get('reportes/ingresosyegresos',["as"=>"ingresosyegresos","uses"=>"Report
 Route::get('reportes2/v_admin_lavadores',["as"=>"v_admin_lavadores","uses"=>"ReportesController@v_admin_lavadores"]);
 Route::get('reportes2/adminlavadores',["as"=>"adminlavadores","uses"=>"ReportesController@adminlavadores"]);
 
+Route::get('reportes3/v_salida_entrada',["as"=>"v_salida_entrada","uses"=>"ReportesController@v_salida_entrada"]);
+Route::get('reportes3/salidaentrada',["as"=>"salidaentrada","uses"=>"ReportesController@salidaentrada"]);
 
 
 Route::get('buscar_propietario/{vehiculo}',["as"=>"buscar_propietario","uses"=>"ComandaController@buscar_propietario"]);

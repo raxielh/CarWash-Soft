@@ -163,6 +163,7 @@
         <li>
             <a href="/reportes/v_ingresosyegresos/"><i class="fa fa-edit"></i><span> Ingresos y Egresos</span></a>
             <a href="/reportes2/v_admin_lavadores/"><i class="fa fa-edit"></i><span> Reporte Admin y Lavadores</span></a>
+            <a href="/reportes3/v_salida_entrada/"><i class="fa fa-edit"></i><span> Salidas y Entradas</span></a>
         </li>
     </ul>
 </li>

@@ -18,7 +18,7 @@ tr:nth-child(even) {
 }
 </style>
     <section class="content-header">
-        <h1 class="pull-left">Reporte Lavadores y Administradores</h1>
+        <h1 class="pull-left">Salidas y entradas</h1>
     </section>
     <div class="content">
         <div class="clearfix"></div>
@@ -30,7 +30,7 @@ tr:nth-child(even) {
         <div class="box box-primary">
             <div class="box-body" style="padding: 3em">
               <div class="row">
-              <form action="/reportes2/adminlavadores/">
+              <form action="/reportes3/salidaentrada/">
                 <div class="col-sm-2">
                   <input type="date" value="{{$datos['fecha']}}" class="form-control" name="fecha">
                 </div>
