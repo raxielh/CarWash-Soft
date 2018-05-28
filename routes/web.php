@@ -104,8 +104,8 @@ Route::get('reportes/v_ingresosyegresos',["as"=>"v_ingresosyegresos","uses"=>"Re
 Route::get('reportes/ingresosyegresos',["as"=>"ingresosyegresos","uses"=>"ReportesController@ingresosyegresos"]);
 
 
-Route::get('reportes/v_admin_lavadores',["as"=>"v_admin_lavadores","uses"=>"ReportesController@v_admin_lavadores"]);
-Route::get('reportes/adminlavadores',["as"=>"adminlavadores","uses"=>"ReportesController@adminlavadores"]);
+Route::get('reportes2/v_admin_lavadores',["as"=>"v_admin_lavadores","uses"=>"ReportesController@v_admin_lavadores"]);
+Route::get('reportes2/adminlavadores',["as"=>"adminlavadores","uses"=>"ReportesController@adminlavadores"]);
 
 
 

@@ -14,7 +14,7 @@
         <div class="box box-primary">
             <div class="box-body" style="padding: 3em">
               <div class="row">
-              <form action="/reportes/ingresosyegresos/">
+              <form action="/reportes2/adminlavadores/">
                 <div class="col-sm-2">
                   <input type="date" value="<?php echo date('Y-m-d'); ?>" class="form-control" name="fecha">
                 </div>

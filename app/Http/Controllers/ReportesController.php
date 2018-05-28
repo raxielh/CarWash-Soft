@@ -220,11 +220,12 @@ group by c.`descripcion`;
                 and f.estado_id=1
                 and tc.id in (3,1)
                 group by  pe.id, STR_TO_DATE(DATE_FORMAT(f.created_at, '%d/%m/%Y'),  '%d/%m/%Y'),
+                pe.apellido,
+                pe.nombre,
+                c.descripcion,
                 c.comision,
                 df.cantidad,
-                df.valor,
-                pe.apellido,
-                pe.nombre
+                df.valor
 
                 union all
 
@@ -257,9 +258,10 @@ group by c.`descripcion`;
 
         $datos = [
                     'fecha'=> $fecha,
+                    'base' => $base,
                     'adminlava' => $adminlava,          
                 ];
 
-        return view('reportes.r1')->with('datos', $datos);
+        return view('reportes2.r1')->with('datos', $datos);
     } 
 }

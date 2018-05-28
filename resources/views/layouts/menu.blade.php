@@ -162,7 +162,7 @@
     <ul class="nav nav-list tree" style="display: none;background:rgb(55, 65, 69);width: 230px;">
         <li>
             <a href="/reportes/v_ingresosyegresos/"><i class="fa fa-edit"></i><span> Ingresos y Egresos</span></a>
-            <a href="/reportes/v_admin_lavadores/"><i class="fa fa-edit"></i><span> Reporte Admin y Lavadores</span></a>
+            <a href="/reportes2/v_admin_lavadores/"><i class="fa fa-edit"></i><span> Reporte Admin y Lavadores</span></a>
         </li>
     </ul>
 </li>
