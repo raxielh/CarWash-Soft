@@ -312,25 +312,48 @@ and  bp.tipopersonal_id=1
         
         $salidas=  DB::select(
             " 
-  SELECT  c.`descripcion` descconcepto, count(*) cantidad,  sum(r.valor)  as valor
+ SELECT  c.`descripcion` descconcepto, 
+        pr.`razon_social` proveedor,
+        p.`tipo_identificacion_id`,
+        p.`identificacion`,
+        p.`apellido`,
+        p.`nombre`,
+        r.valor,
+        r.`updated_at`
+   
 FROM   remisions  r,
-       `conceptos` c
+       conceptos c,
+       personas p,
+       `proveedores` pr
 where  r.fecha='".$fecha."'
 and r.tipo_remision_id=2
-and r.`concepto_id`=c.`id`
-group by c.`descripcion`;
+and r.`concepto_id`=c.`id` 
+and r.`persona_id`=p.`id`
+and r.`proveedor_id`=pr.id
+
 
             ");
 
    $entradas=  DB::select(
             " 
-  SELECT  c.`descripcion` descconcepto, count(*) cantidad,  sum(r.valor)  as valor
+  SELECT  c.`descripcion` descconcepto, 
+        pr.`razon_social` proveedor,
+        p.`tipo_identificacion_id`,
+        p.`identificacion`,
+        p.`apellido`,
+        p.`nombre`,
+        r.valor,
+        r.`updated_at`
+   
 FROM   remisions  r,
-       `conceptos` c
+       conceptos c,
+       personas p,
+       `proveedores` pr
 where  r.fecha='".$fecha."'
-and r.tipo_remision_id=1 
-and r.`concepto_id`=c.`id`
-group by c.`descripcion`;
+and r.tipo_remision_id=1
+and r.`concepto_id`=c.`id` 
+and r.`persona_id`=p.`id`
+and r.`proveedor_id`=pr.id
 
             ");
 

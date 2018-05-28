@@ -44,67 +44,73 @@ tr:nth-child(even) {
                 <h4 style="background-color:#1d79fa;color: #333"><strong>Fecha:</strong> {{$datos['fecha']}}</h4>
 
 
-                <h4 style="text-align: center;background-color: yellow">Lavadores</h4>
+            
                 
 
-                    @foreach ($datos['adminlava'] as $cd)
- 
-                     @if($cd->secu === '1')
-                     <table>
-                        <tr>
-                         <td colspan="5" ><p align="center"><b>{{ $cd->apellido." ".$cd->nombre }}</b></p></td>
-                        </tr>
-                        <tr>
-                        <th><b>Descripción</b></th>
-                        <th><b>Comisión</b></th>
-                        <th><b>Cantidad</b></th>
-                        <th><b>Valor</b></th>
-                        <th><b>Valor Comi</b></th>
-                      </tr>
-                     @endif
-
-                      @if($cd->orden === 2)
-                         <tr>
-                        <td colspan="4">{{ $cd->descripcion }}</td>                      
-                        <td><b>{{ $cd->valor_comi }}</b></td>
-                      </tr>                        
-                       </table>
-                       <br>
-                      @else
-                      <tr>
-                        <td>{{ $cd->descripcion }}</td>
-                        <td>{{ $cd->comision }}</td>
-                        <td>{{ $cd->cantidad }}</td>
-                        <td>{{ $cd->valor }}</td>
-                        <td> {{ $cd->valor_comi }}</td>
-                      </tr>
-                          
-                      @endif
-
-                    @endforeach
 
 
-<h4 style="text-align: center;background-color: yellow">Administradores</h4>
+<h4 style="text-align: center;background-color: yellow">Salidas</h4>
 
 
  <table>
                     <thead>
                       <tr>
-                        <th>Nombres</th>
-                        <th>Comisión</th>
-                        <th>Total Ventas</th>
-                        <th>Valor Comi</th>
-                        <th>Fecha Actualización</th>
+                        <th>Concepto</th>
+                        <th>Proveedor</th>
+                        <th>T.Identifi</th>
+                        <th>Identifi</th>
+                        <th>Persona</th>
+                        <th>Valor</th>
+                        <th>Fecha</th>
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach ($datos['admin'] as $cd)
+                    @foreach ($datos['salidas'] as $cd)
                       <tr>
+                        <td>{{ $cd->descconcepto}}</td>
+                        <td>{{ $cd->proveedor }}</td>
+                        <td>{{ $cd->tipo_identificacion_id }}</td>
+                        <td>{{ $cd->identificacion }}</td>                        
                         <td>{{ $cd->apellido." ".$cd->nombre }}</td>
-                        <td>{{ $cd->comision }}</td>
-                        <td>{{ $cd->valorventasdia }}</td>
-                        <td>{{ $cd->valorcomi }}</td>
-                        <td>{{ $cd->updated_at }}</td>
+                        
+                        <td>{{ $cd->valor }}</td>
+                        <td>{{ $cd->updated_at }}</td>          
+                      </tr>
+                    @endforeach
+
+
+                    </tbody>
+                </table>
+
+
+
+
+<h4 style="text-align: center;background-color: yellow">Entradas</h4>
+
+
+ <table>
+                    <thead>
+                      <tr>
+                        <th>Concepto</th>
+                        <th>Proveedor</th>
+                        <th>T.Identifi</th>
+                        <th>Identifi</th>
+                        <th>Persona</th>
+                        <th>Valor</th>
+                        <th>Fecha</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($datos['entradas'] as $cd)
+                      <tr>
+                        <td>{{ $cd->descconcepto}}</td>
+                        <td>{{ $cd->proveedor }}</td>
+                        <td>{{ $cd->tipo_identificacion_id }}</td>
+                        <td>{{ $cd->identificacion }}</td>                        
+                        <td>{{ $cd->apellido." ".$cd->nombre }}</td>
+                        
+                        <td>{{ $cd->valor }}</td>
+                        <td>{{ $cd->updated_at }}</td>          
                       </tr>
                     @endforeach
 
