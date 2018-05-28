@@ -41,8 +41,9 @@ class ProcesosController extends AppBaseController
     public function Lavadero(Request $request)
     {
         $fecha=$request->fecha;
-        $dato='Hola';
-        //$dato=DB::select('CALL ProFacturarComanda(?)',array($fecha));
+        $dato=$fecha;
+        // $dato=DB::select('CALL ProCalculaComisionLava(?)',array($fecha));
+        $dato=DB::select("select FnCalculaComisionLava('".$fecha."') as salida");
         return view('procesos.msg')->with('dato', $dato);
     }
 
