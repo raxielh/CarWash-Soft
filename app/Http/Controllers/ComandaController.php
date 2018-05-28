@@ -341,6 +341,29 @@ class ComandaController extends AppBaseController
 
         if(count($consultar_factura)==0){
             DB::select('CALL ProFacturarComanda(?)',array($id));
+            $factura =  DB::table('factura')
+                ->join('users', 'factura.users_id', '=', 'users.id')
+                ->join('personas', 'factura.persona_id', '=', 'personas.id')
+                ->join('vehiculos', 'factura.vehiculo_id', '=', 'vehiculos.id')
+                ->join('estado_comandas', 'factura.estado_id', '=', 'estado_comandas.id')
+                ->where('factura.id',$id)
+                ->selectRaw('estado_comandas.descripcion as estadodesc,vehiculos.*,factura.*,users.name,personas.nombre as nom,personas.apellido as ape,personas.identificacion as iden,estado_comandas.id as estaid,personas.telefono1,personas.direccion,factura.id as numero,'.
+                    DB::raw('DATE_FORMAT(factura.created_at, "%Y-%m-%d")').' as fecha '
+
+                )
+                ->selectRaw(DB::raw('DATE_FORMAT(factura.created_at, "%H:%i:%s")').' as hora ')
+                ->get();
+
+            $detalles =  DB::table('detallefactura')
+                ->join('conceptos', 'detallefactura.concepto_id', '=', 'conceptos.id')
+                ->join('descuentos', 'detallefactura.descuentos_id', '=', 'descuentos.id')
+                ->where('detallefactura.factura_id',$id)
+                ->selectRaw('detallefactura.id,conceptos.descripcion,detallefactura.descuento,detallefactura.valor,detallefactura.cantidad,detallefactura.impuesto')
+                ->get();
+
+            $datos = ['factura' => $factura,'detalles'=> $detalles];
+            return view('factura.index')
+                ->with('datos', $datos);
         }else{
 
             $factura =  DB::table('factura')
@@ -387,11 +410,51 @@ class ComandaController extends AppBaseController
     public function buscar_concepto($id)
     {
         //return $id;
-            $l_conceptos = DB::table('conceptos')
-            ->where('tipo_conceptos_id', '<>' , 4)
-            ->get();
+        $descuento = DB::table('descuentos')->pluck('descripcion','id');
+        
+        $l_conceptos = DB::select('
+                                            SELECT 
+                                              c.`id`,
+                                              c.`codigo`,
+                                              c.`descripcion`,
+                                              c.`impuesto`,
+                                              c.`comision`,
+                                              c.`impuesto`,
+                                              c.`estado_id`,
+                                              c.`imagen`,
+                                              v.`valor`
+                                            FROM
+                                              conceptos c,
+                                              valores_conceptos v
+                                            WHERE
+                                              c.id=v.concepto_id
+                                              AND `tipo_conceptos_id` <> 4 
+                                              AND `tipo_conceptos_id` <> 2
+                                              AND c.`estado_id`=1
+                                              AND  v.created_at IN
+                                                (SELECT MAX(v2.created_at) 
+                                                    FROM valores_conceptos v2
+                                                    WHERE c.id=v2.concepto_id)
+                                            ORDER BY c.`codigo`
+                                        ');
 
-        return view('comandas.busca')->with('l_conceptos', $l_conceptos)->with('id', $id);
+        return view('comandas.busca')->with('l_conceptos', $l_conceptos)->with('id', $id)->with('descuento', $descuento);
+    }
+
+    public function calcular_subtotal($id)
+    {
+        $sub = DB::select('
+                                    SELECT 
+                                    SUM(valor*cantidad-((valor*cantidad)*(descuento/100))) AS sub
+                                    FROM
+                                      comanda_detalles
+                                    WHERE
+                                      comanda_id='.$id);
+         $response = array(
+          'sub' => $sub
+        );
+
+        return response()->json($sub); 
     }
 
 }

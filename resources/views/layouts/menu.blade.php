@@ -10,7 +10,7 @@
     {{ Request::is('estados*') ? 'active' : '' }}
     {{ Request::is('estadoFacturas*') ? 'active' : '' }}
     {{ Request::is('estadoComandas*') ? 'active' : '' }}
-    " style="cursor: pointer;"><i class="fa fa-gear"></i> <span>Administrador</span></a>
+    " style="cursor: pointer;"><i class="fa fa-gear"></i> <span> Administrador</span></a>
     <ul class="nav nav-list tree
 {{ Request::is('roles*') ? 'mostrar' : '' }}
 {{ Request::is('permisos*') ? 'mostrar' : '' }}
@@ -45,7 +45,7 @@
 @endif
 
 <li>
-    <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-gear"></i> <span>Usuarios</span></a>
+    <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-gear"></i> <span> Usuarios</span></a>
     <ul class="nav nav-list tree
 {{ Request::is('usuarios*') ? 'mostrar' : '' }}
 {{ Request::is('usuariosRols*') ? 'mostrar' : '' }}
@@ -70,7 +70,7 @@
     {{ Request::is('descuentos*') ? 'active' : '' }}
     {{ Request::is('configuracions*') ? 'active' : '' }}
     {{ Request::is('administrativos*') ? 'active' : '' }}
-    " style="cursor: pointer;"><i class="fa fa-cubes"></i> <span>Parametros</span></a>
+    " style="cursor: pointer;"><i class="fa fa-cubes"></i> <span> Parametros</span></a>
     <ul class="nav nav-list tree
         {{ Request::is('tipoConceptos*') ? 'mostrar' : '' }}
         {{ Request::is('conceptos*') ? 'mostrar' : '' }}
@@ -95,11 +95,11 @@
             <a href="{!! route('descuentos.index') !!}"><i class="fa fa-edit"></i><span> Descuentos</span></a>
         </li>
         <li class="{{ Request::is('configuracions*') ? 'active2' : '' }}">
-            <a href="{!! route('configuracions.index') !!}"><i class="fa fa-edit"></i><span>Configuracions</span></a>
+            <a href="{!! route('configuracions.index') !!}"><i class="fa fa-edit"></i><span> Configuracions</span></a>
         </li>
 
         <li class="{{ Request::is('administrativos*') ? 'active2' : '' }}">
-            <a href="{!! route('administrativos.index') !!}"><i class="fa fa-edit"></i><span>Administrativos</span></a>
+            <a href="{!! route('administrativos.index') !!}"><i class="fa fa-edit"></i><span> Administrativos</span></a>
         </li>
 
 
@@ -119,7 +119,7 @@
     {{ Request::is('marcas*') ? 'active' : '' }}
     {{ Request::is('lineas*') ? 'active' : '' }}
     {{ Request::is('vehiculos*') ? 'active' : '' }}
-    " style="cursor: pointer;"><i class="fa fa-automobile"></i> <span>Vehiculos</span></a>
+    " style="cursor: pointer;"><i class="fa fa-automobile"></i> <span> Vehiculos</span></a>
     <ul class="nav nav-list tree
     {{ Request::is('marcas*') ? 'mostrar' : '' }}
     {{ Request::is('lineas*') ? 'mostrar' : '' }}
@@ -150,11 +150,11 @@
 </li>
 
 <li class="{{ Request::is('gananciaAdministrivos*') ? 'active' : '' }}">
-    <a href="{!! route('gananciaAdministrivos.index') !!}"><i class="fa fa-bar-chart"></i><span>Ganancia Administrivos</span></a>
+    <a href="{!! route('gananciaAdministrivos.index') !!}"><i class="fa fa-bar-chart"></i><span> Ganancia Administrivos</span></a>
 </li>
 
 <li class="{{ Request::is('procesos*') ? 'active' : '' }}">
-    <a href="{!! route('procesos') !!}"><i class="fa fa-calculator"></i><span>Procesos</span></a>
+    <a href="{!! route('procesos') !!}"><i class="fa fa-calculator"></i><span> Procesos</span></a>
 </li>
 
 <li>

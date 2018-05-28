@@ -68,6 +68,24 @@ class ComandaDetalleController extends AppBaseController
         return back();
     }
 
+    public function storeAjax(CreateComandaDetalleRequest $request)
+    {
+    
+        $response = array(
+          'status' => 'success'
+        );
+
+        $input = $request->all();
+        $input['users_id']=Auth::id();
+
+        $comandaDetalle = $this->comandaDetalleRepository->create($input);
+        
+        return response()->json($response); 
+    }
+
+
+
+
     /**
      * Display the specified ComandaDetalle.
      *

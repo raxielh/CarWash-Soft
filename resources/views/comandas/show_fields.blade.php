@@ -88,8 +88,9 @@
     @else
         <a href="#" class="btn btn-info pull-right" onclick="window.print();" style="margin-right: 30px;"><i class="fa fa-print"></i> Imprimir</a>
      @endif
+     @if ($datos['comandas'][0]->estaid === 1)
     <a href="{!! route('lavados.show', [$datos['comandas'][0]->id]) !!}" style="margin-right: 30px;" class='btn btn-success btn-xl pull-right'><i class="glyphicon glyphicon-user"></i> Equipos de lavado</a>
-
+     @endif
     @if (count($datos['lavado']) == 0)
         <div class="pull-right" style="margin-right: 34px;"><h4>Sin Equipo</h4></div>
     @else
@@ -124,7 +125,7 @@
     </table>
 </div>
 <div class="row">
-    <div class="col-md-4 quitar">
+    <div class="col-md-3 quitar">
 
         <!-- Id Field -->
         <div class="form-group">
@@ -180,7 +181,7 @@
     
     </div>
     
-    <div class="col-md-8">
+    <div class="col-md-9">
         @include('adminlte-templates::common.errors')
         <div class="box box-primary">
             <h4 style="padding-left: 10px;">Detalle</h4>
@@ -242,9 +243,9 @@
                             <tr>
                             <th>Servicio ó Producto</th>
                             <th>Valor U</th>
-                            <th>Cantidad</th>
-                            <th>Impuesto</th>
-                            <th>Descuento</th>
+                            <th>Cant</th>
+                            <th>Imp</th>
+                            <th>Des</th>
                             
                             
                             <th>Total</th>
@@ -290,9 +291,9 @@
                             <tr>
                             <th>Servicio ó Producto</th>
                             <th>Valor U</th>
-                            <th>Cantidad</th>
-                            <th>Impuesto</th>
-                            <th>Descuento</th>
+                            <th>Cant</th>
+                            <th>Imp</th>
+                            <th>Des</th>
                             
                             
                             <th>Total</th>
@@ -308,7 +309,7 @@
                                 <td>{!! $v=$comandaDetalle->valor !!}</td>
                                 <td>{!! $c=$comandaDetalle->cantidad !!}</td>
                                 <td>{!! $i=($v*$c*($comandaDetalle->impuesto/100)) !!}</td>
-                                <td>{!! $d=($v*$c*($comandaDetalle->porcentaje/100)) !!}</td>
+                                <td>{!! $d=($v*$c*($comandaDetalle->descuento/100)) !!}</td>
                                 
                                 <td>{!! number_format($x=(($v*$c)+$i)-$d) !!}</td>
                                 <div style="display: none;">{{$t=$t+$x}}</div>
