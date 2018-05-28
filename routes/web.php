@@ -101,4 +101,10 @@ Route::resource('gananciaAdministrivos', 'GananciaAdministrivoController');
 Route::get('reportes/v_ingresosyegresos',["as"=>"v_ingresosyegresos","uses"=>"ReportesController@v_ingresosyegresos"]);
 Route::get('reportes/ingresosyegresos',["as"=>"ingresosyegresos","uses"=>"ReportesController@ingresosyegresos"]);
 
+
+Route::get('reportes/v_admin_lavadores',["as"=>"v_admin_lavadores","uses"=>"ReportesController@v_admin_lavadores"]);
+Route::get('reportes/adminlavadores',["as"=>"adminlavadores","uses"=>"ReportesController@adminlavadores"]);
+
+
+
 Route::get('buscar_propietario/{vehiculo}',["as"=>"buscar_propietario","uses"=>"ComandaController@buscar_propietario"]);

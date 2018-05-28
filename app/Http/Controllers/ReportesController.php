@@ -31,6 +31,11 @@ class ReportesController extends AppBaseController
         return view('reportes.index');
     }   
 
+      public function v_admin_lavadores()
+    {
+        return view('reportes2.index');
+    } 
+
     public function ingresosyegresos(Request $request)
     {
         $fecha=$request->fecha;
@@ -171,4 +176,90 @@ group by c.`descripcion`;
         return view('reportes.r1')->with('datos', $datos);
     }   
 
+
+
+    public function adminlavadores(Request $request)
+    {
+        $fecha=$request->fecha;
+        $msg='Reporte Generado...';
+
+        $base = DB::table('basegancia')->where('fecha',$fecha)->get();
+        
+        $adminlava = DB::select(
+            " 
+
+                select  *
+                from 
+                (
+                  select 1 as orden,
+                  pe.id, 
+                STR_TO_DATE(DATE_FORMAT(f.created_at, '%d/%m/%Y'),  '%d/%m/%Y') as fecha,
+                pe.apellido,
+                pe.nombre,
+                c.descripcion,
+                c.comision,
+                df.cantidad,
+                df.valor,
+                sum(
+                (df.cantidad*df.valor)*(c.comision/100)
+                ) as valor_comi,2 as tipoper
+                from factura f,
+                     detallefactura df,
+                     conceptos c,
+                     tipo_conceptos tc,
+                     lavados l,
+                     equipo_personas ep,
+                     personas pe
+                where f.id = df.factura_id
+                and df.concepto_id=c.id
+                and c.tipo_conceptos_id=tc.id
+                and f.id=l.comanda_id
+                AND STR_TO_DATE(DATE_FORMAT(f.created_at, '%d/%m/%Y'),  '%d/%m/%Y') ='".$fecha."'
+                and l.equipo_id=ep.equipo_id
+                and ep.persona_id=pe.id
+                and f.estado_id=1
+                and tc.id in (3,1)
+                group by  pe.id, STR_TO_DATE(DATE_FORMAT(f.created_at, '%d/%m/%Y'),  '%d/%m/%Y'),
+                c.comision,
+                df.cantidad,
+                df.valor,
+                pe.apellido,
+                pe.nombre
+
+                union all
+
+                SELECT 
+                  2 as orden,
+                  bp.persona_id, 
+                 bp.fecha,
+                  pe.apellido,
+                  pe.nombre,
+                CONCAT('Total :',pe.apellido, ' ', pe.nombre)   as descripcion,
+                null as comision,
+                 null as cantidad,
+                  null as valor,
+                 bp.valor as valor_comi,
+                 bp.`tipopersonal_id`
+                FROM 
+                  baseadpersonal bp,
+                   personas pe
+                where  bp.fecha='".$fecha."'
+                and   bp.persona_id=pe.id
+                and  bp.`tipopersonal_id`=2
+                ) as gh
+                order by gh.apellido,
+                gh.nombre,
+                gh.orden   
+"
+        );
+
+       
+
+        $datos = [
+                    'fecha'=> $fecha,
+                    'adminlava' => $adminlava,          
+                ];
+
+        return view('reportes.r1')->with('datos', $datos);
+    } 
 }
