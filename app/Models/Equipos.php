@@ -47,8 +47,8 @@ class Equipos extends Model
      * @var array
      */
     public static $rules = [
-        'codigo' => 'required|unique:equipos',
-        'descripcion' => 'required|unique:equipos'
+        'codigo' => 'required',
+        'descripcion' => 'required'
     ];
 
     

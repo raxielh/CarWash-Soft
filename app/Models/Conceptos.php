@@ -32,6 +32,7 @@ class Conceptos extends Model
         'tipo_conceptos_id',
         'comision',
         'impuesto',
+        'imagen',
         'estado_id',
         'users_id'
     ];
@@ -46,6 +47,7 @@ class Conceptos extends Model
         'tipo_conceptos_id' => 'integer',
         'comision'=> 'integer',
         'impuesto'=> 'integer',
+        'imagen' => 'string',
         'estado_id' => 'integer',
         'users_id' => 'integer'
     ];
@@ -56,8 +58,8 @@ class Conceptos extends Model
      * @var array
      */
     public static $rules = [
-        'codigo' => 'required|unique:conceptos',
-        'descripcion' => 'required|unique:conceptos',
+        'codigo' => 'required',
+        'descripcion' => 'required',
         'tipo_conceptos_id' => 'required',
         'comision'=> 'required',
         'impuesto'=> 'required',

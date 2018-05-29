@@ -62,10 +62,10 @@ class Proveedores extends Model
      * @var array
      */
     public static $rules = [
-        'codigo' => 'required|unique:proveedores',
+        'codigo' => 'required',
         'persona_id' => 'required',
-        'razon_social' => 'required|unique:proveedores',
-        'nit' => 'required|unique:proveedores'
+        'razon_social' => 'required',
+        'nit' => 'required'
     ];
 
     

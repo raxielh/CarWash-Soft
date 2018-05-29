@@ -12,7 +12,7 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'conceptos.store']) !!}
+                    {!! Form::open(['route' => 'conceptos.store','enctype'=>'multipart/form-data']) !!}
 
                         @include('conceptos.fields')
 

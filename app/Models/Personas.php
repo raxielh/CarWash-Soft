@@ -68,7 +68,7 @@ class Personas extends Model
         'nombre' => 'required',
         'apellido' => 'required',
         'tipo_identificacion_id' => 'required',
-        'identificacion' => 'required|unique:personas'
+        'identificacion' => 'required'
     ];
 
     

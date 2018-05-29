@@ -44,7 +44,7 @@ class Marca extends Model
      * @var array
      */
     public static $rules = [
-        'descripcion' => 'required|unique:marcas'
+        'descripcion' => 'required'
     ];
 
     

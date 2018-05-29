@@ -43,7 +43,7 @@ class TipoConceptos extends Model
      * @var array
      */
     public static $rules = [
-        'descripcion' => 'required|unique:tipo_conceptos'
+        'descripcion' => 'required'
     ];
 
     
