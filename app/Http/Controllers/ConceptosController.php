@@ -68,15 +68,28 @@ class ConceptosController extends AppBaseController
      */
     public function store(CreateConceptosRequest $request)
     {
-        //return $request->file('imagen');
+        
         $input = $request->all();
         $input['users_id']=Auth::id();
-        $input['imagen']=$request->file('imagen')->store('public');
 
-        //return $input;
-        $conceptos = $this->conceptosRepository->create($input);
+        if( $request->file('imagen') ){
+            $input['imagen']=$request->file('imagen')->store('public');
+        }else{
+            $input['imagen']='public/default.png';
+        }
+        
+        try{
+            $conceptos = $this->conceptosRepository->create($input);
 
-        Flash::success('Conceptos Guardado exitosamente.');
+            Flash::success('Conceptos Guardado exitosamente.');
+        }catch(\Exception $e){
+            $msg=$e->errorInfo[2];          
+            $m = explode(" ", $msg);
+            if($m[0]=='Duplicate'){
+                $ms="Campo ".$m[5]." duplicado";
+            }
+            Flash::success($ms);       
+        }  
 
         return redirect(route('conceptos.index'));
     }
@@ -186,12 +199,18 @@ class ConceptosController extends AppBaseController
     public function update($id, UpdateConceptosRequest $request)
     {
         //dd($request->all());
-         $conceptos = $this->conceptosRepository->findWithoutFail($id);
+        $conceptos = $this->conceptosRepository->findWithoutFail($id);
  
         if (empty($conceptos)) {
             Flash::error('Conceptos not found');
 
             return redirect(route('conceptos.index'));
+        }
+
+        if( $request->file('imagen') ){
+            $i= $request->file('imagen')->store('public');
+        }else{
+            $i= $conceptos['imagen'];
         }
 
                 $request = array(
@@ -203,7 +222,7 @@ class ConceptosController extends AppBaseController
                             "estado_id" =>$request->estado_id,
                             "comision" =>$request->comision,
                             "impuesto" =>$request->impuesto,
-                            "imagen"    => $request->file('imagen')->store('public')
+                            "imagen"    => $i
                         );
 
         $conceptos = $this->conceptosRepository->update($request, $id);
