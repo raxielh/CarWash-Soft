@@ -22,7 +22,7 @@ class CreateRemisionsTable extends Migration
             $table->integer('tipo_remision_id')->unsigned();
             $table->date('fecha', 100);
             $table->integer('valor');
-            $table->integer('users_id')->unsigned();
+            $table->integer('users_id')->unsigned()->default(1);
             $table->timestamps();
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('proveedor_id')->references('id')->on('proveedores');

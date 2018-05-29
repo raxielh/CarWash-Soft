@@ -56,8 +56,8 @@ class Conceptos extends Model
      * @var array
      */
     public static $rules = [
-        'codigo' => 'required',
-        'descripcion' => 'required',
+        'codigo' => 'required|unique:conceptos',
+        'descripcion' => 'required|unique:conceptos',
         'tipo_conceptos_id' => 'required',
         'comision'=> 'required',
         'impuesto'=> 'required',

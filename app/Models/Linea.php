@@ -48,7 +48,7 @@ class Linea extends Model
      */
     public static $rules = [
         'marca_id' => 'required',
-        'descripcion' => 'required'
+        'descripcion' => 'required|unique:lineas'
     ];
 
     

@@ -58,7 +58,7 @@ class Vehiculos extends Model
      */
     public static $rules = [
         'persona_id' => 'required',
-        'placa' => 'required'
+        'placa' => 'required|unique:vehiculos'
     ];
 
     

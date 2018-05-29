@@ -50,8 +50,8 @@ class Descuento extends Model
      * @var array
      */
     public static $rules = [
-        'codigo' => 'required',
-        'descripcion' => 'required',
+        'codigo' => 'required|unique:descuentos',
+        'descripcion' => 'required|unique:descuentos',
         'porcentaje' => 'required'
     ];
 
