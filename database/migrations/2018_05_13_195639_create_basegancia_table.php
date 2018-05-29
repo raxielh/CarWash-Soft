@@ -18,6 +18,10 @@ class CreateBaseganciaTable extends Migration
             $table->date('fecha');
             $table->integer('valor_inicia');
             $table->integer('valor_cierre');
+            $table->integer('valor_ventas_cafeteria');
+            $table->integer('valor_ventas_servicios');
+            $table->integer('valor_salidas_remisiones');
+            $table->integer('valor_entrada_remisiones'); 
             $table->timestamps();
             $table->unique('fecha');
         });

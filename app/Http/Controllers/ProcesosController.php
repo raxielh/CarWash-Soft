@@ -33,15 +33,13 @@ class ProcesosController extends AppBaseController
     public function Administrativo(Request $request)
     {
         $fecha=$request->fecha;
-        $dato='Hola';
-        $dato=DB::select('select FnCalculaAdministradorLava(?)',array($fecha));
+        $dato=DB::select('select FnCalculaAdministradorLava("'.$fecha.'") AS salida');
         return view('procesos.msg')->with('dato', $dato);
     }
 
     public function Lavadero(Request $request)
     {
         $fecha=$request->fecha;
-        $dato=$fecha;
         // $dato=DB::select('CALL ProCalculaComisionLava(?)',array($fecha));
         $dato=DB::select("select FnCalculaComisionLava('".$fecha."') as salida");
         return view('procesos.msg')->with('dato', $dato);
@@ -50,8 +48,7 @@ class ProcesosController extends AppBaseController
     public function Cargar(Request $request)
     {
         $fecha=$request->fecha;
-        $dato='Hola';
-        $dato=DB::select('select FnCalculaCierre(?)',array($fecha));
+        $dato=DB::select("select FnCalculaCierre('".$fecha."') as salida");
         return view('procesos.msg')->with('dato', $dato);
     }    
 

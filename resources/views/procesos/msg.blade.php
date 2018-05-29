@@ -13,9 +13,8 @@
 
         <div class="box box-primary">
             <div class="box-body" style="padding: 3em">
-                <h1>Proceso terminado correctamente.</h1>   
+                <h2>{{ ($dato[0]->salida) }}</h2>   
                 <a href="javascript:history.back()" class="btn btn-info"><i class="glyphicon glyphicon-arrow-left"></i> Atras</a>
-                <h3>{{$dato}}</h3>
             </div>
         </div>
         <div class="text-center">

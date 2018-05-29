@@ -17,9 +17,10 @@ class CreateBaseadpersonalTable extends Migration
             $table->increments('id');
             $table->integer('persona_id')->unsigned();
             $table->date('fecha');
-            $table->integer('porcentaje')->unsigned();
             $table->integer('valor');
             $table->integer('tipopersonal_id')->unsigned();
+            $table->integer('comision');
+            $table->integer('valorventasdia');
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('tipopersonal_id')->references('id')->on('tipopersonal');
             $table->timestamps();
