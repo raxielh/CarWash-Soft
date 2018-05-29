@@ -116,3 +116,5 @@ Route::get('buscar_propietario/{vehiculo}',["as"=>"buscar_propietario","uses"=>"
 Route::post('comandaDetallesAjax', 'ComandaDetalleController@storeAjax');
 
 Route::post('enquiry', 'EnquiryController@index');
+
+Route::get('nuevos_clientes/','GraficasController@nuevos_clientes');
