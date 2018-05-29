@@ -15,7 +15,7 @@ class CreateTipoConceptosTable extends Migration
     {
         Schema::create('tipo_conceptos', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumText('descripcion');
+            $table->mediumText('descripcion')->unique();
             $table->integer('users_id')->unsigned();
             $table->timestamps();
             $table->foreign('users_id')->references('id')->on('users');

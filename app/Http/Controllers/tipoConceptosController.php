@@ -66,9 +66,21 @@ class TipoConceptosController extends AppBaseController
         $input = $request->all();
         $input['users_id']=Auth::id();
 
-        $tipoConceptos = $this->tipoConceptosRepository->create($input);
+        try{ 
 
-        Flash::success('Tipo Conceptos Guardado exitosamente.');
+            $tipoConceptos = $this->tipoConceptosRepository->create($input);
+            Flash::success('Tipo Conceptos Guardado exitosamente.');
+        
+        }catch(\Exception $e){
+            $msg=$e->errorInfo[2];          
+            $m = explode(" ", $msg);
+            if($m[0]=='Duplicate'){
+                $ms="Campo ".$m[5]." duplicado";
+            }
+            Flash::success($ms);       
+        }   
+
+        
 
         return redirect(route('tipoConceptos.index'));
     }
@@ -131,10 +143,21 @@ class TipoConceptosController extends AppBaseController
             return redirect(route('tipoConceptos.index'));
         }
 
-        $tipoConceptos = $this->tipoConceptosRepository->update($request->all(), $id);
+        try{ 
 
-        Flash::success('Tipo Conceptos Actualizado con exito.');
+            $tipoConceptos = $this->tipoConceptosRepository->update($request->all(), $id);
 
+            Flash::success('Tipo Conceptos Actualizado con exito.');
+        
+        }catch(\Exception $e){
+            $msg=$e->errorInfo[2];          
+            $m = explode(" ", $msg);
+            if($m[0]=='Duplicate'){
+                $ms="Campo ".$m[5]." duplicado";
+            }
+            Flash::success($ms);       
+        }     
+        
         return redirect(route('tipoConceptos.index'));
     }
 
