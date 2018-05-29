@@ -16,9 +16,24 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+td,th{
+    border: 1px solid #5d4040;
+    text-align: left;
+    padding: 8px;
+}
+</style>
+<style>
+    @media print {
+        #print,#frm{
+            display: none;
+        }
+        .box box-primary{
+              border-top-color: #fff;
+        }
+    }
 </style>
     <section class="content-header">
-        <h1 class="pull-left">Reporte de ingreso y egreso</h1>
+        <h1 class="pull-left">Reporte de ingreso y egreso</h1><br>
     </section>
     <div class="content">
         <div class="clearfix"></div>
@@ -30,7 +45,7 @@ tr:nth-child(even) {
         <div class="box box-primary">
             <div class="box-body" style="padding: 3em">
               <div class="row">
-              <form action="/reportes/ingresosyegresos/">
+              <form action="/reportes/ingresosyegresos/" id="frm">
                 <div class="col-sm-2">
                   <input type="date" value="<?php echo date('Y-m-d'); ?>" class="form-control" name="fecha">
                 </div>
@@ -39,15 +54,18 @@ tr:nth-child(even) {
                 </div>
               </form>
               </div>
+                <div class="row" id="print">
+                    <a href="#" class="btn btn-info pull-right" onclick="window.print();" style="margin-right: 30px;"><i class="fa fa-print"></i> Imprimir</a>
+                </div>
               <div class="row">
 
-                <h4 style="background-color:#1d79fa;color: #333"><strong>Fecha:</strong> {{$datos['fecha']}}</h4>
+                <h4><strong>Fecha:</strong> {{$datos['fecha']}}</h4>
 
                 @foreach ($datos['base'] as $base)
-                    <h4 style="background-color: #333;color: red;margin-top: 0px"><strong>Base:</strong> {{ $base->valor_inicia }}</h4>
+                    <h4 style="color: red;margin-top: 0px"><strong>Base:</strong> {{ number_format($base->valor_inicia) }}</h4>
                 @endforeach
 
-                <h4 style="text-align: center;background-color: yellow">Patio</h4>
+                <h4 style="text-align: center;">PATIO</h4>
                 <table>
                     <thead>
                       <tr>
@@ -62,8 +80,8 @@ tr:nth-child(even) {
                       <tr>
                         <td>{{ $cd->tipoconcepto }}</td>
                         <td>{{ $cd->cantidad }}</td>
-                        <td>{{ $cd->valor }}</td>
-                        <td>{{ $cd->valortotal }}</td>
+                        <td>{{ number_format($cd->valor) }}</td>
+                        <td>{{ number_format($cd->valortotal) }}</td>
                       </tr>
                     @endforeach
 
@@ -83,14 +101,14 @@ tr:nth-child(even) {
                         <td><b>VENTAS TOTALES PATIO</b></td>
                         <td></td>
                         <td></td>
-                        <td>{{ $base->totalpatio }}</td>
+                        <td>{{ number_format($base->totalpatio) }}</td>
                       </tr>
 
                 @endforeach
 
                     </tbody>
                 </table>
-               <h4 style="text-align: center;background-color: yellow">CAFETERIA</h4>
+               <h4 style="text-align: center;">CAFETERIA</h4>
 <table>
                     <thead>
                       <tr>
@@ -105,8 +123,8 @@ tr:nth-child(even) {
                       <tr>
                         <td>{{ $cd->tipoconcepto }}</td>
                         <td>{{ $cd->cantidad }}</td>
-                        <td>{{ $cd->valor }}</td>
-                        <td>{{ $cd->valortotal }}</td>
+                        <td>{{ number_format($cd->valor) }}</td>
+                        <td>{{ number_format($cd->valortotal) }}</td>
                       </tr>
                     @endforeach
 
@@ -117,14 +135,14 @@ tr:nth-child(even) {
                         <td><b>VENTAS TOTALES PATIO</b></td>
                         <td></td>
                         <td></td>
-                        <td>{{ $base->totalpatio }}</td>
+                        <td>{{ number_format($base->totalpatio) }}</td>
                       </tr>
 
                 @endforeach
 
                     </tbody>
                 </table>
- <h4 style="text-align: center;background-color: yellow">GRAN TOTAL</h4>
+ <h4 style="text-align: center;">GRAN TOTAL</h4>
 
  <table>
                     <thead>
@@ -142,27 +160,27 @@ tr:nth-child(even) {
                         <td>PATIO</td>
                         <td></td>
                         <td></td>
-                        <td>{{ $base->valor_ventas_servicios }}</td>
+                        <td>{{ number_format($base->valor_ventas_servicios) }}</td>
                       </tr>
 
                       <tr>
                         <td>BASE</td>
                         <td></td>
                         <td></td>
-                        <td>{{ $base->valor_inicia }}</td>
+                        <td>{{ number_format($base->valor_inicia) }}</td>
                       </tr>  
                         <tr>
                         <td>CAFETERIA</td>
                         <td></td>
                         <td></td>
-                        <td>{{ $base->valor_ventas_cafeteria }}</td>
+                        <td>{{ number_format($base->valor_ventas_cafeteria) }}</td>
                       </tr> 
 
                     <tr>
                         <td><b>Total</b></td>
                         <td></td>
                         <td></td>
-                        <td>{{ $base->valor_ventas_servicios+$base->valor_inicia+$base->valor_ventas_cafeteria }}</td>
+                        <td>{{ number_format($base->valor_ventas_servicios+$base->valor_inicia+$base->valor_ventas_cafeteria) }}</td>
                       </tr>
 
                @endforeach
@@ -170,7 +188,7 @@ tr:nth-child(even) {
                     </tbody>
                 </table>
 
-                 <h4 style="text-align: center;background-color: yellow">ENTRADAS</h4>
+                 <h4 style="text-align: center;">ENTRADAS</h4>
 <table>
                     <thead>
                       <tr>
@@ -186,7 +204,7 @@ tr:nth-child(even) {
                         <td>{{ $cd->descconcepto }}</td>
                         <td>{{ $cd->cantidad }}</td>
                         <td></td>
-                        <td>{{ $cd->valor }}</td>
+                        <td>{{ number_format($cd->valor) }}</td>
                       </tr>
                     @endforeach
 
@@ -197,7 +215,7 @@ tr:nth-child(even) {
                         <td><b>Total Entradas</b></td>
                         <td></td>
                         <td></td>
-                        <td>{{ $base->valor_entrada_remisiones }}</td>
+                        <td>{{ number_format($base->valor_entrada_remisiones) }}</td>
                       </tr>
 
                 @endforeach
@@ -205,7 +223,7 @@ tr:nth-child(even) {
                     </tbody>
                 </table>
 
-                 <h4 style="text-align: center;background-color: yellow">SALIDAS</h4>
+                 <h4 style="text-align: center;">SALIDAS</h4>
 <table>
                     <thead>
                       <tr>
@@ -221,7 +239,7 @@ tr:nth-child(even) {
                         <td>{{ $cd->descconcepto }}</td>
                         <td>{{ $cd->cantidad }}</td>
                         <td></td>
-                        <td>{{ $cd->valor }}</td>
+                        <td>{{ number_format($cd->valor) }}</td>
                       </tr>
                     @endforeach
 
@@ -232,7 +250,7 @@ tr:nth-child(even) {
                         <td><b>Total Entradas</b></td>
                         <td></td>
                         <td></td>
-                        <td>{{ $base->valor_salidas_remisiones }}</td>
+                        <td>{{ number_format($base->valor_salidas_remisiones) }}</td>
                       </tr>
 
                 @endforeach
@@ -241,7 +259,7 @@ tr:nth-child(even) {
                 </table>
 
 
-                <h4 style="text-align: center;background-color: yellow">EN CAJA</h4>
+                <h4 style="text-align: center;">EN CAJA</h4>
 
  <table>
                     <thead>
@@ -259,27 +277,27 @@ tr:nth-child(even) {
                         <td>Gran total</td>
                         <td></td>
                         <td></td>
-                        <td>{{ $base->valor_ventas_servicios+$base->valor_inicia+$base->valor_ventas_cafeteria }}</td>
+                        <td>{{ number_format($base->valor_ventas_servicios+$base->valor_inicia+$base->valor_ventas_cafeteria) }}</td>
                       </tr>
 
                       <tr>
                         <td>Entradas</td>
                         <td></td>
                         <td></td>
-                        <td>{{ $base->valor_entrada_remisiones }}</td>
+                        <td>{{ number_format($base->valor_entrada_remisiones) }}</td>
                       </tr>  
                         <tr>
                         <td>Salidas</td>
                         <td></td>
                         <td></td>
-                        <td> - {{ $base->valor_salidas_remisiones }}</td>
+                        <td> - {{ number_format($base->valor_salidas_remisiones) }}</td>
                       </tr> 
 
                     <tr>
                         <td><b>Total</b></td>
                         <td></td>
                         <td></td>
-                        <td>{{ $base->valor_cierre }}</td>
+                        <td>{{ number_format($base->valor_cierre) }}</td>
                       </tr>
 
                @endforeach

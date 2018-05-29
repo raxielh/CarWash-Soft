@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="content-header">
-        <h1 class="pull-left">Salidas y entradas</h1>
+        <h1 class="pull-left">Salidas y entradas</h1><br>
     </section>
     <div class="content">
         <div class="clearfix"></div>

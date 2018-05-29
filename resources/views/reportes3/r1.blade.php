@@ -16,9 +16,24 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+td,th{
+    border: 1px solid #5d4040;
+    text-align: left;
+    padding: 8px;
+}
+</style>
+<style>
+    @media print {
+        #print,#frm{
+            display: none;
+        }
+        .box box-primary{
+              border-top-color: #fff;
+        }
+    }
 </style>
     <section class="content-header">
-        <h1 class="pull-left">Salidas y entradas</h1>
+        <h1 class="pull-left">Salidas y entradas</h1><br>
     </section>
     <div class="content">
         <div class="clearfix"></div>
@@ -30,7 +45,7 @@ tr:nth-child(even) {
         <div class="box box-primary">
             <div class="box-body" style="padding: 3em">
               <div class="row">
-              <form action="/reportes3/salidaentrada/">
+              <form action="/reportes3/salidaentrada/" id="frm">
                 <div class="col-sm-2">
                   <input type="date" value="{{$datos['fecha']}}" class="form-control" name="fecha">
                 </div>
@@ -38,10 +53,13 @@ tr:nth-child(even) {
                    <button type="submit" class="btn btn-warning">Generar Reporte</button>
                 </div>
               </form>
+                              <div class="row" id="print">
+                    <a href="#" class="btn btn-info pull-right" onclick="window.print();" style="margin-right: 30px;"><i class="fa fa-print"></i> Imprimir</a>
+                </div>
               </div>
               <div class="row">
 
-                <h4 style="background-color:#1d79fa;color: #333"><strong>Fecha:</strong> {{$datos['fecha']}}</h4>
+                <h4 style="color: #333"><strong>Fecha:</strong> {{$datos['fecha']}}</h4>
 
 
             
@@ -49,7 +67,7 @@ tr:nth-child(even) {
 
 
 
-<h4 style="text-align: center;background-color: yellow">Salidas</h4>
+<h4 style="text-align: center;">Salidas</h4>
 
 
  <table>
@@ -85,7 +103,7 @@ tr:nth-child(even) {
 
 
 
-<h4 style="text-align: center;background-color: yellow">Entradas</h4>
+<h4 style="text-align: center;">Entradas</h4>
 
 
  <table>

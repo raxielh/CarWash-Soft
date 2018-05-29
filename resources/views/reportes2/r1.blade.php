@@ -16,9 +16,24 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+td,th{
+    border: 1px solid #5d4040;
+    text-align: left;
+    padding: 8px;
+}
+</style>
+<style>
+    @media print {
+        #print,#frm{
+            display: none;
+        }
+        .box box-primary{
+              border-top-color: #fff;
+        }
+    }
 </style>
     <section class="content-header">
-        <h1 class="pull-left">Reporte Lavadores y Administradores</h1>
+        <h1 class="pull-left">Reporte Lavadores y Administradores</h1><br>
     </section>
     <div class="content">
         <div class="clearfix"></div>
@@ -30,7 +45,7 @@ tr:nth-child(even) {
         <div class="box box-primary">
             <div class="box-body" style="padding: 3em">
               <div class="row">
-              <form action="/reportes2/adminlavadores/">
+              <form action="/reportes2/adminlavadores/" id="frm">
                 <div class="col-sm-2">
                   <input type="date" value="{{$datos['fecha']}}" class="form-control" name="fecha">
                 </div>
@@ -38,13 +53,16 @@ tr:nth-child(even) {
                    <button type="submit" class="btn btn-warning">Generar Reporte</button>
                 </div>
               </form>
+                              <div class="row" id="print">
+                    <a href="#" class="btn btn-info pull-right" onclick="window.print();" style="margin-right: 30px;"><i class="fa fa-print"></i> Imprimir</a>
+                </div>
               </div>
               <div class="row">
 
-                <h4 style="background-color:#1d79fa;color: #333"><strong>Fecha:</strong> {{$datos['fecha']}}</h4>
+                <h4 style="color: #333"><strong>Fecha:</strong> {{$datos['fecha']}}</h4>
 
 
-                <h4 style="text-align: center;background-color: yellow">Lavadores</h4>
+                <h4 style="text-align: center;">Lavadores</h4>
                 
 
                     @foreach ($datos['adminlava'] as $cd)
@@ -66,7 +84,7 @@ tr:nth-child(even) {
                       @if($cd->orden === 2)
                          <tr>
                         <td colspan="4">{{ $cd->descripcion }}</td>                      
-                        <td><b>{{ $cd->valor_comi }}</b></td>
+                        <td><b>{{ number_format($cd->valor_comi) }}</b></td>
                       </tr>                        
                        </table>
                        <br>
@@ -75,8 +93,8 @@ tr:nth-child(even) {
                         <td>{{ $cd->descripcion }}</td>
                         <td>{{ $cd->comision }}</td>
                         <td>{{ $cd->cantidad }}</td>
-                        <td>{{ $cd->valor }}</td>
-                        <td> {{ $cd->valor_comi }}</td>
+                        <td>{{ number_format($cd->valor) }}</td>
+                        <td> {{ number_format($cd->valor_comi) }}</td>
                       </tr>
                           
                       @endif
@@ -84,7 +102,8 @@ tr:nth-child(even) {
                     @endforeach
 
 
-<h4 style="text-align: center;background-color: yellow">Administradores</h4>
+
+<h4 style="text-align: center;">Administradores</h4>
 
 
  <table>
@@ -101,9 +120,9 @@ tr:nth-child(even) {
                     @foreach ($datos['admin'] as $cd)
                       <tr>
                         <td>{{ $cd->apellido." ".$cd->nombre }}</td>
-                        <td>{{ $cd->comision }}</td>
-                        <td>{{ $cd->valorventasdia }}</td>
-                        <td>{{ $cd->valorcomi }}</td>
+                        <td>{{ number_format($cd->comision) }}</td>
+                        <td>{{ number_format($cd->valorventasdia) }}</td>
+                        <td>{{ number_format($cd->valorcomi) }}</td>
                         <td>{{ $cd->updated_at }}</td>
                       </tr>
                     @endforeach

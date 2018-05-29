@@ -158,16 +158,24 @@
 </li>
 
 <li>
-    <a class="tree-toggle nav-header" style="cursor: pointer;"><i class="fa fa-signal"></i> <span> Reportes</span></a>
-    <ul class="nav nav-list tree" style="display: none;background:rgb(55, 65, 69);width: 230px;">
-        <li>
-            <a href="/reportes/v_ingresosyegresos/"><i class="fa fa-edit"></i><span> Ingresos y Egresos</span></a>
-            <a href="/reportes2/v_admin_lavadores/"><i class="fa fa-edit"></i><span> Reporte Admin y Lavadores</span></a>
-            <a href="/reportes3/v_salida_entrada/"><i class="fa fa-edit"></i><span> Salidas y Entradas</span></a>
-        </li>
+    <a class="tree-toggle nav-header
+        {{ Request::is('reportes*') ? 'active' : '' }}
+    " style="cursor: pointer;"><i class="fa fa-signal"></i> <span> Reportes</span></a>
+    <ul class="nav nav-list tree
+    {{ Request::is('reportes*') ? 'mostrar' : '' }}
+    " style="display: none;background:rgb(55, 65, 69);width: 230px;">
+    <li class="{{ Request::is('/reportes/v_ingresosyegresos/') ? 'active' : '' }}">
+        <a href="/reportes/v_ingresosyegresos/"><i class="fa fa-bar-chart"></i><span> Ingresos y Egresos</span></a>
+    </li>
+    <li class="{{ Request::is('/reportes2/v_admin_lavadores/*') ? 'active' : '' }}">
+        <a href="/reportes2/v_admin_lavadores/"><i class="fa fa-bar-chart"></i><span> Reporte Admin y Lavadores</span></a>
+    </li>
+    <li class="{{ Request::is('/reportes3/v_salida_entrada/') ? 'active' : '' }}">
+        <a href="/reportes3/v_salida_entrada/"><i class="fa fa-bar-chart"></i><span> Salidas y Entradas</span></a>
+    </li>
+
     </ul>
 </li>
-
 
 
 <!--

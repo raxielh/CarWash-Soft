@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="content-header">
-        <h1 class="pull-left">Reporte Lavadores y Administradores</h1>
+        <h1 class="pull-left">Reporte Lavadores y Administradores</h1><br>
     </section>
     <div class="content">
         <div class="clearfix"></div>
